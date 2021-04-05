@@ -1,2 +1,2 @@
 # G1_HaikuWriter
-Group 1 P2 project
+A random haiku generator using user-submitted lines that also allows users to share their favorite random haikus with their friends over social media.

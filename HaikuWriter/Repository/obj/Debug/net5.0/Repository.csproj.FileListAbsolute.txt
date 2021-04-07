@@ -13,3 +13,6 @@
 /Users/sagarluitel/revature/P2/P2_HaikuWriterGroup/HaikuWriter/Repository/obj/Debug/net5.0/Repository.dll
 /Users/sagarluitel/revature/P2/P2_HaikuWriterGroup/HaikuWriter/Repository/obj/Debug/net5.0/ref/Repository.dll
 /Users/sagarluitel/revature/P2/P2_HaikuWriterGroup/HaikuWriter/Repository/obj/Debug/net5.0/Repository.pdb
+C:\Users\clars\Revature\projects\P2_HaikuWriterGroup\P2_HaikuWriterGroup\HaikuWriter\Repository\obj\Debug\net5.0\Repository.dll
+C:\Users\clars\Revature\projects\P2_HaikuWriterGroup\P2_HaikuWriterGroup\HaikuWriter\Repository\obj\Debug\net5.0\ref\Repository.dll
+C:\Users\clars\Revature\projects\P2_HaikuWriterGroup\P2_HaikuWriterGroup\HaikuWriter\Repository\obj\Debug\net5.0\Repository.pdb

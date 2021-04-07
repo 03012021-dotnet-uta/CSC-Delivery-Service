@@ -15,3 +15,6 @@
 /Users/sagarluitel/revature/P2/P2_HaikuWriterGroup/HaikuWriter/BusinessLogic/obj/Debug/net5.0/BusinessLogic.dll
 /Users/sagarluitel/revature/P2/P2_HaikuWriterGroup/HaikuWriter/BusinessLogic/obj/Debug/net5.0/ref/BusinessLogic.dll
 /Users/sagarluitel/revature/P2/P2_HaikuWriterGroup/HaikuWriter/BusinessLogic/obj/Debug/net5.0/BusinessLogic.pdb
+C:\Users\clars\Revature\projects\P2_HaikuWriterGroup\P2_HaikuWriterGroup\HaikuWriter\BusinessLogic\obj\Debug\net5.0\BusinessLogic.dll
+C:\Users\clars\Revature\projects\P2_HaikuWriterGroup\P2_HaikuWriterGroup\HaikuWriter\BusinessLogic\obj\Debug\net5.0\ref\BusinessLogic.dll
+C:\Users\clars\Revature\projects\P2_HaikuWriterGroup\P2_HaikuWriterGroup\HaikuWriter\BusinessLogic\obj\Debug\net5.0\BusinessLogic.pdb

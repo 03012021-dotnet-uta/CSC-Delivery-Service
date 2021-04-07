@@ -32,3 +32,17 @@
 /Users/sagarluitel/revature/P2/P2_HaikuWriterGroup/HaikuWriter/HaikuWriterApi/obj/Debug/net5.0/ref/HaikuWriterApi.dll
 /Users/sagarluitel/revature/P2/P2_HaikuWriterGroup/HaikuWriter/HaikuWriterApi/obj/Debug/net5.0/HaikuWriterApi.pdb
 /Users/sagarluitel/revature/P2/P2_HaikuWriterGroup/HaikuWriter/HaikuWriterApi/obj/Debug/net5.0/HaikuWriterApi.genruntimeconfig.cache
+/Users/sagarluitel/revature/P2/P2_HaikuWriterGroup/HaikuWriter/HaikuWriterApi/bin/Debug/net5.0/ClientApp/angular.json
+/Users/sagarluitel/revature/P2/P2_HaikuWriterGroup/HaikuWriter/HaikuWriterApi/bin/Debug/net5.0/ClientApp/e2e/tsconfig.json
+/Users/sagarluitel/revature/P2/P2_HaikuWriterGroup/HaikuWriter/HaikuWriterApi/bin/Debug/net5.0/ClientApp/package-lock.json
+/Users/sagarluitel/revature/P2/P2_HaikuWriterGroup/HaikuWriter/HaikuWriterApi/bin/Debug/net5.0/ClientApp/package.json
+/Users/sagarluitel/revature/P2/P2_HaikuWriterGroup/HaikuWriter/HaikuWriterApi/bin/Debug/net5.0/ClientApp/tsconfig.app.json
+/Users/sagarluitel/revature/P2/P2_HaikuWriterGroup/HaikuWriter/HaikuWriterApi/bin/Debug/net5.0/ClientApp/tsconfig.json
+/Users/sagarluitel/revature/P2/P2_HaikuWriterGroup/HaikuWriter/HaikuWriterApi/bin/Debug/net5.0/ClientApp/tsconfig.spec.json
+/Users/sagarluitel/revature/P2/P2_HaikuWriterGroup/HaikuWriter/HaikuWriterApi/bin/Debug/net5.0/ClientApp/tslint.json
+/Users/sagarluitel/revature/P2/P2_HaikuWriterGroup/HaikuWriter/HaikuWriterApi/bin/Debug/net5.0/System.Web.Cors.dll
+/Users/sagarluitel/revature/P2/P2_HaikuWriterGroup/HaikuWriter/HaikuWriterApi/bin/Debug/net5.0/System.Net.Http.Formatting.dll
+/Users/sagarluitel/revature/P2/P2_HaikuWriterGroup/HaikuWriter/HaikuWriterApi/bin/Debug/net5.0/System.Web.Http.dll
+/Users/sagarluitel/revature/P2/P2_HaikuWriterGroup/HaikuWriter/HaikuWriterApi/bin/Debug/net5.0/System.Web.Http.Cors.dll
+/Users/sagarluitel/revature/P2/P2_HaikuWriterGroup/HaikuWriter/HaikuWriterApi/bin/Debug/net5.0/Newtonsoft.Json.dll
+/Users/sagarluitel/revature/P2/P2_HaikuWriterGroup/HaikuWriter/HaikuWriterApi/bin/Debug/net5.0/Newtonsoft.Json.Bson.dll

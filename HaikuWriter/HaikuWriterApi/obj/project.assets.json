@@ -5585,7 +5585,6 @@
       "BusinessLogic >= 1.0.0",
       "Microsoft.AspNet.WebApi.Cors >= 5.2.7",
       "Models >= 1.0.0",
-      "Repository >= 1.0.0",
       "Swashbuckle.AspNetCore >= 5.6.3"
     ]
   },
@@ -5619,9 +5618,6 @@
             },
             "/Users/sagarluitel/revature/P2/P2_HaikuWriterGroup/HaikuWriter/Models/Models.csproj": {
               "projectPath": "/Users/sagarluitel/revature/P2/P2_HaikuWriterGroup/HaikuWriter/Models/Models.csproj"
-            },
-            "/Users/sagarluitel/revature/P2/P2_HaikuWriterGroup/HaikuWriter/Repository/Repository.csproj": {
-              "projectPath": "/Users/sagarluitel/revature/P2/P2_HaikuWriterGroup/HaikuWriter/Repository/Repository.csproj"
             }
           }
         }

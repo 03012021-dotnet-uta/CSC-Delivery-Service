@@ -27,6 +27,15 @@ namespace HaikuWriterApi
         public void ConfigureServices(IServiceCollection services)
         {
 
+            services.AddCors((option) =>{
+                option.AddPolicy(name: "dev", builder =>{
+                    builder.WithOrigins("http://localhost:4200")
+                    .AllowAnyHeader()
+                    .AllowAnyMethod();
+                    
+                });
+            });
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -47,6 +56,8 @@ namespace HaikuWriterApi
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors("dev");
 
             app.UseAuthorization();
 

@@ -4,8 +4,18 @@ namespace Models
 {
     public class User
     {
-		public string Username { get; set; }
-		public string FirstName { get; set; }
-		public string LastName { get; set; }
+      [Key]
+		  public string Username { get; set; }
+	  	public string FirstName { get; set; }
+		  public string LastName { get; set; }
+      public byte[] PasswordHash { get; set; }
+      public byte[] PasswordSalt { get; set; }
+      public string Email { get; set; }
+      public DateTme memberSince { get; set; }
+      public bool AdminStatus { get; set; }
+      public string FaceBookName { get; set; }
+      public string TwitterName { get; set; }
+      //May change social media info to be more encompassing
+      //if API requires it
     }
 }

@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Models
 {
@@ -11,7 +12,7 @@ namespace Models
       public byte[] PasswordHash { get; set; }
       public byte[] PasswordSalt { get; set; }
       public string Email { get; set; }
-      public DateTme memberSince { get; set; }
+      public DateTime MemberSince { get; set; }
       public bool AdminStatus { get; set; }
       public string FaceBookName { get; set; }
       public string TwitterName { get; set; }

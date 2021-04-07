@@ -18,3 +18,17 @@
 C:\Users\clars\Revature\projects\P2_HaikuWriterGroup\P2_HaikuWriterGroup\HaikuWriter\BusinessLogic\obj\Debug\net5.0\BusinessLogic.dll
 C:\Users\clars\Revature\projects\P2_HaikuWriterGroup\P2_HaikuWriterGroup\HaikuWriter\BusinessLogic\obj\Debug\net5.0\ref\BusinessLogic.dll
 C:\Users\clars\Revature\projects\P2_HaikuWriterGroup\P2_HaikuWriterGroup\HaikuWriter\BusinessLogic\obj\Debug\net5.0\BusinessLogic.pdb
+C:\Users\clars\Revature\projects\P2_HaikuWriterGroup\P2_HaikuWriterGroup\HaikuWriter\BusinessLogic\obj\Debug\net5.0\BusinessLogic.csprojAssemblyReference.cache
+C:\Users\clars\Revature\projects\P2_HaikuWriterGroup\P2_HaikuWriterGroup\HaikuWriter\BusinessLogic\obj\Debug\net5.0\BusinessLogic.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\clars\Revature\projects\P2_HaikuWriterGroup\P2_HaikuWriterGroup\HaikuWriter\BusinessLogic\obj\Debug\net5.0\BusinessLogic.AssemblyInfoInputs.cache
+C:\Users\clars\Revature\projects\P2_HaikuWriterGroup\P2_HaikuWriterGroup\HaikuWriter\BusinessLogic\obj\Debug\net5.0\BusinessLogic.AssemblyInfo.cs
+C:\Users\clars\Revature\projects\P2_HaikuWriterGroup\P2_HaikuWriterGroup\HaikuWriter\BusinessLogic\obj\Debug\net5.0\BusinessLogic.csproj.CoreCompileInputs.cache
+C:\Users\clars\Revature\projects\P2_HaikuWriterGroup\P2_HaikuWriterGroup\HaikuWriter\BusinessLogic\bin\Debug\net5.0\BusinessLogic.deps.json
+C:\Users\clars\Revature\projects\P2_HaikuWriterGroup\P2_HaikuWriterGroup\HaikuWriter\BusinessLogic\bin\Debug\net5.0\BusinessLogic.dll
+C:\Users\clars\Revature\projects\P2_HaikuWriterGroup\P2_HaikuWriterGroup\HaikuWriter\BusinessLogic\bin\Debug\net5.0\ref\BusinessLogic.dll
+C:\Users\clars\Revature\projects\P2_HaikuWriterGroup\P2_HaikuWriterGroup\HaikuWriter\BusinessLogic\bin\Debug\net5.0\BusinessLogic.pdb
+C:\Users\clars\Revature\projects\P2_HaikuWriterGroup\P2_HaikuWriterGroup\HaikuWriter\BusinessLogic\bin\Debug\net5.0\Models.dll
+C:\Users\clars\Revature\projects\P2_HaikuWriterGroup\P2_HaikuWriterGroup\HaikuWriter\BusinessLogic\bin\Debug\net5.0\Repository.dll
+C:\Users\clars\Revature\projects\P2_HaikuWriterGroup\P2_HaikuWriterGroup\HaikuWriter\BusinessLogic\bin\Debug\net5.0\Models.pdb
+C:\Users\clars\Revature\projects\P2_HaikuWriterGroup\P2_HaikuWriterGroup\HaikuWriter\BusinessLogic\bin\Debug\net5.0\Repository.pdb
+C:\Users\clars\Revature\projects\P2_HaikuWriterGroup\P2_HaikuWriterGroup\HaikuWriter\BusinessLogic\obj\Debug\net5.0\BusinessLogic.csproj.CopyComplete

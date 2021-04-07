@@ -5,9 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using BusinessLogic;
 using Microsoft.EntityFrameworkCore;
-using models;
+using Models;
 using Repository;
 using Xunit;
+using System.Globalization;
 
 namespace HaikuWriter.Tests
 {
@@ -91,7 +92,7 @@ namespace HaikuWriter.Tests
         [Fact]
         public void UserMemeberSince()
         {
-            DateTime now = new DateTime.now;
+            DateTime now = DateTime.Now;
             User user = new User();
             user.MemberSince = now;
             var expected = now;

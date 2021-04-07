@@ -12,7 +12,7 @@ trigger:
       - HaikuWriter
 
 pool:
-  vmImage: 'HaikuWriter'
+  name: Default
 
 variables:
   solution: '**/*.sln'

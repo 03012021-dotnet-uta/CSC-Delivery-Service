@@ -7,9 +7,6 @@ trigger:
   branches:
     include:
       - main
-  paths:
-    include:
-      - HaikuWriter
 
 pool:
   name: Default
@@ -25,14 +22,29 @@ steps:
   displayName: 'Install .NET Core SDK'
   inputs:
     version: 5.0.x
-    performMultiLevelLookup: true
-    includePreviewVersions: true # Required for preview versions
+    #performMultiLevelLookup: true
+    #includePreviewVersions: true # Required for preview versions
+
+- task: UseDotNet@2
+  displayName: 'Install .NET Core Runtime'
+  inputs:
+    packageType: 'runtime'
+    version: '2.x'
 
 - task: NuGetToolInstaller@1
 
 - task: NuGetCommand@2
   inputs:
     restoreSolution: '$(solution)'
+
+#SonarCloud Prepare Analysis Config
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'G1HaikuWriterSonarCloudServiceConnection'
+    organization: 'g1haikuwriter'
+    scannerMode: 'MSBuild'
+    projectKey: 'G1HaikuWriter_P2_HaikuWriterGroup'
+    projectName: 'P2_HaikuWriterGroup'
 
 #this will restore and build repo
 - task: DotNetCoreCLI@2
@@ -42,22 +54,30 @@ steps:
     workingDirectory: 'HaikuWriter'
     arguments: '--configuration $(buildConfiguration)' # Update this to match your need
 
-# - task: VSBuild@1
-#   inputs:
-#     solution: '$(solution)'
-#     msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(build.artifactStagingDirectory)\WebApp.zip" /p:DeployIisAppPath="Default Web Site"'
-#     platform: '$(buildPlatform)'
-#     configuration: '$(buildConfiguration)'
-
-# - task: VSTest@2
-#   inputs:
-#     platform: '$(buildPlatform)'
-#     configuration: '$(buildConfiguration)'
-
-# To publish
 - task: DotNetCoreCLI@2
   inputs:
-    command: 'publish'
-    publishWebProjects: true
-    modifyOutputPath: false
-    workingDirectory: 'HaikuWriter/*.sln'
+    command: 'test'
+    projects: 'HaikuWriter/*.sln'
+    arguments: '--configuration $(buildConfiguration) --collect "Code Coverage"'
+    testRunTitle: 'Dotnet tests running'
+    workingDirectory: 'HaikuWriter'
+
+- task: PublishCodeCoverageResults@1
+  inputs:
+    codeCoverageTool: 'Cobertura'
+    summaryFileLocation: '**/coburtura/coverage.xml'
+
+# SonarCloud Run Code Analysis and Quality Gate
+- task: SonarCloudAnalyze@1
+- task: SonarCloudPublish@1
+  inputs:
+    pollingTimeoutSec: '300'
+
+# To publish
+# - task: DotNetCoreCLI@2
+#   inputs:
+#     command: 'publish'
+#     publishWebProjects: true
+#     modifyOutputPath: false
+#     workingDirectory: 'HaikuWriter/*.sln'
+

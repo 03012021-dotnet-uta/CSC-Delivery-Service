@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Repository;
 
 namespace HaikuWriterApi
 {
@@ -26,6 +27,10 @@ namespace HaikuWriterApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            services.AddScoped<HaikuDbContext>();
+            services.AddScoped<HaikuRepo>();
+            services.AddScoped<UserRepo>();
 
             services.AddCors((option) =>{
                 option.AddPolicy(name: "dev", builder =>{

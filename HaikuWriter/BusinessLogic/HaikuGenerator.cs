@@ -16,7 +16,7 @@ namespace BusinessLogic
         public string Line1 { get; set; }
         public string Line2 { get; set; }
         public string Line3 { get; set; }
-        public HaikuGenerator()
+        public void MakeHaiku()
         {
             Line1 = _repo.GetHaiku5();
             Line2 = _repo.GetHaiku7();

@@ -19,7 +19,8 @@ namespace HaikuWriter.Tests
             .UseInMemoryDatabase(databaseName: "TestDb")
             .Options;
         */
-        [Fact]
+        
+        [Fact]//User.cs
         public void UserUsername()
         {
         //Given
@@ -32,7 +33,7 @@ namespace HaikuWriter.Tests
             Assert.Equal(expected, actual);
         }
 
-        [Fact]
+        [Fact]//User.cs
         public void UserFirstName()
         {
             User user = new User();
@@ -42,7 +43,7 @@ namespace HaikuWriter.Tests
             Assert.Equal(expected, actual);
         }
 
-        [Fact]
+        [Fact]//User.cs
         public void UserLastName()
         {
             User user = new User();
@@ -52,7 +53,7 @@ namespace HaikuWriter.Tests
             Assert.Equal(expected, actual);
         }
 
-        [Fact]
+        [Fact]//User.cs
         public void UserEmail()
         {
             User user = new User();
@@ -61,7 +62,7 @@ namespace HaikuWriter.Tests
             var actual = user.Email;
             Assert.Equal(expected, actual);
         }
-        [Fact]
+        [Fact]//User.cs
         public void UserIsAdmin()
         {
             User user = new User();
@@ -70,7 +71,7 @@ namespace HaikuWriter.Tests
             var actual = user.AdminStatus;
             Assert.Equal(expected, actual);
         }
-        [Fact]
+        [Fact]//User.cs
         public void UserFacebookName()
         {
             User user = new User();
@@ -79,7 +80,7 @@ namespace HaikuWriter.Tests
             var actual = user.FaceBookName;
             Assert.Equal(expected, actual);
         }
-        [Fact]
+        [Fact]//User.cs
         public void UserTwitterName()
         {
             User user = new User();
@@ -89,7 +90,7 @@ namespace HaikuWriter.Tests
             Assert.Equal(expected, actual);
         }
 
-        [Fact]
+        [Fact]//User.cs
         public void UserMemeberSince()
         {
             DateTime now = DateTime.Now;
@@ -97,6 +98,12 @@ namespace HaikuWriter.Tests
             user.MemberSince = now;
             var expected = now;
             var actual = user.MemberSince;
+        }
+
+        [Fact]//HaikuGenerator tests
+        public void HaikuGeneratorTest()
+        {
+            //Test for HaikuGenerator goes here
         }
     }
 }

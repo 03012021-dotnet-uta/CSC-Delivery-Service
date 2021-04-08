@@ -20,7 +20,7 @@ namespace BusinessLogic
         {
             Line1 = _repo.GetHaiku5();
             Line2 = _repo.GetHaiku7();
-            Line3 = _repo.GetHaiku5();
+            Line3 = _repo.GetHaiku5(Line1);
         }
 
     }

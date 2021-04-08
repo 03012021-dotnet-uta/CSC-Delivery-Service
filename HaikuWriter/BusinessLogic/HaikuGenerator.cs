@@ -10,7 +10,7 @@ namespace BusinessLogic
         public HaikuGenerator(HaikuRepo repo, UserRepo userrepo)
         {
             _repo = repo;
-            this._userRepo = _userrepo;
+            this._userRepo = userrepo;
         }
 
         public string Line1 { get; set; }

@@ -1,4 +1,5 @@
 ﻿using System;
+using Models;
 
 namespace BusinessLogic
 {
@@ -10,25 +11,31 @@ namespace BusinessLogic
         public TagEditor(Haiku haiku, string newTag)
         {
             HaikuHolder = haiku;
-            TagLine = AddTag(RetrieveTag(HaikuHolder), newTag);
+            TagLine = AddTag(haiku.Tags, newTag);
         }
         public TagEditor(HaikuLine haikuline, string newTag)
         {
             HaikuLineHolder = haikuline;
-            TagLine = AddTag(RetrieveTag(HaikuLineHolder), newTag);
+            TagLine = AddTag(HaikuLineHolder.Tags, newTag);
         }
-        public string RetrieveTag<T>(T taggy)
-        {
-            
-            string oldTags = taggy.Tags;
-            return oldTags;
-        }
+        // public string RetrieveTag<T>(T taggy)
+        // {
+
+        //     string oldTags = taggy.Tags;
+        //     return oldTags;
+        // }
 
         public string AddTag(string oldTag, string newTag)
         {
-            string addedTag = oldTag + ", " + newTag;
-            return addedTag;
+            if(oldTag.Contains(newTag)){
+                return oldTag;
+            }
+            else{
+                string addedTag = oldTag + ", " + newTag;
+                return addedTag;
+            }
+            
         }
 
-    }   
+    }
 }

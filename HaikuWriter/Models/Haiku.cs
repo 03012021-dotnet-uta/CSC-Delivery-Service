@@ -7,7 +7,9 @@ namespace Models
     {
         [Key]
         public int HaikuId { get; set; }
-        public string WholeHaiku { get; set; }
+         public HaikuLine HaikuLine1 { get; set; }
+        public HaikuLine HaikuLine2 { get; set; }
+        public HaikuLine HaikuLine3 { get; set; }
         public string Tags { get; set; }
         public bool Approved { get; set; }
 
@@ -15,6 +17,8 @@ namespace Models
         public int UserId { get; set; }
         public User User { get; set; }
         //ef relationship with userfavorites
-        public ICollection<UserFav> UserFavs {get;set;}
+        public ICollection<UserFav> UserFavs { get; set; }
+
+       
     }
 }

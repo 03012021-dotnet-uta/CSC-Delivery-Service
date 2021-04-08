@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -27,17 +28,27 @@ namespace HaikuWriterApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //Set up connection string to the database
+            string connectionString = Configuration.GetConnectionString("HaikuConnection");
+
+            //add DB Context
+            services.AddDbContext<HaikuDbContext>(options =>
+            {
+                options.UseSqlServer(connectionString);
+            });
 
             services.AddScoped<HaikuDbContext>();
             services.AddScoped<HaikuRepo>();
             services.AddScoped<UserRepo>();
 
-            services.AddCors((option) =>{
-                option.AddPolicy(name: "dev", builder =>{
+            services.AddCors((option) =>
+            {
+                option.AddPolicy(name: "dev", builder =>
+                {
                     builder.WithOrigins("http://localhost:4200")
                     .AllowAnyHeader()
                     .AllowAnyMethod();
-                    
+
                 });
             });
 

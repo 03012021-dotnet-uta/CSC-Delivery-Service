@@ -1,18 +1,20 @@
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Models
 {
-    public class HaikuLine
-    {   
+    public class Haiku
+    {
         [Key]
-        public int HaikuLineId { get; set; }
-        public string Line { get; set; }
+        public int HaikuId { get; set; }
+        public string WholeHaiku { get; set; }
         public string Tags { get; set; }
-        public int Syllable { get; set; }
         public bool Approved { get; set; }
 
         //ef relationship with user
         public int UserId { get; set; }
         public User User { get; set; }
+        //ef relationship with userfavorites
+        public ICollection<UserFav> UserFavs {get;set;}
     }
 }

@@ -105,5 +105,32 @@ namespace HaikuWriter.Tests
         {
             //Test for HaikuGenerator goes here
         }
+        
+        [Fact]//BusinessLogic.AddFavorite.cs
+        public void AddFavoriteTest()
+        {
+            Haiku haiku = new Haiku();
+            User user = new User();
+            user.Username = "JohnyAwesome123";
+            haiku.HaikuId = 1;
+            AddFavorite addFavorite = new AddFavorite(haiku, user);
+            var expected = "JohnyAwesome123";
+            var actual = addFavorite.FavoriteHaiku.User.Username;
+            Assert.Equal(expected, actual);
+            
+        }
+        
+        [Fact]//BusinessLogic.AddFavorite.cs
+        public void AddFavoriteTest2()
+        {
+            Haiku haiku = new Haiku();
+            User user = new User();
+            user.Username = "JohnyAwesome123";
+            haiku.HaikuId = 1;
+            AddFavorite addFavorite = new AddFavorite(haiku, user);
+            var expected = 1;
+            var actual = addFavorite.FavoriteHaiku.Haiku.HaikuId;
+            Assert.Equal(expected, actual);
+        }
     }
 }

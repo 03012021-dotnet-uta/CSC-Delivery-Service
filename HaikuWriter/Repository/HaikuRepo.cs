@@ -21,10 +21,10 @@ namespace Repository
         }
         public string GetHaiku5(string alreadyUsed)
         {
-            //get haiku line from DB
+                 //get haiku line from DB
             string newHaikuLine = "";
             
-            //If the haikuline is not the same as the first line, return
+                //If the haikuline is not the same as the first line, return
             if(newHaikuLine != alreadyUsed){
                 return newHaikuLine; //Passes the new haiku line to the caller
             }else{

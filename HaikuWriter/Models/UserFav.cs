@@ -4,13 +4,11 @@ namespace Models
 {
     public class UserFav
     {
-        [ForeignKey("Username")] 
-        public string Username { get; set; }
-        [ForeignKey("HaikuID")]                
-        public int Haiku1 { get; set; }
-        [ForeignKey("HaikuID")] 
-        public int Haiku2 { get; set; }
-        [ForeignKey("HaikuID")] 
-        public int Haiku3 { get; set; }
+        //ef relationship with user
+        public int UserId { get; set; }
+        public User User { get; set; }
+        //ef relationship with haiku
+        public int HaikuId { get; set; }
+        public Haiku Haiku { get; set; }
     }
 }

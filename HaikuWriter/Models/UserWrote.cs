@@ -8,5 +8,6 @@ namespace Models
         public string Username { get; set; }
         [ForeignKey("Haiku")] 
         public int HaikuID { get; set; }
+        
     }
 }

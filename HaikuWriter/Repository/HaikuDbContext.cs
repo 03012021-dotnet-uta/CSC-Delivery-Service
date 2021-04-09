@@ -36,24 +36,37 @@ namespace Repository
         {
             //Model config for many to many relation for userfav
             modelBuilder.Entity<UserFav>()
-                .HasKey(uf => new { uf.UserId, uf.HaikuId });
+                .HasKey(uf => new { uf.Username, uf.HaikuId });
 
             modelBuilder.Entity<UserFav>()
                 .HasOne(uf => uf.User)
                 .WithMany(u => u.UserFavs)
-                .HasForeignKey(uf => uf.UserId)
-                .OnDelete(DeleteBehavior.Restrict);
+                .HasForeignKey(uf => uf.Username);
 
             modelBuilder.Entity<UserFav>()
                 .HasOne(uf => uf.Haiku)
                 .WithMany(h => h.UserFavs)
-                .HasForeignKey(uf => uf.HaikuId)
-                .OnDelete(DeleteBehavior.Restrict);
+                .HasForeignKey(uf => uf.HaikuId);
 
-            modelBuilder.Entity<Message>()
-                .HasOne(m => m.User)
-                .WithMany(u => u.Messages)
-                .OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<User>()
+                .HasMany(u => u.HaikuLines)
+                .WithOne(hl => hl.User)
+                .HasForeignKey(hl => hl.Username);
+
+            modelBuilder.Entity<User>()
+                .HasMany(u => u.Threads)
+                .WithOne(t => t.User)
+                .HasForeignKey(t => t.Username);
+
+            modelBuilder.Entity<User>()
+                .HasMany(u => u.Messages)
+                .WithOne(m => m.User)
+                .HasForeignKey(m => m.Username);
+
+            modelBuilder.Entity<User>()
+                .HasMany(u => u.Haikus)
+                .WithOne(h => h.User)
+                .HasForeignKey(h => h.Username);
 
         }
 

@@ -10,7 +10,7 @@ namespace Models
         public string messageBody{set;get;}
 
         //ef relationship with user
-        public int UserId { get; set; }
+        public string Username { get; set; }
         public User User { get; set; }
 
         //ef relationship with thread

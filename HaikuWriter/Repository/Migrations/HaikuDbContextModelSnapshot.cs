@@ -29,18 +29,30 @@ namespace Repository.Migrations
                     b.Property<bool>("Approved")
                         .HasColumnType("bit");
 
+                    b.Property<int?>("HaikuLine1HaikuLineId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("HaikuLine2HaikuLineId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("HaikuLine3HaikuLineId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Tags")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("WholeHaiku")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("Username")
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("HaikuId");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("HaikuLine1HaikuLineId");
+
+                    b.HasIndex("HaikuLine2HaikuLineId");
+
+                    b.HasIndex("HaikuLine3HaikuLineId");
+
+                    b.HasIndex("Username");
 
                     b.ToTable("Haikus");
                 });
@@ -64,12 +76,12 @@ namespace Repository.Migrations
                     b.Property<string>("Tags")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
+                    b.Property<string>("Username")
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("HaikuLineId");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("Username");
 
                     b.ToTable("HaikuLines");
                 });
@@ -84,8 +96,8 @@ namespace Repository.Migrations
                     b.Property<int>("ThreadId")
                         .HasColumnType("int");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
+                    b.Property<string>("Username")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("messageBody")
                         .HasColumnType("nvarchar(max)");
@@ -94,7 +106,7 @@ namespace Repository.Migrations
 
                     b.HasIndex("ThreadId");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("Username");
 
                     b.ToTable("Messages");
                 });
@@ -109,22 +121,20 @@ namespace Repository.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
+                    b.Property<string>("Username")
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("ThreadId");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("Username");
 
                     b.ToTable("Threads");
                 });
 
             modelBuilder.Entity("Models.User", b =>
                 {
-                    b.Property<int>("UserId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<string>("Username")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
@@ -147,26 +157,23 @@ namespace Repository.Migrations
                     b.Property<string>("TwitterName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Username")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<DateTime>("memberSince")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("UserId");
+                    b.HasKey("Username");
 
                     b.ToTable("Users");
                 });
 
             modelBuilder.Entity("Models.UserFav", b =>
                 {
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
+                    b.Property<string>("Username")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("HaikuId")
                         .HasColumnType("int");
 
-                    b.HasKey("UserId", "HaikuId");
+                    b.HasKey("Username", "HaikuId");
 
                     b.HasIndex("HaikuId");
 
@@ -175,11 +182,27 @@ namespace Repository.Migrations
 
             modelBuilder.Entity("Models.Haiku", b =>
                 {
+                    b.HasOne("Models.HaikuLine", "HaikuLine1")
+                        .WithMany()
+                        .HasForeignKey("HaikuLine1HaikuLineId");
+
+                    b.HasOne("Models.HaikuLine", "HaikuLine2")
+                        .WithMany()
+                        .HasForeignKey("HaikuLine2HaikuLineId");
+
+                    b.HasOne("Models.HaikuLine", "HaikuLine3")
+                        .WithMany()
+                        .HasForeignKey("HaikuLine3HaikuLineId");
+
                     b.HasOne("Models.User", "User")
                         .WithMany("Haikus")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("Username");
+
+                    b.Navigation("HaikuLine1");
+
+                    b.Navigation("HaikuLine2");
+
+                    b.Navigation("HaikuLine3");
 
                     b.Navigation("User");
                 });
@@ -188,9 +211,7 @@ namespace Repository.Migrations
                 {
                     b.HasOne("Models.User", "User")
                         .WithMany("HaikuLines")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("Username");
 
                     b.Navigation("User");
                 });
@@ -205,9 +226,7 @@ namespace Repository.Migrations
 
                     b.HasOne("Models.User", "User")
                         .WithMany("Messages")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .HasForeignKey("Username");
 
                     b.Navigation("Thread");
 
@@ -218,9 +237,7 @@ namespace Repository.Migrations
                 {
                     b.HasOne("Models.User", "User")
                         .WithMany("Threads")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("Username");
 
                     b.Navigation("User");
                 });
@@ -230,13 +247,13 @@ namespace Repository.Migrations
                     b.HasOne("Models.Haiku", "Haiku")
                         .WithMany("UserFavs")
                         .HasForeignKey("HaikuId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Models.User", "User")
                         .WithMany("UserFavs")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .HasForeignKey("Username")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Haiku");

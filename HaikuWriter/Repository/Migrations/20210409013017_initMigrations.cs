@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Repository.Migrations
 {
-    public partial class initMigration : Migration
+    public partial class initMigrations : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -11,9 +11,7 @@ namespace Repository.Migrations
                 name: "Users",
                 columns: table => new
                 {
-                    UserId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Username = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Username = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     FirstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     LastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     PasswordHash = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
@@ -25,7 +23,7 @@ namespace Repository.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Users", x => x.UserId);
+                    table.PrimaryKey("PK_Users", x => x.Username);
                 });
 
             migrationBuilder.CreateTable(
@@ -38,39 +36,17 @@ namespace Repository.Migrations
                     Tags = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Syllable = table.Column<int>(type: "int", nullable: false),
                     Approved = table.Column<bool>(type: "bit", nullable: false),
-                    UserId = table.Column<int>(type: "int", nullable: false)
+                    Username = table.Column<string>(type: "nvarchar(450)", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_HaikuLines", x => x.HaikuLineId);
                     table.ForeignKey(
-                        name: "FK_HaikuLines_Users_UserId",
-                        column: x => x.UserId,
+                        name: "FK_HaikuLines_Users_Username",
+                        column: x => x.Username,
                         principalTable: "Users",
-                        principalColumn: "UserId",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Haikus",
-                columns: table => new
-                {
-                    HaikuId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    WholeHaiku = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Tags = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Approved = table.Column<bool>(type: "bit", nullable: false),
-                    UserId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Haikus", x => x.HaikuId);
-                    table.ForeignKey(
-                        name: "FK_Haikus_Users_UserId",
-                        column: x => x.UserId,
-                        principalTable: "Users",
-                        principalColumn: "UserId",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Username",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -80,40 +56,58 @@ namespace Repository.Migrations
                     ThreadId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    UserId = table.Column<int>(type: "int", nullable: false)
+                    Username = table.Column<string>(type: "nvarchar(450)", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Threads", x => x.ThreadId);
                     table.ForeignKey(
-                        name: "FK_Threads_Users_UserId",
-                        column: x => x.UserId,
+                        name: "FK_Threads_Users_Username",
+                        column: x => x.Username,
                         principalTable: "Users",
-                        principalColumn: "UserId",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Username",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
-                name: "UserFavs",
+                name: "Haikus",
                 columns: table => new
                 {
-                    UserId = table.Column<int>(type: "int", nullable: false),
                     HaikuId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    HaikuLine1HaikuLineId = table.Column<int>(type: "int", nullable: true),
+                    HaikuLine2HaikuLineId = table.Column<int>(type: "int", nullable: true),
+                    HaikuLine3HaikuLineId = table.Column<int>(type: "int", nullable: true),
+                    Tags = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Approved = table.Column<bool>(type: "bit", nullable: false),
+                    Username = table.Column<string>(type: "nvarchar(450)", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_UserFavs", x => new { x.UserId, x.HaikuId });
+                    table.PrimaryKey("PK_Haikus", x => x.HaikuId);
                     table.ForeignKey(
-                        name: "FK_UserFavs_Haikus_HaikuId",
-                        column: x => x.HaikuId,
-                        principalTable: "Haikus",
-                        principalColumn: "HaikuId",
+                        name: "FK_Haikus_HaikuLines_HaikuLine1HaikuLineId",
+                        column: x => x.HaikuLine1HaikuLineId,
+                        principalTable: "HaikuLines",
+                        principalColumn: "HaikuLineId",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_UserFavs_Users_UserId",
-                        column: x => x.UserId,
+                        name: "FK_Haikus_HaikuLines_HaikuLine2HaikuLineId",
+                        column: x => x.HaikuLine2HaikuLineId,
+                        principalTable: "HaikuLines",
+                        principalColumn: "HaikuLineId",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Haikus_HaikuLines_HaikuLine3HaikuLineId",
+                        column: x => x.HaikuLine3HaikuLineId,
+                        principalTable: "HaikuLines",
+                        principalColumn: "HaikuLineId",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Haikus_Users_Username",
+                        column: x => x.Username,
                         principalTable: "Users",
-                        principalColumn: "UserId",
+                        principalColumn: "Username",
                         onDelete: ReferentialAction.Restrict);
                 });
 
@@ -124,7 +118,7 @@ namespace Repository.Migrations
                     MessageId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     messageBody = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    UserId = table.Column<int>(type: "int", nullable: false),
+                    Username = table.Column<string>(type: "nvarchar(450)", nullable: true),
                     ThreadId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -137,22 +131,61 @@ namespace Repository.Migrations
                         principalColumn: "ThreadId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Messages_Users_UserId",
-                        column: x => x.UserId,
+                        name: "FK_Messages_Users_Username",
+                        column: x => x.Username,
                         principalTable: "Users",
-                        principalColumn: "UserId",
+                        principalColumn: "Username",
                         onDelete: ReferentialAction.Restrict);
                 });
 
-            migrationBuilder.CreateIndex(
-                name: "IX_HaikuLines_UserId",
-                table: "HaikuLines",
-                column: "UserId");
+            migrationBuilder.CreateTable(
+                name: "UserFavs",
+                columns: table => new
+                {
+                    Username = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    HaikuId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UserFavs", x => new { x.Username, x.HaikuId });
+                    table.ForeignKey(
+                        name: "FK_UserFavs_Haikus_HaikuId",
+                        column: x => x.HaikuId,
+                        principalTable: "Haikus",
+                        principalColumn: "HaikuId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_UserFavs_Users_Username",
+                        column: x => x.Username,
+                        principalTable: "Users",
+                        principalColumn: "Username",
+                        onDelete: ReferentialAction.Cascade);
+                });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Haikus_UserId",
+                name: "IX_HaikuLines_Username",
+                table: "HaikuLines",
+                column: "Username");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Haikus_HaikuLine1HaikuLineId",
                 table: "Haikus",
-                column: "UserId");
+                column: "HaikuLine1HaikuLineId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Haikus_HaikuLine2HaikuLineId",
+                table: "Haikus",
+                column: "HaikuLine2HaikuLineId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Haikus_HaikuLine3HaikuLineId",
+                table: "Haikus",
+                column: "HaikuLine3HaikuLineId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Haikus_Username",
+                table: "Haikus",
+                column: "Username");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Messages_ThreadId",
@@ -160,14 +193,14 @@ namespace Repository.Migrations
                 column: "ThreadId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Messages_UserId",
+                name: "IX_Messages_Username",
                 table: "Messages",
-                column: "UserId");
+                column: "Username");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Threads_UserId",
+                name: "IX_Threads_Username",
                 table: "Threads",
-                column: "UserId");
+                column: "Username");
 
             migrationBuilder.CreateIndex(
                 name: "IX_UserFavs_HaikuId",
@@ -177,9 +210,6 @@ namespace Repository.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "HaikuLines");
-
             migrationBuilder.DropTable(
                 name: "Messages");
 
@@ -191,6 +221,9 @@ namespace Repository.Migrations
 
             migrationBuilder.DropTable(
                 name: "Haikus");
+
+            migrationBuilder.DropTable(
+                name: "HaikuLines");
 
             migrationBuilder.DropTable(
                 name: "Users");

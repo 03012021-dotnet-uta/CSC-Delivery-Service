@@ -99,7 +99,62 @@ namespace HaikuWriter.Tests
             var expected = now;
             var actual = user.MemberSince;
         }
-
+        [Fact]//UserFav.cs
+        public void UserFavTest1()
+        {
+            string name = "JohnyAwesome123";
+            User user = new User();
+            user.Username = name;
+            Haiku haiku = new Haiku();
+            haiku.HaikuId = 5;
+            UserFav userFav = new UserFav();
+            userFav.Username = name;
+            var expected = name;
+            var actual = userFav.Username;
+            Assert.Equal(expected, actual);
+        }
+        [Fact]//UserFav.cs
+        public void UserFavTest2()
+        {
+            string name = "JohnyAwesome123";
+            User user = new User();
+            user.Username = name;
+            Haiku haiku = new Haiku();
+            haiku.HaikuId = 5;
+            UserFav userFav = new UserFav();
+            userFav.HaikuId = haiku.HaikuId;
+            var expected = 5;
+            var actual = userFav.HaikuId;
+            Assert.Equal(expected, actual);
+        }
+        [Fact]//UserFav.cs
+        public void UserFavTest3()
+        {
+            string name = "JohnyAwesome123";
+            User user = new User();
+            user.Username = name;
+            Haiku haiku = new Haiku();
+            haiku.HaikuId = 5;
+            UserFav userFav = new UserFav();
+            userFav.User = user;
+            var expected = "JohnyAwesome123";
+            var actual = userFav.User.Username;
+            Assert.Equal(expected, actual);
+        }
+        [Fact]//UserFav.cs
+        public void UserFavTest4()
+        {
+            string name = "JohnyAwesome123";
+            User user = new User();
+            user.Username = name;
+            Haiku haiku = new Haiku();
+            haiku.HaikuId = 5;
+            UserFav userFav = new UserFav();
+            userFav.Haiku = haiku;
+            var expected = 5;
+            var actual = userFav.Haiku.HaikuId;
+            Assert.Equal(expected, actual);
+        }
         [Fact]//HaikuGenerator tests
         public void HaikuGeneratorTest()
         {

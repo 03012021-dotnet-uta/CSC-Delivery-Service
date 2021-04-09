@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using System.Security.Cryptography;
+using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using BusinessLogic;
@@ -185,6 +186,29 @@ namespace HaikuWriter.Tests
             AddFavorite addFavorite = new AddFavorite(haiku, user);
             var expected = 1;
             var actual = addFavorite.FavoriteHaiku.Haiku.HaikuId;
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]//BusinessLogic.AllFavorites.cs
+        public void AllFavoritesTest1()
+        {
+            User user = new User();
+            user.Username = "JohnyAwesome123";
+            User user2 = new User();
+            user2.Username = "IvanTheTerrible";
+            UserFav userFav1 = new UserFav();
+            userFav1.User = user;
+            UserFav userFav2 = new UserFav();
+            userFav2.User = user2;
+            UserFav userFav3 = new UserFav();
+            userFav3.User = user;
+            ICollection<UserFav> userFaves = new List<UserFav>();
+            userFaves.Add(userFav1);
+            userFaves.Add(userFav2);
+            userFaves.Add(userFav3);
+            AllFavorites allFavorites = new AllFavorites(user, userFaves);
+            var expected = 2;
+            var actual = allFavorites.Favorites.Count;
             Assert.Equal(expected, actual);
         }
     }

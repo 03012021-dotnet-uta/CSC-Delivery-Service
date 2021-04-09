@@ -37,6 +37,7 @@ namespace HaikuWriterApi
                 options.UseSqlServer(connectionString);
             });
 
+            services.AddScoped<HaikuGenerator>();
             services.AddScoped<HaikuDbContext>();
             services.AddScoped<HaikuRepo>();
             services.AddScoped<UserRepo>();

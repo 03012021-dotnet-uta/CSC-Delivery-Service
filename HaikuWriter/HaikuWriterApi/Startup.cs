@@ -35,7 +35,7 @@ namespace HaikuWriterApi
             //add DB Context
             services.AddDbContext<HaikuDbContext>(options =>
             {
-                options.UseSqlServer(connectionString);
+                options.UseSqlServer("connectionString");
             });
 
             services.AddScoped<HaikuGenerator>();

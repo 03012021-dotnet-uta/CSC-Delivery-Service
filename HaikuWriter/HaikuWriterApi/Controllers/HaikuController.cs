@@ -11,17 +11,17 @@ namespace HaikuWriterApi.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class HaikuContorller : ControllerBase
+    public class HaikuController : ControllerBase
     {
         private readonly HaikuGenerator _haukuGenerator;
 
-        public HaikuContorller(HaikuGenerator haukuGenerator){
+        public HaikuController(HaikuGenerator haukuGenerator){
             this._haukuGenerator = haukuGenerator;
         }
 
-        [HttpGet("one")]
+        [HttpGet]
         public ActionResult<string> getone(){
-        
+            
             return "one two three";
         } 
 

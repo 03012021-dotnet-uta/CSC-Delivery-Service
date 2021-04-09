@@ -23,8 +23,6 @@ steps:
   inputs:
     packageType: 'sdk'
     version: 5.0.x
-    #performMultiLevelLookup: true
-    #includePreviewVersions: true # Required for preview versions
 
 - task: UseDotNet@2
   displayName: 'Install .NET Core Runtime'
@@ -37,15 +35,6 @@ steps:
 - task: NuGetCommand@2
   inputs:
     restoreSolution: '$(solution)'
-
-#SonarCloud Prepare Analysis Config
-# - task: SonarCloudPrepare@1
-#   inputs:
-#     SonarCloud: 'G1HaikuWriterSonarCloudServiceConnection'
-#     organization: 'g1haikuwriter'
-#     scannerMode: 'MSBuild'
-#     projectKey: 'G1HaikuWriter_P2_HaikuWriterGroup'
-#     projectName: 'P2_HaikuWriterGroup'
 
 #this will restore and build repo
 - task: DotNetCoreCLI@2
@@ -63,23 +52,11 @@ steps:
     testRunTitle: 'Dotnet tests running'
     workingDirectory: 'HaikuWriter'
 
-# - task: PublishCodeCoverageResults@1
-#   inputs:
-#     codeCoverageTool: 'Cobertura'
-#     summaryFileLocation: '**/coburtura/coverage.xml'
-
-# SonarCloud Run Code Analysis and Quality Gate
-# - task: SonarCloudAnalyze@1
-# - task: SonarCloudPublish@1
-#   inputs:
-#     pollingTimeoutSec: '300'
-
 #To publish
 - task: DotNetCoreCLI@2
   inputs:
     command: 'publish'
-    publishWebProjects: true
-    #modifyOutputPath: false
+    publishWebProjects: false
     projects: '$(solution)'
     zipAfterPublish: true
 

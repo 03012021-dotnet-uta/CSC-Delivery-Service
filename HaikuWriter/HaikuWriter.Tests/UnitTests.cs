@@ -8,8 +8,11 @@ using BusinessLogic;
 using Microsoft.EntityFrameworkCore;
 using Models;
 using Repository;
+using HaikuWriterApi;
+using HaikuWriterApi.Controllers;
 using Xunit;
 using System.Globalization;
+using Microsoft.AspNetCore.Mvc;
 
 
 namespace HaikuWriter.Tests
@@ -212,5 +215,20 @@ namespace HaikuWriter.Tests
             var actual = allFavorites.Favorites.Count;
             Assert.Equal(expected, actual);
         }
+
+        [Fact]//Controllers.HaikuController.cs
+        public void HaikuControllerTest1()
+        {
+            DbContextOptions<HaikuDbContext> hdbcon = new DbContextOptions<HaikuDbContext>();
+            HaikuDbContext haikucon = new HaikuDbContext(hdbcon);
+            HaikuRepo haikuRepo = new HaikuRepo(haikucon);
+            UserRepo userRepo = new UserRepo(haikucon);
+            HaikuGenerator haikugen = new HaikuGenerator(haikuRepo, userRepo);
+            HaikuController haikuCon = new HaikuController(haikugen);
+            var expected = "one two three";
+            var actual = haikuCon.GetOne();
+            Assert.Equal(expected, actual);
+        }
+
     }
 }

@@ -12,7 +12,20 @@ namespace HaikuWriterApi.Controllers
     [Route("[controller]")]
     public class UserController : ControllerBase
     {
-        
+        // private readonly HaikuGenerator _haukuGenerator;
+
+        // public UserController(HaikuGenerator haukuGenerator){
+        //     this._haukuGenerator = haukuGenerator;
+        // }
+
+       [HttpPost("signup")]
+        public ActionResult<User> signup([FromBody] User user){
+
+            Console.WriteLine("user");
+            Console.WriteLine(user);
+            
+            return user;
+        } 
 
     }
 }

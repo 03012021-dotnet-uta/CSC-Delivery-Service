@@ -1,0 +1,27 @@
+<p>signup works!</p>
+
+<div>
+    <form class="signup"  >
+        <label for="username">Username:</label>
+        <input type="text" #username="ngModel" placeholder="Username" name="username" [(ngModel)]="user.username">&nbsp;
+        <label for="firstname">First Name:</label>
+        <input type="text" #firstname="ngModel" placeholder="First Name" name="firstname" [(ngModel)]="user.firstname">&nbsp;
+        <label for="lastname">Last Name:</label>
+        <input type="text" #lastName="ngModel" placeholder="Last Name" name="lastname" [(ngModel)]="user.lastname">&nbsp;
+        <label for="email">Email:</label>
+        <input type="email" #email="ngModel" placeholder="Email" name="email" [(ngModel)]="user.email">&nbsp;
+        
+        <label for="password">Password:</label>
+        <input type="password" #password="ngModel" placeholder="Password" name="password" [(ngModel)]="user.password">&nbsp;
+        <!-- <label for="conpassword">Confirm Password:</label>
+        <input type="text" placeholder="Confirm  Password" name="conpassword" [(ngModel)]="conpassword">&nbsp; -->
+        <label for="facebookname">FaceBook Username</label>
+        <input type="text" #facebookname="ngModel" placeholder="Facebook Username" name="facebookname" [(ngModel)]="user.facebookname">&nbsp;
+        <label for="twittername">Twitter Username:</label>
+        <input type="text" #facebookname="ngModel" placeholder="Twitter Username" name="twittername" [(ngModel)]="user.twittername">&nbsp;
+        <label for="adminstatus">Admin Status:</label>
+        <input type="text" placeholder="Admin Status" name="adminstatus" [(ngModel)]="user.adminstatus">&nbsp;
+
+        <input type="submit" value="SignUp" (click)=signup()>
+      </form>
+</div>

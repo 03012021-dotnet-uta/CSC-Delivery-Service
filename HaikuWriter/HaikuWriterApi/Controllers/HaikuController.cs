@@ -24,6 +24,9 @@ namespace HaikuWriterApi.Controllers
             
             return "one two three";
         } 
+        public string GetOne(){
+            return "one two three";
+        }
 
     }
 }

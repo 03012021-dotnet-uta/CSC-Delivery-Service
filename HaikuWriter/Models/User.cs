@@ -13,7 +13,8 @@ namespace Models
         public byte[] PasswordHash { get; set; }
         public byte[] PasswordSalt { get; set; }
         public string Email { get; set; }
-        public DateTime memberSince { get; set; }
+        public DateTime MemberSince { get; set; }
+        public bool AdminStatus { get; set; }
         public string FaceBookName { get; set; }
         public string TwitterName { get; set; }
         //May change social media info to be more encompassing

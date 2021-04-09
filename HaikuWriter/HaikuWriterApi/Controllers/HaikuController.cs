@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
 using BusinessLogic;
-using Models
+using Models;
 
 namespace HaikuWriterApi.Controllers
 {

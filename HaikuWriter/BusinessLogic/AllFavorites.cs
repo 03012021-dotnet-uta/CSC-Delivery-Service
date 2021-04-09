@@ -13,7 +13,10 @@ namespace BusinessLogic
             //Favorites = new ICollection<UserFav>();
             for(int i = 0; i < favorites.Count; i++)
             {
-                
+                if(favorites[i].Username == User.Username)
+                {
+                    Favorites.Add(favorites[i]);
+                }
             }
         }
     }

@@ -17,7 +17,8 @@ namespace Repository.Migrations
                     PasswordHash = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
                     PasswordSalt = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    memberSince = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    MemberSince = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    AdminStatus = table.Column<bool>(type: "bit", nullable: false),
                     FaceBookName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     TwitterName = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },

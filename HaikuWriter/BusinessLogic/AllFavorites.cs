@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using Models;
+
 namespace BusinessLogic
 {
     public class AllFavorites
@@ -7,7 +10,7 @@ namespace BusinessLogic
         public AllFavorites(User user, ICollection<UserFav> favorites)
         {
             User = user;
-            Favorites = new ICollection<UserFav>();
+            //Favorites = new ICollection<UserFav>();
             for(int i = 0; i < favorites.Count; i++)
             {
                 

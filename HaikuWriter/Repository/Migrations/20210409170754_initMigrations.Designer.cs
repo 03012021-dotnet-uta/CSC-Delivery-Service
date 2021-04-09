@@ -10,7 +10,7 @@ using Repository;
 namespace Repository.Migrations
 {
     [DbContext(typeof(HaikuDbContext))]
-    [Migration("20210409013017_initMigrations")]
+    [Migration("20210409170754_initMigrations")]
     partial class initMigrations
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -138,6 +138,9 @@ namespace Repository.Migrations
                     b.Property<string>("Username")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<bool>("AdminStatus")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
 
@@ -150,6 +153,9 @@ namespace Repository.Migrations
                     b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime>("MemberSince")
+                        .HasColumnType("datetime2");
+
                     b.Property<byte[]>("PasswordHash")
                         .HasColumnType("varbinary(max)");
 
@@ -158,9 +164,6 @@ namespace Repository.Migrations
 
                     b.Property<string>("TwitterName")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("memberSince")
-                        .HasColumnType("datetime2");
 
                     b.HasKey("Username");
 

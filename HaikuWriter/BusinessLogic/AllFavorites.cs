@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Models;
 
 namespace BusinessLogic
@@ -10,13 +11,14 @@ namespace BusinessLogic
         public AllFavorites(User user, ICollection<UserFav> favorites)
         {
             User = user;
-            //Favorites = new ICollection<UserFav>();
-            for(int i = 0; i < favorites.Count; i++)
+            Favorites = new List<UserFav>();
+            foreach(UserFav fav in favorites) 
             {
-                if(favorites[i].Username == User.Username)
+                if(fav.User.Username == user.Username)
                 {
-                    Favorites.Add(favorites[i]);
+                    Favorites.Add(fav);
                 }
+                
             }
         }
     }

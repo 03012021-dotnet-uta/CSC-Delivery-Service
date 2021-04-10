@@ -19,14 +19,14 @@ namespace HaikuWriterApi.Controllers
         }
 
        [HttpPost("signup")]
-        public ActionResult<User> signup([FromBody] User user){
+        public ActionResult<User> signup([FromBody] RawUser user){
 
             Console.WriteLine("user");
             Console.WriteLine(user.Email);
 
             User newUser = _userMethods.userRegister(user);
             
-            return user;
+            return newUser;
         } 
 
     }

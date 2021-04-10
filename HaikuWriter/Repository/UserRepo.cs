@@ -16,7 +16,11 @@ namespace Repository
         public User Register(User newUser)
         {
             Console.WriteLine(newUser.Username);
-            Console.WriteLine(newUser.PasswordHash);
+            Console.WriteLine(newUser.FirstName);
+            Console.WriteLine(newUser.LastName);
+            Console.WriteLine(newUser.MemberSince);
+            Console.WriteLine(newUser.PasswordSalt);
+            Console.WriteLine(newUser.FaceBookName);
             var newUser1 = _dbContext.Users.Add(newUser);// addd the new user to the Db
             _dbContext.SaveChanges();// save the change.
             return _dbContext.Users.FirstOrDefault(u => u.Username == newUser.Username);// default is null

@@ -15,11 +15,11 @@ namespace BusinessLogic
         }
 
 
-        public User userRegister(User user){
+        public User userRegister(RawUser user){
 
 
             User newUser = hasher.hashPassword(user.Password);
-            //newUser.AdminStatus = user.AdminStatus;
+            newUser.AdminStatus = user.AdminStatus;
             newUser.Username = user.Username;
             newUser.FirstName = user.FirstName;
             newUser.LastName = user.LastName;

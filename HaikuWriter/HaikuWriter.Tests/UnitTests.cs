@@ -25,6 +25,9 @@ namespace HaikuWriter.Tests
              .Options;
          */
 
+        /*********************************************
+         * Unit tests for User.cs follows...         *
+         *********************************************/
         [Fact]//User.cs
         public void UserUsername()
         {
@@ -103,7 +106,163 @@ namespace HaikuWriter.Tests
             user.MemberSince = now;
             var expected = now;
             var actual = user.MemberSince;
+            Assert.Equal(expected, actual);
         }
+
+        [Fact]//User.cs
+        public void UserThreads1()
+        {
+            ICollection<Thread> Threads = new List<Thread>();
+            Thread thread1 = new Thread();
+            thread1.ThreadId = 1;
+            Threads.Add(thread1);
+            Thread thread2 = new Thread();
+            thread2.ThreadId = 2;
+            Threads.Add(thread2);
+            User user = new User();
+            user.Threads = Threads;
+            var expected = 2;
+            var actual = user.Threads.Count;
+            Assert.Equal(expected, actual);
+        }
+        [Fact]//User.cs
+        public void UserThreads2()
+        {
+            ICollection<Thread> threads = new List<Thread>();
+            Thread thread1 = new Thread();
+            thread1.ThreadId = 1;
+            threads.Add(thread1);
+            Thread thread2 = new Thread();
+            thread2.ThreadId = 2;
+            threads.Add(thread2);
+            User user = new User();
+            user.Threads = threads;
+            var expected = 2;
+            List<Thread> actual = user.Threads.ToList();
+            Assert.Equal(expected, actual[1].ThreadId);
+        }
+
+        [Fact]//User.cs
+        public void UserMessages1()
+        {
+            ICollection<Message> messages = new List<Message>();
+            Message msg1 = new Message();
+            msg1.MessageId = 1;
+            messages.Add(msg1);
+            Message msg2 = new Message();
+            msg2.MessageId = 2;
+            messages.Add(msg2);
+            User user = new User();
+            user.Messages = messages;
+            var expected = 2;
+            var actual = user.Messages.Count;
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]//User.cs
+        public void UserMessages2()
+        {
+            ICollection<Message> messages = new List<Message>();
+            Message msg1 = new Message();
+            msg1.MessageId = 1;
+            messages.Add(msg1);
+            Message msg2 = new Message();
+            msg2.MessageId = 2;
+            messages.Add(msg2);
+            User user = new User();
+            user.Messages = messages;
+            var expected = 2;
+            List<Message> actual = user.Messages.ToList();
+            Assert.Equal(expected, actual[1].MessageId);
+        }
+
+        [Fact]//User.cs
+        public void UserHaikuLines1()
+        {
+            ICollection<HaikuLine> haikulines = new List<HaikuLine>();
+            HaikuLine hline1 = new HaikuLine();
+            HaikuLine hline2 = new HaikuLine();
+            hline1.HaikuLineId = 1;
+            hline2.HaikuLineId = 2;
+            haikulines.Add(hline1);
+            haikulines.Add(hline2);
+            User user = new User();
+            user.HaikuLines = haikulines;
+            var expected = 2;
+            var actual = user.HaikuLines.Count;
+            Assert.Equal(expected,actual);
+        }
+        [Fact]//User.cs
+        public void UserHaikuLines2()
+        {
+            ICollection<HaikuLine> haikulines = new List<HaikuLine>();
+            HaikuLine hline1 = new HaikuLine();
+            HaikuLine hline2 = new HaikuLine();
+            hline1.HaikuLineId = 1;
+            hline2.HaikuLineId = 2;
+            haikulines.Add(hline1);
+            haikulines.Add(hline2);
+            User user = new User();
+            user.HaikuLines = haikulines;
+            var expected = 2;
+            List<HaikuLine> actual = user.HaikuLines.ToList();
+            Assert.Equal(expected,actual[1].HaikuLineId);
+        }
+        [Fact]//User.cs
+        public void UserHaikus1()
+        {
+            ICollection<Haiku> haikus = new List<Haiku>();
+            Haiku haiku1 = new Haiku();
+            Haiku haiku2 = new Haiku();
+            haiku1.HaikuId = 1;
+            haiku2.HaikuId = 2;
+            haikus.Add(haiku1);
+            haikus.Add(haiku2);
+            User user = new User();
+            user.Haikus = haikus;
+            var expected = 2;
+            var actual = user.Haikus.Count;
+            Assert.Equal(expected,actual);
+        }
+        [Fact]//User.cs
+        public void UserHaikus2()
+        {
+            ICollection<Haiku> haikus = new List<Haiku>();
+            Haiku haiku1 = new Haiku();
+            Haiku haiku2 = new Haiku();
+            haiku1.HaikuId = 1;
+            haiku2.HaikuId = 2;
+            haikus.Add(haiku1);
+            haikus.Add(haiku2);
+            User user = new User();
+            user.Haikus = haikus;
+            var expected = 2;
+            var actual = user.Haikus.ToList();
+            Assert.Equal(expected,actual[1].HaikuId);
+        }
+
+        [Fact]//User.cs
+        public void UserUserfavs1()
+        {
+            ICollection<UserFav> faves = new List<UserFav>();
+            UserFav userFav1 = new UserFav();
+            UserFav userFav2 = new UserFav();
+            userFav1.Username = "abcd";
+            userFav2.Username = "efgh";
+            faves.Add(userFav1);
+            faves.Add(userFav2);
+            User user = new User();
+            user.UserFavs = faves;
+            var expected = "abcdefgh";
+            var temp = user.UserFavs.ToList();
+            var actual = temp[0].Username + temp[1].Username;
+            Assert.Equal(expected, actual);
+        }
+        /*********************************************
+         * Unit tests for UserFav.cs follows...      *
+         *********************************************/
+
+
         [Fact]//UserFav.cs
         public void UserFavTest1()
         {
@@ -160,6 +319,11 @@ namespace HaikuWriter.Tests
             var actual = userFav.Haiku.HaikuId;
             Assert.Equal(expected, actual);
         }
+
+        /*********************************************
+         * Unit tests for HaikuLine.cs follows...    *
+         *********************************************/
+
 
         [Fact]//HaikuLine.cs
         public void HaikuLineIdTest()
@@ -221,6 +385,10 @@ namespace HaikuWriter.Tests
             Assert.Equal(expected, actual);
         }
 
+        /*********************************************
+         * Unit tests for Haiku.cs follows...        *
+         *********************************************/
+
         [Fact]//Haiku.cs
         public void HaikuTest()
         {
@@ -271,6 +439,10 @@ namespace HaikuWriter.Tests
             Assert.Equal(expected, actual);
         }
 
+        /*********************************************
+         * Unit tests for Thread.cs follows...       *
+         *********************************************/
+
         [Fact]//Thread.cs
         public void ThreadIdTest()
         {
@@ -300,6 +472,10 @@ namespace HaikuWriter.Tests
             var actual = t.Username;
             Assert.Equal(expected, actual);
         }
+
+        /*********************************************
+         * Unit tests for Message.cs follows...      *
+         *********************************************/
 
         [Fact]//Message.cs
         public void MessageIdTest()
@@ -341,11 +517,19 @@ namespace HaikuWriter.Tests
             Assert.Equal(expected, actual);
         }
 
+        /**********************************************
+         * Unit tests for HaikuGenerator.cs follows...*
+         **********************************************/
+
         [Fact]//HaikuGenerator tests
         public void HaikuGeneratorTest()
         {
             //Test for HaikuGenerator goes here
         }
+
+        /*********************************************
+         * Unit tests for AddFavorite.cs follows...  *
+         *********************************************/
 
         [Fact]//BusinessLogic.AddFavorite.cs
         public void AddFavoriteTest()
@@ -374,6 +558,10 @@ namespace HaikuWriter.Tests
             Assert.Equal(expected, actual);
         }
 
+        /*********************************************
+         * Unit tests for AllFavorites.cs follows... *
+         *********************************************/
+
         [Fact]//BusinessLogic.AllFavorites.cs
         public void AllFavoritesTest1()
         {
@@ -396,6 +584,10 @@ namespace HaikuWriter.Tests
             var actual = allFavorites.Favorites.Count;
             Assert.Equal(expected, actual);
         }
+
+        /***********************************************
+         * Unit tests for HaikuController.cs follows...*
+         ***********************************************/
 
         [Fact]//Controllers.HaikuController.cs
         public void HaikuControllerTest1()

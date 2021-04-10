@@ -29,5 +29,14 @@ namespace HaikuWriterApi.Controllers
             return newUser;
         } 
 
+        [HttpGet("login/{username}/{password}")]
+        public ActionResult<User> login(string username, string password){
+
+
+            User newUser = _userMethods.userLogin(username, password);
+            
+            return newUser;
+        } 
+
     }
 }

@@ -18,6 +18,12 @@ export class UserService {
     return this.http.post<User>(`${this.queryString}signup/`, user);
   }
 
+  login(username: string, password: string): Observable<User> {
+    console.log(username);
+    return this.http.get<User>(`${this.queryString}login/${username}/${password}`);
+  }
+
+
   // signup(user: User): Observable<User> {
   //   console.log(user);
   //   return this.http.get<User>(`${this.queryString}`);

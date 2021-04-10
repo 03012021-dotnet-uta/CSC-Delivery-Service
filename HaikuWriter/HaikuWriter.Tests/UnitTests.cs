@@ -19,22 +19,22 @@ namespace HaikuWriter.Tests
 {
     public class UnitTests
     {
-       /*  **Database Context**
-       DbContextOptions<memeSaverContext> testOptions = new DbContextOptionsBuilder<memeSaverContext>()
-            .UseInMemoryDatabase(databaseName: "TestDb")
-            .Options;
-        */
-        
+        /*  **Database Context**
+        DbContextOptions<memeSaverContext> testOptions = new DbContextOptionsBuilder<memeSaverContext>()
+             .UseInMemoryDatabase(databaseName: "TestDb")
+             .Options;
+         */
+
         [Fact]//User.cs
         public void UserUsername()
         {
-        //Given
+            //Given
             User user = new User();
             user.Username = "JohnyAwesome123";
-        //When
+            //When
             var expected = "JohnyAwesome123";
             var actual = user.Username;
-        //Then
+            //Then
             Assert.Equal(expected, actual);
         }
 
@@ -160,12 +160,193 @@ namespace HaikuWriter.Tests
             var actual = userFav.Haiku.HaikuId;
             Assert.Equal(expected, actual);
         }
+
+        [Fact]//HaikuLine.cs
+        public void HaikuLineIdTest()
+        {
+            HaikuLine hl = new HaikuLine();
+            hl.HaikuLineId = 1;
+            var expected = 1;
+            var actual = hl.HaikuLineId;
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]//HaikuLine.cs
+        public void HaikuLineLineTest()
+        {
+            HaikuLine hl = new HaikuLine();
+            hl.Line = "A storm is coming";
+            var expected = "A storm is coming";
+            var actual = hl.Line;
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]//HaikuLine.cs
+        public void HaikuLineTagsTest()
+        {
+            HaikuLine hl = new HaikuLine();
+            hl.Tags = "Comedy Dark Satirical";
+            var expected = "Comedy Dark Satirical";
+            var actual = hl.Tags;
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]//HaikuLine.cs
+        public void HaikuLineSyllableTest()
+        {
+            HaikuLine hl = new HaikuLine();
+            hl.Syllable = 5;
+            var expected = 5;
+            var actual = hl.Syllable;
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]//HaikuLine.cs
+        public void HaikuLineApprovedTest()
+        {
+            HaikuLine hl = new HaikuLine();
+            hl.Approved = true;
+            var expected = true;
+            var actual = hl.Approved;
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]//HaikuLine.cs
+        public void HaikuLineUsernameTest()
+        {
+            HaikuLine hl = new HaikuLine();
+            hl.Username = "DavidP";
+            var expected = "DavidP";
+            var actual = hl.Username;
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]//Haiku.cs
+        public void HaikuTest()
+        {
+            HaikuLine hl = new HaikuLine();
+            hl.Username = "DavidP";
+            var expected = "DavidP";
+            var actual = hl.Username;
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]//Haiku.cs
+        public void HaikuIdTest()
+        {
+            Haiku h = new Haiku();
+            h.HaikuId = 3;
+            var expected = 3;
+            var actual = h.HaikuId;
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]//Haiku.cs
+        public void HaikuTagTest()
+        {
+            Haiku h = new Haiku();
+            h.Tags = "Life Existential";
+            var expected = "Life Existential";
+            var actual = h.Tags;
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]//Haiku.cs
+        public void HaikuApprovedTest()
+        {
+            Haiku h = new Haiku();
+            h.Approved = false;
+            var expected = false;
+            var actual = h.Approved;
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]//Haiku.cs
+        public void HaikuUsernameTest()
+        {
+            Haiku h = new Haiku();
+            h.Username = "AprilF";
+            var expected = "AprilF";
+            var actual = h.Username;
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]//Thread.cs
+        public void ThreadIdTest()
+        {
+            Thread t = new Thread();
+            t.ThreadId = 7;
+            var expected = 7;
+            var actual = t.ThreadId;
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]//Thread.cs
+        public void ThreadDescriptionTest()
+        {
+            Thread t = new Thread();
+            t.Description = "A Collection of Haikus about the Seasons";
+            var expected = "A Collection of Haikus about the Seasons";
+            var actual = t.Description;
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]//Thread.cs
+        public void ThreadUsernameTest()
+        {
+            Thread t = new Thread();
+            t.Username = "RachelS";
+            var expected = "RachelS";
+            var actual = t.Username;
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]//Message.cs
+        public void MessageIdTest()
+        {
+            Message m = new Message();
+            m.ThreadId = 27;
+            var expected = 27;
+            var actual = m.ThreadId;
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]//Message.cs
+        public void MessageBodyTest()
+        {
+            Message m = new Message();
+            m.messageBody = "I think this haiku is really good! Keep it up!";
+            var expected = "I think this haiku is really good! Keep it up!";
+            var actual = m.messageBody;
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]//Message.cs
+        public void MessageUsernameTest()
+        {
+            Message m = new Message();
+            m.Username = "FrankieM";
+            var expected = "FrankieM";
+            var actual = m.Username;
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]//Message.cs
+        public void MessageTest()
+        {
+            Message m = new Message();
+            m.ThreadId = 3;
+            var expected = 3;
+            var actual = m.ThreadId;
+            Assert.Equal(expected, actual);
+        }
+
         [Fact]//HaikuGenerator tests
         public void HaikuGeneratorTest()
         {
             //Test for HaikuGenerator goes here
         }
-        
+
         [Fact]//BusinessLogic.AddFavorite.cs
         public void AddFavoriteTest()
         {
@@ -177,9 +358,9 @@ namespace HaikuWriter.Tests
             var expected = "JohnyAwesome123";
             var actual = addFavorite.FavoriteHaiku.User.Username;
             Assert.Equal(expected, actual);
-            
+
         }
-        
+
         [Fact]//BusinessLogic.AddFavorite.cs
         public void AddFavoriteTest2()
         {

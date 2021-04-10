@@ -17,6 +17,8 @@ namespace Models
         public bool AdminStatus { get; set; }
         public string FaceBookName { get; set; }
         public string TwitterName { get; set; }
+
+        public string Password { get; set; }
         //May change social media info to be more encompassing
         //if API requires it
 

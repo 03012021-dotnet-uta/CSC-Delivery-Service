@@ -258,6 +258,28 @@ namespace HaikuWriter.Tests
             var actual = temp[0].Username + temp[1].Username;
             Assert.Equal(expected, actual);
         }
+
+        [Fact]//User.cs
+        public void UserPasswordHash()
+        {
+            byte[] hashing = new byte[] { 0x00, 0x01, 0x02, 0x03 };
+            User user = new User();
+            user.PasswordHash = hashing;
+            var expected = new byte[] { 0x00, 0x01, 0x02, 0x03 };
+            var actual = user.PasswordHash;
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]//User.cs
+        public void UserPasswordSalt()
+        {
+            byte[] hashing = new byte[] { 0x00, 0x01, 0x02, 0x03 };
+            User user = new User();
+            user.PasswordSalt = hashing;
+            var expected = new byte[] { 0x00, 0x01, 0x02, 0x03 };
+            var actual = user.PasswordSalt;
+            Assert.Equal(expected, actual);
+        }
         /*********************************************
          * Unit tests for UserFav.cs follows...      *
          *********************************************/

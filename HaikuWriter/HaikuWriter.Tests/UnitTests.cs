@@ -305,9 +305,9 @@ namespace HaikuWriter.Tests
         public void MessageIdTest()
         {
             Message m = new Message();
-            m.ThreadId = 27;
+            m.MessageId = 27;
             var expected = 27;
-            var actual = m.ThreadId;
+            var actual = m.MessageId;
             Assert.Equal(expected, actual);
         }
 
@@ -332,7 +332,7 @@ namespace HaikuWriter.Tests
         }
 
         [Fact]//Message.cs
-        public void MessageTest()
+        public void MessageThreadIdTest()
         {
             Message m = new Message();
             m.ThreadId = 3;

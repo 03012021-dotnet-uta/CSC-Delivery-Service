@@ -19,11 +19,11 @@ namespace HaikuWriter.Tests
 {
     public class UnitTests
     {
-        /*  **Database Context**
-        DbContextOptions<memeSaverContext> testOptions = new DbContextOptionsBuilder<memeSaverContext>()
+        // **Database Context**
+        DbContextOptions<HaikuDbContext> testOptions = new DbContextOptionsBuilder<HaikuDbContext>()
              .UseInMemoryDatabase(databaseName: "TestDb")
              .Options;
-         */
+         
 
         /*********************************************
          * Unit tests for User.cs follows...         *
@@ -614,8 +614,8 @@ namespace HaikuWriter.Tests
         [Fact]//Controllers.HaikuController.cs
         public void HaikuControllerTest1()
         {
-            DbContextOptions<HaikuDbContext> hdbcon = new DbContextOptions<HaikuDbContext>();
-            HaikuDbContext haikucon = new HaikuDbContext(hdbcon);
+           
+            HaikuDbContext haikucon = new HaikuDbContext(testOptions);
             HaikuRepo haikuRepo = new HaikuRepo(haikucon);
             UserRepo userRepo = new UserRepo(haikucon);
             HaikuGenerator haikugen = new HaikuGenerator(haikuRepo, userRepo);
@@ -624,6 +624,40 @@ namespace HaikuWriter.Tests
             var actual = haikuCon.GetOne();
             Assert.Equal(expected, actual);
         }
+        [Fact]//Controllers.HaikuController.cs
+        public void HaikuControllerTest2()
+        {
+            
+            HaikuDbContext haikucon = new HaikuDbContext(testOptions);
+            HaikuRepo haikuRepo = new HaikuRepo(haikucon);
+            UserRepo userRepo = new UserRepo(haikucon);
+            HaikuGenerator haikugen = new HaikuGenerator(haikuRepo, userRepo);
+            HaikuController haikuCon = new HaikuController(haikugen);
+            var expected = new ActionResult<string>("one two three");
+            var actual = haikuCon.getone();
+            Assert.Equal(expected.Value, actual.Value);            
+        }
 
+        /***********************************************
+         * Unit tests for UserController.cs follows...*
+         ***********************************************/
+
+        [Fact]//Controllers.UserController.cs
+        public void UserControllerTest1()
+        {
+            
+            HaikuDbContext hContext = new HaikuDbContext(testOptions);
+            UserRepo userrepo = new UserRepo(hContext);
+            UserMethods userMethods = new UserMethods(userrepo);
+            UserController userController = new UserController(userMethods);
+            RawUser raw = new RawUser();
+            raw.Username = "clarson";
+            raw.Email = "clarson@a.com";
+            raw.Password = "123cherrytree";
+            var actionUser = userController.signup(raw);
+            var expected = "clarson";
+            var actual = actionUser.Value.Username;
+            Assert.Equal(expected, actual);
+        }
     }
 }

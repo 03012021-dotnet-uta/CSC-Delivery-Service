@@ -8455,11 +8455,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\clars\\Revature\\projects\\P2_HaikuWriterGroup\\P2_HaikuWriterGroup\\HaikuWriter\\HaikuWriter.Tests\\Tests.csproj",
+      "projectUniqueName": "C:\\Users\\clars\\Revature\\Projects\\P2_HaikuWriterGroup\\P2_HaikuWriterGroup\\HaikuWriter\\HaikuWriter.Tests\\Tests.csproj",
       "projectName": "Tests",
-      "projectPath": "C:\\Users\\clars\\Revature\\projects\\P2_HaikuWriterGroup\\P2_HaikuWriterGroup\\HaikuWriter\\HaikuWriter.Tests\\Tests.csproj",
+      "projectPath": "C:\\Users\\clars\\Revature\\Projects\\P2_HaikuWriterGroup\\P2_HaikuWriterGroup\\HaikuWriter\\HaikuWriter.Tests\\Tests.csproj",
       "packagesPath": "C:\\Users\\clars\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\clars\\Revature\\projects\\P2_HaikuWriterGroup\\P2_HaikuWriterGroup\\HaikuWriter\\HaikuWriter.Tests\\obj\\",
+      "outputPath": "C:\\Users\\clars\\Revature\\Projects\\P2_HaikuWriterGroup\\P2_HaikuWriterGroup\\HaikuWriter\\HaikuWriter.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -8482,11 +8482,11 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\clars\\Revature\\projects\\P2_HaikuWriterGroup\\P2_HaikuWriterGroup\\HaikuWriter\\BusinessLogic\\BusinessLogic.csproj": {
-              "projectPath": "C:\\Users\\clars\\Revature\\projects\\P2_HaikuWriterGroup\\P2_HaikuWriterGroup\\HaikuWriter\\BusinessLogic\\BusinessLogic.csproj"
+            "C:\\Users\\clars\\Revature\\Projects\\P2_HaikuWriterGroup\\P2_HaikuWriterGroup\\HaikuWriter\\BusinessLogic\\BusinessLogic.csproj": {
+              "projectPath": "C:\\Users\\clars\\Revature\\Projects\\P2_HaikuWriterGroup\\P2_HaikuWriterGroup\\HaikuWriter\\BusinessLogic\\BusinessLogic.csproj"
             },
-            "C:\\Users\\clars\\Revature\\projects\\P2_HaikuWriterGroup\\P2_HaikuWriterGroup\\HaikuWriter\\HaikuWriterApi\\HaikuWriterApi.csproj": {
-              "projectPath": "C:\\Users\\clars\\Revature\\projects\\P2_HaikuWriterGroup\\P2_HaikuWriterGroup\\HaikuWriter\\HaikuWriterApi\\HaikuWriterApi.csproj"
+            "C:\\Users\\clars\\Revature\\Projects\\P2_HaikuWriterGroup\\P2_HaikuWriterGroup\\HaikuWriter\\HaikuWriterApi\\HaikuWriterApi.csproj": {
+              "projectPath": "C:\\Users\\clars\\Revature\\Projects\\P2_HaikuWriterGroup\\P2_HaikuWriterGroup\\HaikuWriter\\HaikuWriterApi\\HaikuWriterApi.csproj"
             }
           }
         }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "x5rwAdQURyoh6HsNVo+Oj+iAr2DqMI5QnlLeV3iXcYZ8La4GSCjN5iwt5Ikq2gT7gpz41FvljwgtP2+0rflbsg==",
+  "dgSpecHash": "+uwnI6fLNuy7T9nEV3o97gq2z8Vjgh0IbzG1ATYmOj9aqwtPyPu93mou1RPk2L88WSfqM4QxJCiYBYfXQ5Rafg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\clars\\Revature\\projects\\P2_HaikuWriterGroup\\P2_HaikuWriterGroup\\HaikuWriter\\HaikuWriter.Tests\\Tests.csproj",
+  "projectFilePath": "C:\\Users\\clars\\Revature\\Projects\\P2_HaikuWriterGroup\\P2_HaikuWriterGroup\\HaikuWriter\\HaikuWriter.Tests\\Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\clars\\.nuget\\packages\\coverlet.collector\\1.3.0\\coverlet.collector.1.3.0.nupkg.sha512",
     "C:\\Users\\clars\\.nuget\\packages\\microsoft.aspnet.cors\\5.2.7\\microsoft.aspnet.cors.5.2.7.nupkg.sha512",

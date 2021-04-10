@@ -659,5 +659,19 @@ namespace HaikuWriter.Tests
             var actual = actionUser.Value.Username;
             Assert.Equal(expected, actual);
         }
+        
+        [Fact]//Controllers.UserController.cs
+        public void UserControllerTest2()
+        {
+            
+            HaikuDbContext hContext = new HaikuDbContext(testOptions);
+            UserRepo userrepo = new UserRepo(hContext);
+            UserMethods userMethods = new UserMethods(userrepo);
+            UserController userController = new UserController(userMethods);
+            var actionUser = userController.login("clarson", "123cherrytree");
+            var expected = null;
+            var actual = actionUser.Value;
+            Assert.Equal(expected, actual);
+        }
     }
 }

@@ -5,6 +5,6 @@ export class Thread {
         public threadid:  number,
         public description: string,
         public username: string,
-        public user: User,
+        //public user: User,
     ) { }
 }

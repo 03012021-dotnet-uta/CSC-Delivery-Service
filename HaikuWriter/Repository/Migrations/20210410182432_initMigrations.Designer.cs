@@ -10,7 +10,7 @@ using Repository;
 namespace Repository.Migrations
 {
     [DbContext(typeof(HaikuDbContext))]
-    [Migration("20210409170754_initMigrations")]
+    [Migration("20210410182432_initMigrations")]
     partial class initMigrations
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

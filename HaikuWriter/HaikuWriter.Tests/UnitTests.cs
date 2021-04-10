@@ -669,8 +669,8 @@ namespace HaikuWriter.Tests
             UserMethods userMethods = new UserMethods(userrepo);
             UserController userController = new UserController(userMethods);
             var actionUser = userController.login("clarson", "123cherrytree");
-            var expected = null;
-            var actual = actionUser.Value;
+            var expected = "clarson@a.com";
+            var actual = actionUser.Value.Email;
             Assert.Equal(expected, actual);
         }
     }

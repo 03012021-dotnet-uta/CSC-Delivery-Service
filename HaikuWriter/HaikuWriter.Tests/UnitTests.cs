@@ -546,7 +546,18 @@ namespace HaikuWriter.Tests
         [Fact]//HaikuGenerator tests
         public void HaikuGeneratorTest()
         {
-            //Test for HaikuGenerator goes here
+            HaikuDbContext hContext = new HaikuDbContext(testOptions);
+            UserRepo userrepo = new UserRepo(hContext);
+            HaikuRepo haikurepo = new HaikuRepo(hContext);
+            HaikuGenerator haikugen = new HaikuGenerator(haikurepo, userrepo);
+            haikugen.Line1 = "Coffee is my life";
+            haikugen.Line2 = "I can not live without it";
+            haikugen.Line3 = "Sleep is for the weak";
+            var expected = "Coffee is my life I can not live without it Sleep is for the weak";
+            var actual = haikugen.Line1 + " " +
+                            haikugen.Line2 + " " +
+                            haikugen.Line3;
+            Assert.Equal(expected, actual);
         }
 
         /*********************************************
@@ -673,5 +684,7 @@ namespace HaikuWriter.Tests
             var actual = actionUser.Value.Email;
             Assert.Equal(expected, actual);
         }
+
+        
     }
 }

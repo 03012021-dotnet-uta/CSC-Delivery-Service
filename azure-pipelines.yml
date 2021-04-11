@@ -75,10 +75,10 @@ steps:
     projects: '$(solution)'
     zipAfterPublish: true
 
-# - task: AzureRmWebAppDeployment@4
-#   inputs:
-#     ConnectionType: 'AzureRM'
-#     azureSubscription: 'G1HaikuWriterSubscription(4f7eaef6-673a-4603-8d6c-e9e2481ee2c9)'
-#     appType: 'webApp'
-#     WebAppName: 'HaikuWriterGroup'
-#     packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'G1HaikuWriterSubscription(4f7eaef6-673a-4603-8d6c-e9e2481ee2c9)'
+    appType: 'webApp'
+    WebAppName: 'HaikuWriterGroup'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'

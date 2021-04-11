@@ -24,7 +24,7 @@ namespace HaikuWriterApi.Controllers
             Console.WriteLine("user");
             Console.WriteLine(user.Email);
 
-            User newUser = _userMethods.userRegister(user);
+            User newUser = _userMethods.UserRegister(user);
             
             return newUser;
         } 
@@ -33,7 +33,7 @@ namespace HaikuWriterApi.Controllers
         public ActionResult<User> login(string username, string password){
 
 
-            User newUser = _userMethods.userLogin(username, password);
+            User newUser = _userMethods.UserLogin(username, password);
             
             return newUser;
         } 

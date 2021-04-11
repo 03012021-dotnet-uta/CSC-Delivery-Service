@@ -561,13 +561,19 @@ namespace HaikuWriter.Tests
             HaikuDbContext hContext = new HaikuDbContext(testOptions);
             HaikuRepo haikurepo = new HaikuRepo(hContext);
             HaikuGenerator haikugen = new HaikuGenerator(haikurepo);
-            haikugen.Line1 = "Coffee is my life";
-            haikugen.Line2 = "I can not live without it";
-            haikugen.Line3 = "Sleep is for the weak";
+            HaikuLine line1 = new HaikuLine();
+            HaikuLine line2 = new HaikuLine();
+            HaikuLine line3 = new HaikuLine();
+            line1.Line = "Coffee is my life";
+            line2.Line = "I can not live without it";
+            line3.Line = "Sleep is for the weak";
+            haikugen.Line1 = line1;
+            haikugen.Line2 = line2;
+            haikugen.Line3 = line3;
             var expected = "Coffee is my life I can not live without it Sleep is for the weak";
-            var actual = haikugen.Line1 + " " +
-                            haikugen.Line2 + " " +
-                            haikugen.Line3;
+            var actual = haikugen.Line1.Line + " " +
+                            haikugen.Line2.Line + " " +
+                            haikugen.Line3.Line;
             Assert.Equal(expected, actual);
         }
 
@@ -648,7 +654,7 @@ namespace HaikuWriter.Tests
             HaikuDbContext haikucon = new HaikuDbContext(testOptions);
             HaikuRepo haikuRepo = new HaikuRepo(haikucon);
             UserRepo userRepo = new UserRepo(haikucon);
-            HaikuGenerator haikugen = new HaikuGenerator(haikuRepo, userRepo);
+            HaikuGenerator haikugen = new HaikuGenerator(haikuRepo);
             HaikuMethods haikuMethods = new HaikuMethods(haikuRepo);
             HaikuController haikuCon = new HaikuController(haikugen, haikuMethods);
             var expected = "one two three";
@@ -662,7 +668,7 @@ namespace HaikuWriter.Tests
             HaikuDbContext haikucon = new HaikuDbContext(testOptions);
             HaikuRepo haikuRepo = new HaikuRepo(haikucon);
             UserRepo userRepo = new UserRepo(haikucon);
-            HaikuGenerator haikugen = new HaikuGenerator(haikuRepo, userRepo);
+            HaikuGenerator haikugen = new HaikuGenerator(haikuRepo);
             HaikuMethods haikuMethods = new HaikuMethods(haikuRepo);
             HaikuController haikuCon = new HaikuController(haikugen, haikuMethods);
             var expected = new ActionResult<string>("one two three");
@@ -677,7 +683,7 @@ namespace HaikuWriter.Tests
             HaikuDbContext haikucon = new HaikuDbContext(testOptions);
             HaikuRepo haikuRepo = new HaikuRepo(haikucon);
             UserRepo userRepo = new UserRepo(haikucon);
-            HaikuGenerator haikugen = new HaikuGenerator(haikuRepo, userRepo);
+            HaikuGenerator haikugen = new HaikuGenerator(haikuRepo);
             HaikuMethods haikuMethods = new HaikuMethods(haikuRepo);
             HaikuController haikuCon = new HaikuController(haikugen, haikuMethods);
             var expected = new List<HaikuLine>();
@@ -739,17 +745,18 @@ namespace HaikuWriter.Tests
          * Unit tests for UserRepo.cs follows...       *
          ***********************************************/
 
-         [Fact]//BusinessLogic.UserMethods.cs
-         public void UserMethodsTest1()
-         {
-            HaikuDbContext hContext = new HaikuDbContext(testOptions);
-            UserRepo userrepo = new UserRepo(hContext);
-            RawUser rawuser = new RawUser();
-            UserMethods usermethods = new UserMethods(userrepo);
-            User expected = null;
-            var actual = usermethods.userRegister(rawuser);
-            Assert.Equal(expected, actual);
-         }
+        //  [Fact]//BusinessLogic.UserMethods.cs
+        //  public void UserMethodsTest1()
+        //  {
+        //     HaikuDbContext hContext = new HaikuDbContext(testOptions);
+        //     UserRepo userrepo = new UserRepo(hContext);
+        //     RawUser rawuser = new RawUser();
+        //     rawuser.Password = "12345";
+        //     UserMethods usermethods = new UserMethods(userrepo);
+        //     User expected = null;
+        //     var actual = usermethods.UserRegister(rawuser);
+        //     Assert.Equal(expected, actual);
+        //  }
         
     }
 }

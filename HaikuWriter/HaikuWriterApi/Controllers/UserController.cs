@@ -17,7 +17,7 @@ namespace HaikuWriterApi.Controllers
         public UserController(UserMethods userMethods){
             this._userMethods = userMethods;
         }
-
+        
        [HttpPost("signup")]
         public ActionResult<User> signup([FromBody] RawUser user){
 

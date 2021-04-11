@@ -555,13 +555,12 @@ namespace HaikuWriter.Tests
          * Unit tests for HaikuGenerator.cs follows...*
          **********************************************/
 
-        [Fact]//HaikuGenerator tests
-        public void HaikuGeneratorTest()
+        [Fact]//HaikuGenerator.cs
+        public void HaikuGeneratorTest1()
         {
             HaikuDbContext hContext = new HaikuDbContext(testOptions);
-            UserRepo userrepo = new UserRepo(hContext);
             HaikuRepo haikurepo = new HaikuRepo(hContext);
-            HaikuGenerator haikugen = new HaikuGenerator(haikurepo, userrepo);
+            HaikuGenerator haikugen = new HaikuGenerator(haikurepo);
             haikugen.Line1 = "Coffee is my life";
             haikugen.Line2 = "I can not live without it";
             haikugen.Line3 = "Sleep is for the weak";
@@ -570,6 +569,14 @@ namespace HaikuWriter.Tests
                             haikugen.Line2 + " " +
                             haikugen.Line3;
             Assert.Equal(expected, actual);
+        }
+
+        [Fact]//HaikuGenerator.cs
+        public void HaikuGeneratorTest2()
+        {
+            HaikuDbContext hContext = new HaikuDbContext(testOptions);
+            HaikuRepo haikurepo = new HaikuRepo(hContext);
+            HaikuGenerator haikugen = new HaikuGenerator(haikurepo);
         }
 
         /*********************************************
@@ -728,7 +735,21 @@ namespace HaikuWriter.Tests
             Assert.Equal(expected, actual);
         }
 
+        /***********************************************
+         * Unit tests for UserRepo.cs follows...       *
+         ***********************************************/
 
+         [Fact]//BusinessLogic.UserMethods.cs
+         public void UserMethodsTest1()
+         {
+            HaikuDbContext hContext = new HaikuDbContext(testOptions);
+            UserRepo userrepo = new UserRepo(hContext);
+            RawUser rawuser = new RawUser();
+            UserMethods usermethods = new UserMethods(userrepo);
+            User expected = null;
+            var actual = usermethods.userRegister(rawuser);
+            Assert.Equal(expected, actual);
+         }
         
     }
 }

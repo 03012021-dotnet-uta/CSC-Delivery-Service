@@ -15,7 +15,7 @@ namespace BusinessLogic
         }
 
 
-        public User userRegister(RawUser user){
+        public User UserRegister(RawUser user){
 
 
             User newUser = hasher.hashPassword(user.Password);
@@ -26,7 +26,6 @@ namespace BusinessLogic
             newUser.Email = user.Email;
             newUser.FaceBookName = user.FaceBookName;
             newUser.TwitterName = user.TwitterName;
-            //newUser.MemberSince = DateTime.Now;
             
 
             User registerUser = _userRepo.Register(newUser);
@@ -39,7 +38,7 @@ namespace BusinessLogic
             return registerUser;
         }
 
-        public User userLogin(string username, string password){
+        public User UserLogin(string username, string password){
              Console.WriteLine(" Here 12 " + username);
             if (!_userRepo.UserExists(username))
             {
@@ -81,7 +80,7 @@ namespace BusinessLogic
                 if (arr1[i] != arr2[i])
                 {
                     return false;
-                } // Unauthorized("Invalid Password");
+                }
             }
             return true;
         }

@@ -1,4 +1,5 @@
 using Repository;
+using Models;
 
 namespace BusinessLogic
 {
@@ -7,15 +8,14 @@ namespace BusinessLogic
         private readonly HaikuRepo _repo;
         private readonly UserRepo _userRepo;
 
-        public HaikuGenerator(HaikuRepo repo, UserRepo userrepo)
+        public HaikuGenerator(HaikuRepo repo)
         {
             _repo = repo;
-            this._userRepo = userrepo;
         }
 
-        public string Line1 { get; set; }
-        public string Line2 { get; set; }
-        public string Line3 { get; set; }
+        public HaikuLine Line1 { get; set; }
+        public HaikuLine Line2 { get; set; }
+        public HaikuLine Line3 { get; set; }
         public void MakeHaiku()
         {
             Line1 = _repo.GetHaiku5();

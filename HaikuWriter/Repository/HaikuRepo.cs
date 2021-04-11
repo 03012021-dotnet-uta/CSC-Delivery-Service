@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using System;
 using Models;
 
 namespace Repository
@@ -12,21 +13,40 @@ namespace Repository
             this._dbContext = context;
         }
 
-        public string GetHaiku5()
+        public HaikuLine SaveLine(HaikuLine haikuline)
+        {
+            var newLine = _dbContext.HaikuLines.Add(haikuline);//add the new line to the database
+            _dbContext.SaveChanges();
+            return _dbContext.HaikuLines.FirstOrDefault(h => h.HaikuLineId == haikuline.HaikuLineId);
+        }
+
+        public Haiku SaveHaiku(Haiku haiku)
+        {
+            var newHaiku = _dbContext.Haikus.Add(haiku);
+            _dbContext.SaveChanges();
+            return _dbContext.Haikus.FirstOrDefault(h => h.HaikuId == haiku.HaikuId);
+        }
+        public HaikuLine GetHaiku5()
+        {
+            Random random = new Random();
+            int numrows = _dbContext.HaikuLines.Where(h => h.Syllable == 5).Select(h => h.HaikuLineId).Count();
+            var rand = random.Next(numrows);
+            var line = _dbContext.HaikuLines.Where(h => h.Syllable == 5).OrderBy(h => h.HaikuLineId).Skip(rand).Take(1).First();
+            if(line.Syllable == 5){
+                return line;
+            }
+            return null;
+        }
+
+        public HaikuLine GetHaiku7()
         {
 
             return null;
         }
-
-        public string GetHaiku7()
-        {
-
-            return null;
-        }
-        public string GetHaiku5(string alreadyUsed)
+        public HaikuLine GetHaiku5(HaikuLine alreadyUsed)
         {
                  //get haiku line from DB
-            string newHaikuLine = "";
+            HaikuLine newHaikuLine = GetHaiku5();
             
                 //If the haikuline is not the same as the first line, return
             if(newHaikuLine != alreadyUsed){

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
+
 import {User} from '../models/user.model';
 import {UserService} from '../service/user.service';
 
@@ -14,7 +16,7 @@ export class LoginComponent implements OnInit {
   username: string = "";
   password: string = "";
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
 
@@ -26,6 +28,7 @@ export class LoginComponent implements OnInit {
         res => {
 
           console.log("success");
+          this.router.navigateByUrl("/landingpage")
         },
         err => {
           if (err.status === 422) {

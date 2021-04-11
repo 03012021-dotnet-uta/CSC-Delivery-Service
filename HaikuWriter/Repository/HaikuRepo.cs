@@ -1,3 +1,7 @@
+using System.Collections.Generic;
+using System.Linq;
+using Models;
+
 namespace Repository
 {
     public class HaikuRepo
@@ -34,6 +38,13 @@ namespace Repository
                 // It will return here, if they are not the same.
                return GetHaiku5(alreadyUsed);
             }
+        }
+
+        public List<HaikuLine> GetUnapprovedHaikuLines()
+        {
+            List<HaikuLine> haikuLines = _dbContext.HaikuLines
+                                                    .Where(hl => hl.Approved == false).ToList();
+            return haikuLines;
         }
     }
 }

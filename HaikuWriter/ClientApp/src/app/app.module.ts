@@ -11,6 +11,7 @@ import { ThreadPageComponent } from './thread-page/thread-page.component';
 import { FormsModule } from '@angular/forms';
 import { UserSettingsComponent } from './user-settings/user-settings.component';
 import { SignupComponent } from './signup/signup.component';
+import { AdminApproveComponent } from './admin-approve/admin-approve.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { SignupComponent } from './signup/signup.component';
     ThreadListComponent,
     ThreadPageComponent,
     UserSettingsComponent,
-    SignupComponent
+    SignupComponent,
+    AdminApproveComponent
   ],
   imports: [
     BrowserModule,

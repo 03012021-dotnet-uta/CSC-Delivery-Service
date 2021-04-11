@@ -14,9 +14,11 @@ namespace HaikuWriterApi.Controllers
     public class HaikuController : ControllerBase
     {
         private readonly HaikuGenerator _haukuGenerator;
+        private readonly HaikuMethods _haikuMethod;
 
-        public HaikuController(HaikuGenerator haukuGenerator){
+        public HaikuController(HaikuGenerator haukuGenerator, HaikuMethods haikuMethod){
             this._haukuGenerator = haukuGenerator;
+            _haikuMethod = haikuMethod;
         }
 
         [HttpGet]
@@ -26,6 +28,13 @@ namespace HaikuWriterApi.Controllers
         } 
         public string GetOne(){
             return "one two three";
+        }
+
+        [HttpGet("unapprovedHaikuLine")]
+        public ActionResult<List<HaikuLine>> GetUnapprovedHaikuLines()
+        {
+            List<HaikuLine> haikuLinesList = _haikuMethod.GetUnapprovedHaikuLines();
+            return haikuLinesList;
         }
 
     }

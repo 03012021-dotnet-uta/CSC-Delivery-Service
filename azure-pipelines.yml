@@ -33,13 +33,7 @@ steps:
   inputs:
     restoreSolution: '$(solution)'
 
-- task: SonarCloudPrepare@1
-  inputs:
-    SonarCloud: 'G1HaikuWriterSonarCloudConnection'
-    organization: 'g1haikuwriter'
-    scannerMode: 'MSBuild'
-    projectKey: 'SomeoneElses_SomeonesP2'
-    projectName: 'SomeonesP2'
+#SonarCloud Prepare
 
 - task: DotNetCoreCLI@2
   inputs:
@@ -56,16 +50,16 @@ steps:
     testRunTitle: 'Dotnet tests running'
     workingDirectory: 'HaikuWriter'
 
-- task: PublishCodeCoverageResults@1
-  inputs:
-    codeCoverageTool: 'Cobertura'
-    summaryFileLocation: '**/coburtura/coverage.xml'
+# - task: PublishCodeCoverageResults@1
+#   inputs:
+#     codeCoverageTool: 'Cobertura'
+#     summaryFileLocation: '**/coburtura/coverage.xml'
 
-- task: SonarCloudAnalyze@1
+# - task: SonarCloudAnalyze@1
 
-- task: SonarCloudPublish@1
-  inputs:
-    pollingTimeoutSec: '300'
+# - task: SonarCloudPublish@1
+#   inputs:
+#     pollingTimeoutSec: '300'
 
 - task: DotNetCoreCLI@2
   inputs:
@@ -74,10 +68,10 @@ steps:
     projects: '$(solution)'
     zipAfterPublish: true
 
-- task: AzureRmWebAppDeployment@4
-  inputs:
-    ConnectionType: 'AzureRM'
-    azureSubscription: 'G1HaikuWriterSubscription(4f7eaef6-673a-4603-8d6c-e9e2481ee2c9)'
-    appType: 'webApp'
-    WebAppName: 'HaikuWriterGroup'
-    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+# - task: AzureRmWebAppDeployment@4
+#   inputs:
+#     ConnectionType: 'AzureRM'
+#     azureSubscription: 'G1HaikuWriterSubscription(4f7eaef6-673a-4603-8d6c-e9e2481ee2c9)'
+#     appType: 'webApp'
+#     WebAppName: 'HaikuWriterGroup'
+#     packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'

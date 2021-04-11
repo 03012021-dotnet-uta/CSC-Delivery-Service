@@ -407,6 +407,18 @@ namespace HaikuWriter.Tests
             Assert.Equal(expected, actual);
         }
 
+        [Fact]//HaikuLine.cs
+        public void HaikuLineUserTest()
+        {
+            HaikuLine hl = new HaikuLine();
+            User user = new User();
+            user.Username = "DavidP";
+            hl.User = user;
+            var expected = "DavidP";
+            var actual = hl.User.Username;
+            Assert.Equal(expected, actual);
+        }
+
         /*********************************************
          * Unit tests for Haiku.cs follows...        *
          *********************************************/
@@ -630,7 +642,8 @@ namespace HaikuWriter.Tests
             HaikuRepo haikuRepo = new HaikuRepo(haikucon);
             UserRepo userRepo = new UserRepo(haikucon);
             HaikuGenerator haikugen = new HaikuGenerator(haikuRepo, userRepo);
-            HaikuController haikuCon = new HaikuController(haikugen);
+            HaikuMethods haikuMethods = new HaikuMethods(haikuRepo);
+            HaikuController haikuCon = new HaikuController(haikugen, haikuMethods);
             var expected = "one two three";
             var actual = haikuCon.GetOne();
             Assert.Equal(expected, actual);
@@ -643,14 +656,30 @@ namespace HaikuWriter.Tests
             HaikuRepo haikuRepo = new HaikuRepo(haikucon);
             UserRepo userRepo = new UserRepo(haikucon);
             HaikuGenerator haikugen = new HaikuGenerator(haikuRepo, userRepo);
-            HaikuController haikuCon = new HaikuController(haikugen);
+            HaikuMethods haikuMethods = new HaikuMethods(haikuRepo);
+            HaikuController haikuCon = new HaikuController(haikugen, haikuMethods);
             var expected = new ActionResult<string>("one two three");
             var actual = haikuCon.getone();
             Assert.Equal(expected.Value, actual.Value);            
         }
 
+        [Fact]//Controllers.HaikuController.cs
+        public void HaikuControllerTest3()
+        {
+            
+            HaikuDbContext haikucon = new HaikuDbContext(testOptions);
+            HaikuRepo haikuRepo = new HaikuRepo(haikucon);
+            UserRepo userRepo = new UserRepo(haikucon);
+            HaikuGenerator haikugen = new HaikuGenerator(haikuRepo, userRepo);
+            HaikuMethods haikuMethods = new HaikuMethods(haikuRepo);
+            HaikuController haikuCon = new HaikuController(haikugen, haikuMethods);
+            var expected = new List<HaikuLine>();
+            var actual = haikuCon.GetUnapprovedHaikuLines();
+            Assert.Equal(expected, actual.Value);            
+        }        
+
         /***********************************************
-         * Unit tests for UserController.cs follows...*
+         * Unit tests for UserController.cs follows... *
          ***********************************************/
 
         [Fact]//Controllers.UserController.cs
@@ -684,6 +713,21 @@ namespace HaikuWriter.Tests
             var actual = actionUser.Value.Email;
             Assert.Equal(expected, actual);
         }
+
+        /***********************************************
+         * Unit tests for UserRepo.cs follows...       *
+         ***********************************************/
+
+        [Fact]//Repository.UserRepo.cs
+        public void UserRepoTest()
+        {
+            HaikuDbContext hContext = new HaikuDbContext(testOptions);
+            UserRepo userrepo = new UserRepo(hContext);
+            var expected = false;
+            var actual = userrepo.UserExists("Jake");
+            Assert.Equal(expected, actual);
+        }
+
 
         
     }

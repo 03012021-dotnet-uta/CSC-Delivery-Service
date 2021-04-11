@@ -1,14 +1,13 @@
 <p>login works!</p>
 
 <div>
-    <form class="signup"  >
+    <form #loginform="ngForm" (ngSubmit)="onSubmit(loginform)" class="login" >
         <label for="username">Username:</label>
         <input type="text"  placeholder="Username" name="username" [(ngModel)]="username"><br>;
         
         <label for="password">Password:</label>
         <input type="password"  placeholder="Password" name="password" [(ngModel)]="password"><br>;
        
-
-        <input type="submit" value="Login" (click)=login()>
+        <input type="submit" value="Login">
       </form>
 </div>

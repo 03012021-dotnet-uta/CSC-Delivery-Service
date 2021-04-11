@@ -84,6 +84,14 @@ namespace BusinessLogic
             }
             return true;
         }
+
+        public User GetUser(string username){
+
+            User newuser = _userRepo.GetUserByUsername(username);
+
+            return newuser;
+
+        }
     }
 
 }

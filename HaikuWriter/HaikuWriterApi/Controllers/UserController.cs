@@ -38,5 +38,15 @@ namespace HaikuWriterApi.Controllers
             return newUser;
         } 
 
+        [HttpGet("getuserbyusername/{username}")]
+        public ActionResult<User> Getuser(string username){
+
+            
+            User newUser = _userMethods.GetUser(username);
+            Console.WriteLine("user: ", newUser.Email );
+            return newUser;
+        } 
+
+
     }
 }

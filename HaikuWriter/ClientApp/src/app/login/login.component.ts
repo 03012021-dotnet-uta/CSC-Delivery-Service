@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, FormGroup, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import {User} from '../models/user.model';
@@ -16,19 +16,28 @@ export class LoginComponent implements OnInit {
   username: string = "";
   password: string = "";
 
+
   constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
 
   }
 
-  login(){
+  onSubmit(form: NgForm){
     this.userService.login(this.username, this.password)
       .subscribe(
         res => {
-
-          console.log("success");
-          this.router.navigateByUrl("/landingpage")
+          if(res != null){
+            console.log(res);
+            console.log("success");
+            localStorage.setItem('User', res.username);
+            this.router.navigateByUrl('/landingpage')
+            return;
+          }
+          else{
+            console.log("user not found");
+            form.reset();
+          }
         },
         err => {
           if (err.status === 422) {

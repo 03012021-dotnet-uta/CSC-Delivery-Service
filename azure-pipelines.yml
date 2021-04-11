@@ -34,6 +34,13 @@ steps:
     restoreSolution: '$(solution)'
 
 #SonarCloud Prepare
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'HaikuWriterSonarCloudConnection'
+    organization: 'g1haikuwriter-1'
+    scannerMode: 'MSBuild'
+    projectKey: 'G1HaikuWriter_P2_HaikuWriterGroup'
+    projectName: 'P2_HaikuWriterGroup'
 
 - task: DotNetCoreCLI@2
   inputs:
@@ -50,16 +57,16 @@ steps:
     testRunTitle: 'Dotnet tests running'
     workingDirectory: 'HaikuWriter'
 
-# - task: PublishCodeCoverageResults@1
-#   inputs:
-#     codeCoverageTool: 'Cobertura'
-#     summaryFileLocation: '**/coburtura/coverage.xml'
+- task: PublishCodeCoverageResults@1
+  inputs:
+    codeCoverageTool: 'Cobertura'
+    summaryFileLocation: '**/coburtura/coverage.xml'
 
-# - task: SonarCloudAnalyze@1
+- task: SonarCloudAnalyze@1
 
-# - task: SonarCloudPublish@1
-#   inputs:
-#     pollingTimeoutSec: '300'
+- task: SonarCloudPublish@1
+  inputs:
+    pollingTimeoutSec: '300'
 
 - task: DotNetCoreCLI@2
   inputs:

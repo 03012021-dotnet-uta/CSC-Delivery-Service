@@ -44,6 +44,7 @@ Stretch Goals:
 * Add Reactions to haikus (ex. Likes, dislikes, etc)
 * Add Dictionary Api to automate syllable-checking
 * Adding AI to check for inappropriate and disparaging context
+* Use JWT Authentication
 
 3rd Party API:
   https://www.shareapi.com/

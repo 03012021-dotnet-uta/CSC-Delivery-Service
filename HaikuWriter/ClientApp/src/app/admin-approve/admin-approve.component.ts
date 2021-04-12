@@ -20,9 +20,32 @@ export class AdminApproveComponent implements OnInit {
   }
 
   GetUnapprovedHaikuLines(): void {
-    this.haikuService.GetUnapprovedHaikuLines().subscribe(res => this.haikulines = res)
+    this.haikuService.GetUnapprovedHaikuLines().subscribe(res => {
+      this.haikulines = res;
+      console.log(res)}
+      )
   }
   GetUnapprovedHaikus(): void {
     this.haikuService.GetUnapprovedHaikus().subscribe(res => this.haikus = res)
+  }
+  ApproveHaikuLine(hlid: number): void{
+    this.haikuService.ApproveHaikuLine(hlid).subscribe(res => {
+      res;
+      console.log(res);
+      this.ngOnInit();
+    });
+  }
+  DeleteHaikuLine(hlid: number): void{
+    this.haikuService.DeleteHaikuLine(hlid).subscribe(res => {
+      res;
+      console.log(res);
+      this.ngOnInit();
+    });
+  }
+  ApproveHaiku(): void{
+    
+  }
+  DeleteHaiku(): void{
+    
   }
 }

@@ -72,5 +72,31 @@ namespace HaikuWriterApi.Controllers
             return haikuList;
         }
 
+        /// <summary>
+        /// Haiku Controller Route that will take in an haiku line id
+        /// will send back approval status
+        /// </summary>
+        /// <param name="hlid"></param>
+        /// <returns></returns>
+        [HttpPost("approveHaikuLine")]
+        public ActionResult<bool> ApproveHaikuLine([FromBody] int hlid)
+        {
+            bool haikuLineApproval = _haikuMethod.ApproveHaikuLine(hlid);
+            return haikuLineApproval;
+        }
+
+        /// <summary>
+        /// Haiku Controller Route that will take in a haiku line id and
+        /// pass a request to delete from the database
+        /// </summary>
+        /// <param name="hlid"></param>
+        /// <returns></returns>
+        [HttpPost("deleteHaikuLine")]
+        public ActionResult<bool> DeleteHaikuLine([FromBody] int hlid)
+        {
+            bool deletionSuccessful = _haikuMethod.DeleteHaikuLine(hlid);
+            return deletionSuccessful;
+        }
+
     }
 }

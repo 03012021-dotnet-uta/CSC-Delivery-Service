@@ -4,6 +4,9 @@
     <ol>
       <li *ngFor="let hl of haikulines">
         Haiku Line: {{hl.line}} - - Author: {{hl.username}}
+        Haiku Id: {{hl.haikuLineId}}
+        <button (click)="ApproveHaikuLine(hl.haikuLineId)">Approve</button>
+        <button (click)="DeleteHaikuLine(hl.haikuLineId)">Delete</button>
       </li>
     </ol>
   </div>
@@ -12,6 +15,8 @@
   <ol>
     <li *ngFor="let h of haikus">
       Haiku Approved: {{h.approved}} - - Author: {{h.username}}
+      <button>Approve</button>
+      <button>Delete</button>
     </li>
   </ol>
 </div>

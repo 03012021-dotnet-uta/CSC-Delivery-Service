@@ -87,5 +87,43 @@ namespace Repository
                                                     .Where(h => h.Approved == false).ToList();
             return haikus;
         }
+
+        /// <summary>
+        /// Method that will query the database for the haiku line that matches the id sent
+        /// Then will change the approval status to true and send back the haiku's approval status
+        /// </summary>
+        /// <param name="hlid"></param>
+        /// <returns></returns>
+        public bool ApproveHaikuLine(int hlid){
+            HaikuLine haikuLine = _dbContext.HaikuLines.Where(hl=> hl.HaikuLineId == hlid).FirstOrDefault();
+            haikuLine.Approved = true;
+            _dbContext.SaveChanges();
+            bool haikuLineApproval = _dbContext.HaikuLines.Where(h1 => h1.HaikuLineId == hlid).FirstOrDefault().Approved;
+
+            return haikuLineApproval;
+        }
+
+        /// <summary>
+        /// This method will query the database for the haiku line by given id and then delete it from the 
+        /// database. If the operation was successful, return true
+        /// </summary>
+        /// <param name="hlid"></param>
+        /// <returns></returns>
+        public bool DeleteHaikuLine(int hlid)
+        {
+            bool deletionSuccessful = false;
+
+            HaikuLine haikuLine = _dbContext.HaikuLines.Where(hl=> hl.HaikuLineId == hlid).FirstOrDefault();
+            _dbContext.HaikuLines.Remove(haikuLine);
+            _dbContext.SaveChanges();
+            haikuLine = _dbContext.HaikuLines.Where(hl=> hl.HaikuLineId == hlid).FirstOrDefault();
+            
+            if(haikuLine == null)
+            {
+                deletionSuccessful = true;
+            }
+            
+            return deletionSuccessful;
+        }
     }
 }

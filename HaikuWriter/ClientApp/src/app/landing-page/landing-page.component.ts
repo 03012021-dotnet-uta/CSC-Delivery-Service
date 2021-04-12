@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
+import {HaikuService} from '../service/haiku.service';
 import {UserService} from '../service/user.service';
 import {User} from '../models/user.model';
+import { Haiku } from '../models/haiku.model';
+import { GenHaiku} from '../models/gen-haiku.model';
 
 @Component({
   selector: 'app-landing-page',
@@ -11,12 +14,18 @@ import {User} from '../models/user.model';
 })
 export class LandingPageComponent implements OnInit {
 
+  haiku!: Haiku;
+  haikuDTO!: GenHaiku;
+
   constructor(private router: Router,
     private userService: UserService,
-     private route: ActivatedRoute) { }
+    private haikuService: HaikuService,
+    private route: ActivatedRoute) { }
   
      user = new User(" ", " ", " ", " ", " ", " ", " ", true);
-  //uname: string = "";
+    //uname: string = "";
+    writeHaikuSuccess = false;
+
   ngOnInit(): void {
     //const username = this.route.snapshot.paramMap.get("username")
     const username = localStorage.getItem('User')
@@ -50,17 +59,22 @@ export class LandingPageComponent implements OnInit {
   }
 
 
-  writeHaiku(){
-    
+  // WriteHaiku(username: string){
+  //   this.haikuService.WriteHaiku(username)
+  //     .subscribe(
+  //       res => {
+
+  //       }
+  //     )
+  // }
+
+  GeneHaiku(): void{
+    this.haikuService.GeneHaiku().subscribe(res => this.haikuDTO = res)
   }
 
-  geneHaiku(){
+  // toForum(){
 
-  }
-
-  toForum(){
-
-  }
+  // }
 
   logout(){
     localStorage.clear();

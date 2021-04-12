@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { UserSettingsComponent } from './user-settings/user-settings.component';
 import { SignupComponent } from './signup/signup.component';
 import { AdminApproveComponent } from './admin-approve/admin-approve.component';
+import { HaikuDetailsComponent } from './haiku-details/haiku-details.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AdminApproveComponent } from './admin-approve/admin-approve.component';
     ThreadPageComponent,
     UserSettingsComponent,
     SignupComponent,
-    AdminApproveComponent
+    AdminApproveComponent,
+    HaikuDetailsComponent
   ],
   imports: [
     BrowserModule,

@@ -5,7 +5,12 @@
 
 <button (click)="logout()">Logout</button>
 
-<button (click)="writeHaiku()">Write Haiku</button>
-<button (click)="geneHaiku()">Generate Haiku</button>
-<button (click)="toForum()">Forum </button>
+<!-- <button (click)="writeHaiku()">Write Haiku</button> -->
+<button (click)="GeneHaiku()">Generate Haiku</button>
+<div *ngIf="haikuDTO">
+    {{haikuDTO.haikuline1}}<br>
+    {{haikuDTO.haikuline2}}<br>
+    {{haikuDTO.haikuline3}}
+</div>
+<!-- <button (click)="toForum()">Forum </button> -->
 

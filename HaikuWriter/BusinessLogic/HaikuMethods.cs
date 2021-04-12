@@ -18,6 +18,12 @@ namespace BusinessLogic
             List<HaikuLine> haikulines = _repolayer.GetUnapprovedHaikuLines();
             return haikulines;
         }
+
+        public List<Haiku> GetUnapprovedHaikus()
+        {
+            List<Haiku> haikus = _repolayer.GetUnapprovedHaikus();
+            return haikus;
+        }
         
     }
 }

@@ -66,11 +66,26 @@ namespace Repository
             }
         }
 
+        /// <summary>
+        /// method that queries the database for a list of unapproved haikulines
+        /// </summary>
+        /// <returns></returns>
         public List<HaikuLine> GetUnapprovedHaikuLines()
         {
             List<HaikuLine> haikuLines = _dbContext.HaikuLines
                                                     .Where(hl => hl.Approved == false).ToList();
             return haikuLines;
+        }
+
+        /// <summary>
+        /// Method that quieries the database for a list of unapporved haikus
+        /// </summary>
+        /// <returns></returns>
+        public List<Haiku> GetUnapprovedHaikus()
+        {
+            List<Haiku> haikus = _dbContext.Haikus
+                                                    .Where(h => h.Approved == false).ToList();
+            return haikus;
         }
     }
 }

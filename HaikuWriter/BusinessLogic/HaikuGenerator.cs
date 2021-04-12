@@ -1,6 +1,7 @@
 using Repository;
 using Models;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace BusinessLogic
 {
@@ -35,7 +36,8 @@ namespace BusinessLogic
             string username = GetUsername(Line1, Line2, Line3);
 
             // set haiku lines for haiku DTO
-            HaikuDTO generatedHaiku = new HaikuDTO{
+            HaikuDTO generatedHaiku = new HaikuDTO
+            {
                 haikuline1 = Line1.Line,
                 haikuline2 = Line2.Line,
                 haikuline3 = Line3.Line,
@@ -57,17 +59,16 @@ namespace BusinessLogic
         public string GetTags(HaikuLine hl, HaikuLine hl2, HaikuLine hl3)
         {
             List<string> tagholder = CombineTags(hl, hl2, hl3);
+            List<string> uniquetagholder = tagholder.Distinct().ToList();
             string tags = "";
-            string prevTag = "";
 
             //compare tags 
-            foreach(string tag in tagholder)
+            foreach (string tag in uniquetagholder)
             {
-                if(!tag.Contains(prevTag)){
-                    tags += tag + " ";
-                }
+                System.Console.WriteLine(tag);
+                tags += tag + " ";
             }
-
+            tags = tags.Trim();
             return tags;
         }
 
@@ -79,7 +80,12 @@ namespace BusinessLogic
         /// <returns></returns>
         public string[] SplitTags(HaikuLine hl)
         {
-            string[] tags = hl.Line.Split(' ');
+            string[] tags = hl.Tags.Split(' ');
+            System.Console.WriteLine("Split tag");
+            foreach (string tag in tags)
+            {
+                System.Console.WriteLine(tag);
+            }
             return tags;
         }
 
@@ -100,19 +106,23 @@ namespace BusinessLogic
             string[] t2 = SplitTags(hl2);
             string[] t3 = SplitTags(hl3);
 
-            foreach(string tag in t1)
+            foreach (string tag in t1)
             {
                 tags.Add(tag);
             }
-            foreach(string tag in t2)
+            foreach (string tag in t2)
             {
                 tags.Add(tag);
             }
-            foreach(string tag in t3)
+            foreach (string tag in t3)
             {
                 tags.Add(tag);
             }
-
+            System.Console.WriteLine("Combine tags: ");
+            foreach (string tag in tags)
+            {
+                System.Console.WriteLine(tag);
+            }
             return tags;
         }
 
@@ -130,12 +140,13 @@ namespace BusinessLogic
             string username1 = hl.Username;
             string username2 = hl2.Username;
             string username3 = hl3.Username;
-            
+
             username = username1;
-            if(!username1.Equals(username2)){
+            if (!username1.Equals(username2))
+            {
                 username += " " + username2;
             }
-            if(!username3.Equals(username1) && !username3.Equals(username2))
+            if (!username3.Equals(username1) && !username3.Equals(username2))
             {
                 username += " " + username3;
             }

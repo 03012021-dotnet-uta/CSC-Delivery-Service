@@ -69,7 +69,12 @@ export class LandingPageComponent implements OnInit {
   // }
 
   GeneHaiku(): void{
-    this.haikuService.GeneHaiku().subscribe(res => this.haikuDTO = res)
+    this.haikuService.GeneHaiku()
+    .subscribe(res => {
+      this.haikuDTO = res;
+      console.log(res);
+      }
+    );
   }
 
   // toForum(){

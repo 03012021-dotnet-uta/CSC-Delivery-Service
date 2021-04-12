@@ -40,7 +40,13 @@ namespace Repository
 
         public HaikuLine GetHaiku7()
         {
-
+            Random random = new Random();
+            int numrows = _dbContext.HaikuLines.Where(h => h.Syllable == 7).Select(h => h.HaikuLineId).Count();
+            var rand = random.Next(numrows);
+            var line = _dbContext.HaikuLines.Where(h => h.Syllable == 7).OrderBy(h => h.HaikuLineId).Skip(rand).Take(1).First();
+            if(line.Syllable == 7){
+                return line;
+            }
             return null;
         }
         public HaikuLine GetHaiku5(HaikuLine alreadyUsed)

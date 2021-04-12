@@ -20,10 +20,10 @@ namespace HaikuWriter.Tests
     public class UnitTests
     {
         // **Database Context**
-        DbContextOptions<HaikuDbContext> testOptions = new DbContextOptionsBuilder<HaikuDbContext>()
+        static DbContextOptions<HaikuDbContext> testOptions = new DbContextOptionsBuilder<HaikuDbContext>()
              .UseInMemoryDatabase(databaseName: "TestDb")
              .Options;
-         
+        HaikuDbContext hContext = new HaikuDbContext(testOptions);
 
         /*********************************************
          * Unit tests for User.cs follows...         *
@@ -558,7 +558,6 @@ namespace HaikuWriter.Tests
         [Fact]//HaikuGenerator.cs
         public void HaikuGeneratorTest1()
         {
-            HaikuDbContext hContext = new HaikuDbContext(testOptions);
             HaikuRepo haikurepo = new HaikuRepo(hContext);
             HaikuGenerator haikugen = new HaikuGenerator(haikurepo);
             HaikuLine line1 = new HaikuLine();
@@ -580,7 +579,6 @@ namespace HaikuWriter.Tests
         [Fact]//HaikuGenerator.cs
         public void HaikuGeneratorTest2()
         {
-            HaikuDbContext hContext = new HaikuDbContext(testOptions);
             HaikuRepo haikurepo = new HaikuRepo(hContext);
             HaikuGenerator haikugen = new HaikuGenerator(haikurepo);
         }
@@ -651,9 +649,8 @@ namespace HaikuWriter.Tests
         public void HaikuControllerTest1()
         {
            
-            HaikuDbContext haikucon = new HaikuDbContext(testOptions);
-            HaikuRepo haikuRepo = new HaikuRepo(haikucon);
-            UserRepo userRepo = new UserRepo(haikucon);
+            HaikuRepo haikuRepo = new HaikuRepo(hContext);
+            UserRepo userRepo = new UserRepo(hContext);
             HaikuGenerator haikugen = new HaikuGenerator(haikuRepo);
             HaikuMethods haikuMethods = new HaikuMethods(haikuRepo);
             HaikuController haikuCon = new HaikuController(haikugen, haikuMethods);
@@ -665,9 +662,8 @@ namespace HaikuWriter.Tests
         public void HaikuControllerTest2()
         {
             
-            HaikuDbContext haikucon = new HaikuDbContext(testOptions);
-            HaikuRepo haikuRepo = new HaikuRepo(haikucon);
-            UserRepo userRepo = new UserRepo(haikucon);
+            HaikuRepo haikuRepo = new HaikuRepo(hContext);
+            UserRepo userRepo = new UserRepo(hContext);
             HaikuGenerator haikugen = new HaikuGenerator(haikuRepo);
             HaikuMethods haikuMethods = new HaikuMethods(haikuRepo);
             HaikuController haikuCon = new HaikuController(haikugen, haikuMethods);
@@ -680,15 +676,14 @@ namespace HaikuWriter.Tests
         public void HaikuControllerTest3()
         {
             
-            HaikuDbContext haikucon = new HaikuDbContext(testOptions);
-            HaikuRepo haikuRepo = new HaikuRepo(haikucon);
-            UserRepo userRepo = new UserRepo(haikucon);
+            HaikuRepo haikuRepo = new HaikuRepo(hContext);
+            UserRepo userRepo = new UserRepo(hContext);
             HaikuGenerator haikugen = new HaikuGenerator(haikuRepo);
             HaikuMethods haikuMethods = new HaikuMethods(haikuRepo);
             HaikuController haikuCon = new HaikuController(haikugen, haikuMethods);
-            var expected = new List<HaikuLine>();
-            var actual = haikuCon.GetUnapprovedHaikuLines();
-            Assert.Equal(expected, actual.Value);            
+            var expected = 1;
+            var actual = haikuCon.GetUnapprovedHaikuLines().Value.ToList().Count;
+            Assert.Equal(expected, actual);            
         }        
 
         /***********************************************
@@ -699,7 +694,6 @@ namespace HaikuWriter.Tests
         public void UserControllerTest1()
         {
             
-            HaikuDbContext hContext = new HaikuDbContext(testOptions);
             UserRepo userrepo = new UserRepo(hContext);
             UserMethods userMethods = new UserMethods(userrepo);
             UserController userController = new UserController(userMethods);
@@ -717,7 +711,6 @@ namespace HaikuWriter.Tests
         public void UserControllerTest2()
         {
             
-            HaikuDbContext hContext = new HaikuDbContext(testOptions);
             UserRepo userrepo = new UserRepo(hContext);
             UserMethods userMethods = new UserMethods(userrepo);
             UserController userController = new UserController(userMethods);
@@ -734,7 +727,6 @@ namespace HaikuWriter.Tests
         [Fact]//Repository.UserRepo.cs
         public void UserRepoTest()
         {
-            HaikuDbContext hContext = new HaikuDbContext(testOptions);
             UserRepo userrepo = new UserRepo(hContext);
             var expected = false;
             var actual = userrepo.UserExists("Jake");
@@ -758,5 +750,226 @@ namespace HaikuWriter.Tests
         //     Assert.Equal(expected, actual);
         //  }
         
+        [Fact]//Repository.HaikuRepo.cs
+        public void HaikuRepoTest1()
+        {
+            HaikuRepo haikurepo = new HaikuRepo(hContext);
+            HaikuLine haikuline = new HaikuLine();
+            haikuline.Line = "Coffee is my life";
+            haikuline.HaikuLineId = 1;
+            haikuline.Tags = "coffee life silly";
+            haikuline.Syllable = 5;
+            haikuline.Approved = false;
+            haikuline.Username = "Chris123";
+            RawUser rawuser = new RawUser();
+            rawuser.Username = "Chris123";
+            rawuser.FirstName = "Chris";
+            rawuser.LastName = "Larson";
+            rawuser.Password = "123haiku";
+            UserRepo userrepo = new UserRepo(hContext);
+            UserMethods usermethods = new UserMethods(userrepo);
+            User user = usermethods.UserRegister(rawuser);
+            haikuline.User = user;
+            var actual = haikurepo.SaveLine(haikuline).Username;
+            var expected = "Chris123";
+            Assert.Equal(expected, actual);
+
+           
+        }
+                [Fact]//Repository.HaikuRepo.cs
+        public void HaikuRepoTest2()
+        {
+            HaikuRepo haikurepo = new HaikuRepo(hContext);
+            HaikuLine haikuline = new HaikuLine();
+            haikuline.Line = "Why do we like this";
+            haikuline.HaikuLineId = 2;
+            haikuline.Tags = "silly";
+            haikuline.Syllable = 5;
+            haikuline.Approved = true;
+            haikuline.Username = "Chris123";
+            RawUser rawuser = new RawUser();
+            rawuser.Username = "Chris123";
+            rawuser.FirstName = "Chris";
+            rawuser.LastName = "Larson";
+            rawuser.Password = "123haiku";
+            UserRepo userrepo = new UserRepo(hContext);
+            UserMethods usermethods = new UserMethods(userrepo);
+            User user = usermethods.GetUser(rawuser.Username);
+            haikuline.User = user;
+            var actual = haikurepo.SaveLine(haikuline).Username;
+            var expected = "Chris123";
+            Assert.Equal(expected, actual);
+
+           
+        }
+
+        [Fact]//Repository.HaikuRepo.cs
+        public void HaikuRepoTest3()
+        {
+            HaikuRepo haikurepo = new HaikuRepo(hContext);
+            HaikuLine haikuline = new HaikuLine();
+            haikuline.Line = "I can not live without it";
+            haikuline.HaikuLineId = 3;
+            haikuline.Tags = "life silly";
+            haikuline.Syllable = 7;
+            haikuline.Approved = true;
+            haikuline.Username = "Chris123";
+            RawUser rawuser = new RawUser();
+            rawuser.Username = "Chris123";
+            rawuser.FirstName = "Chris";
+            rawuser.LastName = "Larson";
+            rawuser.Password = "123haiku";
+            UserRepo userrepo = new UserRepo(hContext);
+            UserMethods usermethods = new UserMethods(userrepo);
+            User user = usermethods.GetUser(rawuser.Username);
+            haikuline.User = user;
+            var actual = haikurepo.SaveLine(haikuline).Username;
+            var expected = "Chris123";
+            Assert.Equal(expected, actual);
+
+        }
+
+        [Fact]//Repository.HaikuRepo.cs
+        public void HaikuRepoTest4()
+        {
+            HaikuRepo haikurepo = new HaikuRepo(hContext);
+            HaikuLine haikuline = new HaikuLine();
+            haikuline.Line = "Must keep count of syllables";
+            haikuline.HaikuLineId = 4;
+            haikuline.Tags = "life silly";
+            haikuline.Syllable = 7;
+            haikuline.Approved = true;
+            haikuline.Username = "Chris123";
+            RawUser rawuser = new RawUser();
+            rawuser.Username = "Chris123";
+            rawuser.FirstName = "Chris";
+            rawuser.LastName = "Larson";
+            rawuser.Password = "123haiku";
+            UserRepo userrepo = new UserRepo(hContext);
+            UserMethods usermethods = new UserMethods(userrepo);
+            User user = usermethods.GetUser(rawuser.Username);
+            haikuline.User = user;
+            var actual = haikurepo.SaveLine(haikuline).Username;
+            var expected = "Chris123";
+            Assert.Equal(expected, actual);
+
+        }
+        
+
+        [Fact]//Repository.HaikuRepo.cs
+        public void HaikuRepoTest5()
+        {
+            HaikuRepo haikurepo = new HaikuRepo(hContext);
+            HaikuLine haikuline = new HaikuLine();
+            haikuline.Line = "Sleep is for the weak";
+            haikuline.HaikuLineId = 5;
+            haikuline.Tags = "sleep life silly";
+            haikuline.Syllable = 5;
+            haikuline.Approved = true;
+            haikuline.Username = "Chris123";
+            RawUser rawuser = new RawUser();
+            rawuser.Username = "Chris123";
+            rawuser.FirstName = "Chris";
+            rawuser.LastName = "Larson";
+            rawuser.Password = "123haiku";
+            UserRepo userrepo = new UserRepo(hContext);
+            UserMethods usermethods = new UserMethods(userrepo);
+            User user = usermethods.GetUser(rawuser.Username);
+            haikuline.User = user;
+            var actual = haikurepo.SaveLine(haikuline).Username;
+            var expected = "Chris123";
+            Assert.Equal(expected, actual);
+
+        }
+
+        [Fact]//Repository.HaikuRepo.cs
+        public void HaikuRepoTest6()
+        {
+            HaikuRepo haikurepo = new HaikuRepo(hContext);
+            HaikuLine haikuline = new HaikuLine();
+            haikuline.Line = "But don't try too hard";
+            haikuline.HaikuLineId = 6;
+            haikuline.Tags = "sleep life silly";
+            haikuline.Syllable = 5;
+            haikuline.Approved = true;
+            haikuline.Username = "Chris123";
+            RawUser rawuser = new RawUser();
+            rawuser.Username = "Chris123";
+            rawuser.FirstName = "Chris";
+            rawuser.LastName = "Larson";
+            rawuser.Password = "123haiku";
+            UserRepo userrepo = new UserRepo(hContext);
+            UserMethods usermethods = new UserMethods(userrepo);
+            User user = usermethods.GetUser(rawuser.Username);
+            haikuline.User = user;
+            var actual = haikurepo.SaveLine(haikuline).Username;
+            var expected = "Chris123";
+            Assert.Equal(expected, actual);
+
+        }        
+        
+        [Fact]//Repository.HaikuRepo.cs
+        public void HaikuRepoTest10()
+        {
+            HaikuRepo haikurepo = new HaikuRepo(hContext);
+            HaikuLine haikuline = new HaikuLine();
+            haikuline.Line = "It is so broken";
+            haikuline.HaikuLineId = 7;
+            haikuline.Tags = "sleep life silly";
+            haikuline.Syllable = 5;
+            haikuline.Approved = true;
+            haikuline.Username = "Chris123";
+            RawUser rawuser = new RawUser();
+            rawuser.Username = "Chris123";
+            rawuser.FirstName = "Chris";
+            rawuser.LastName = "Larson";
+            rawuser.Password = "123haiku";
+            UserRepo userrepo = new UserRepo(hContext);
+            UserMethods usermethods = new UserMethods(userrepo);
+            User user = usermethods.GetUser(rawuser.Username);
+            haikuline.User = user;
+            var actual = haikurepo.SaveLine(haikuline).Username;
+            var expected = "Chris123";
+            Assert.Equal(expected, actual);
+
+        }
+
+
+
+
+        [Fact]//Repository.HaikuRepo.cs
+        public void HaikuRepoTest7()
+        {
+            HaikuRepo haikurepo = new HaikuRepo(hContext);
+            HaikuLine haikuline = haikurepo.GetHaiku5();
+            var expected = 5;
+            var actual = haikuline.Syllable;
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]//Repository.HaikuRepo.cs
+        public void HaikuRepoTest8()
+        {
+            HaikuRepo haikurepo = new HaikuRepo(hContext);
+            HaikuLine haikuline = haikurepo.GetHaiku7();
+            var expected = 7;
+            var actual = haikuline.Syllable;
+            Assert.Equal(expected, actual);
+        }
+
+        // [Fact]//Repository.HaikuRepo.cs
+        // public void HaikuRepoTest9()
+        // {
+        //     HaikuRepo haikurepo = new HaikuRepo(hContext);
+        //     HaikuLine haikuline = haikurepo.GetHaiku5();
+        //     HaikuLine haikuline2 = haikurepo.GetHaiku5(haikuline);
+        //     // var expected = 1;
+        //     // var actual = haikuline2.HaikuLineId;
+        //     // Assert.Equal(expected, actual);
+        //     var expected = 5;
+        //     var actual = haikuline2.Syllable;
+        //     Assert.Equal(expected, actual);
+            
+        // }
     }
 }

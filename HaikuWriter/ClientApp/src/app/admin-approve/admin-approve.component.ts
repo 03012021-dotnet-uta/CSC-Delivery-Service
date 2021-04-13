@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 import { HaikuLine} from '../models/haiku-line.model';
 import { Haiku } from '../models/haiku.model';
+import { User } from '../models/user.model';
 import { HaikuService} from '../service/haiku.service';
+import { UserService} from '../service/user.service';
 
 @Component({
   selector: 'app-admin-approve',
@@ -11,12 +14,34 @@ import { HaikuService} from '../service/haiku.service';
 export class AdminApproveComponent implements OnInit {
   haikulines: HaikuLine[] = [];
   haikus: Haiku[] =[];
+  user = new User(" ", " ", " ", " ", " ", " ", " ", false);
+  adminStatus = false;
 
-  constructor(private haikuService: HaikuService) { }
+  constructor(private haikuService: HaikuService, 
+              private userService: UserService,
+              private router: Router,
+              private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.GetUnapprovedHaikuLines();
-    this.GetUnapprovedHaikus();
+    const username = localStorage.getItem('User')
+    this.getUser(username);
+    this.adminStatus = this.user.adminStatus;
+    console.log(this.user.adminStatus);
+    console.log(this.user);
+    console.log("Admin approval" + username);
+    if(username ==null)
+    {
+      this.router.navigateByUrl('/login')
+    }
+    if(this.adminStatus == false)
+    {
+      this.router.navigateByUrl('/landingpage')
+    }
+    else{
+      this.GetUnapprovedHaikuLines();
+      this.GetUnapprovedHaikus();
+    }
+    
   }
 
   GetUnapprovedHaikuLines(): void {
@@ -59,5 +84,21 @@ export class AdminApproveComponent implements OnInit {
       console.log(res);
       this.ngOnInit();
     });
+  }
+  getUser(username: string | null){
+    this.userService.getUserByUserName(username)
+      .subscribe(
+        res => {
+          this.user = res;
+        },
+        err => {
+          if (err.status === 422) {
+            console.log("server serror");
+          }
+          else{
+            console.log("server error");
+          }
+        }
+    );
   }
 }

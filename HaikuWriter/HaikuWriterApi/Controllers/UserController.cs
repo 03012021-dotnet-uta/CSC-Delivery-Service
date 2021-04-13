@@ -47,9 +47,8 @@ namespace HaikuWriterApi.Controllers
         } 
 
         [HttpPost("updateuser")]
-        public ActionResult<User> UpdateUserInfo([FromBody] RawUser user){
+        public ActionResult<User> UpdateUserInfo(RawUser user){
 
-            Console.WriteLine(user.Email);
 
             User newUser = _userMethods.UpdateUserInfo(user);
             

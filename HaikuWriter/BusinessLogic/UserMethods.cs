@@ -42,7 +42,7 @@ namespace BusinessLogic
         public User UserLogin(string username, string password){
              //Console.WriteLine(" Here 12 " + username);
             if (!_userRepo.UserExists(username))
-            {   Console.WriteLine("user doesn't exists");
+            {   Console.WriteLine("user doesn't exists " + username);
                 return null;
             }
             else{

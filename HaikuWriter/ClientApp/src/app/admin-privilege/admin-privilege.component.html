@@ -1,1 +1,16 @@
-<p>admin-privilege works!</p>
+
+    <h2>Give An Admin Privilege</h2>
+    <label for="username">Choose an User:</label> &nbsp;
+    <select id="username" name="username" (change)="selectedUser()"> 
+      <option value="{{user.username}}" *ngFor="let user of userlist">
+          
+            {{user.username}}
+          
+        </option>
+    </select>
+<form #privilege="ngForm" (ngSubmit)="onSubmit(privilege)">
+    <label for="adminStatus">Admin Status</label>
+    <input type="checkbox" name="adminStatus" placeholder="{{newUser.adminStatus}}" ngModel>
+    <br>
+    <input type="submit">
+</form>

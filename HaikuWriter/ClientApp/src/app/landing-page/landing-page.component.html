@@ -1,6 +1,4 @@
-<p>landing-page works!</p>
 
-{{user.email}}
 <h1>Welcome {{user.firstName}}</h1>
 
 <button (click)="logout()">Logout</button>
@@ -18,11 +16,16 @@
 </div>
 <!-- <button (click)="toForum()">Forum </button> -->
 
-<ol>
-    <li *ngFor="let item of haikus">
-        {{item.haikuline1}}
+<ul>
+    <h3>List of Haikus</h3>
+    <li *ngFor="let h of haikus">
+        {{h.haikuLine1}}<br>
+        {{h.haikuLine2}}<br>
+        {{h.haikuLine3}}
+        <br><hr><br>
     </li>
-</ol>
+
+</ul>
 
 <div>
     <app-admin-privilege></app-admin-privilege>

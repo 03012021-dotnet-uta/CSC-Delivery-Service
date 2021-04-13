@@ -15,13 +15,7 @@ namespace Repository
 
         public User Register(User newUser)
         {
-            Console.WriteLine(newUser.Username);
-            Console.WriteLine(newUser.FirstName);
-            Console.WriteLine(newUser.LastName);
-            Console.WriteLine(newUser.MemberSince);
-            Console.WriteLine(newUser.PasswordSalt);
-            Console.WriteLine(newUser.FaceBookName);
-            Console.WriteLine(newUser.AdminStatus);
+            
             var newUser1 = _dbContext.Users.Add(newUser);// addd the new user to the Db
             _dbContext.SaveChanges();// save the change.
             return _dbContext.Users.FirstOrDefault(u => u.Username == newUser.Username);// default is null
@@ -37,7 +31,7 @@ namespace Repository
             }
             else
             {
-                
+
                 return false;
             }
         }
@@ -61,6 +55,7 @@ namespace Repository
             updatedUser.LastName = user.LastName;
             updatedUser.FaceBookName = user.FaceBookName;
             updatedUser.TwitterName = user.TwitterName;
+            updatedUser.AdminStatus = user.AdminStatus;
 
             _dbContext.SaveChanges();
             

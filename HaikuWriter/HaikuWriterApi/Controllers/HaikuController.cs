@@ -73,7 +73,6 @@ namespace HaikuWriterApi.Controllers
         }
 
         /// <summary>
-<<<<<<< HEAD
         /// Returns all the approved haikus 
         /// </summary>
         /// <returns></returns>
@@ -93,7 +92,6 @@ namespace HaikuWriterApi.Controllers
             return haikuList;
         }
 
-=======
         /// Haiku Controller Route that will take in an haiku line id
         /// will send back approval status
         /// </summary>
@@ -118,7 +116,6 @@ namespace HaikuWriterApi.Controllers
             bool deletionSuccessful = _haikuMethod.DeleteHaikuLine(hlid);
             return deletionSuccessful;
         }
->>>>>>> 47289d46fab8fa3f5fee40989c918b4803b725e0
 
     }
 }

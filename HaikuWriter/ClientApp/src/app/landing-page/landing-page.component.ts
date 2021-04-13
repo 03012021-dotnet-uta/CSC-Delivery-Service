@@ -22,7 +22,7 @@ export class LandingPageComponent implements OnInit {
     private haikuService: HaikuService,
     private route: ActivatedRoute) { }
   
-     user = new User(" ", " ", " ", " ", " ", " ", " ", true);
+     user = new User(" ", " ", " ", " ", " ", " ", " ", false);
 
     haikus?: Haiku[];
     writeHaikuSuccess = false;
@@ -43,7 +43,6 @@ export class LandingPageComponent implements OnInit {
   }
 
   getUser(username: string | null){
-   
     this.userService.getUserByUserName(username)
       .subscribe(
         res => {

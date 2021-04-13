@@ -35,13 +35,11 @@ namespace BusinessLogic
             return haikus;
         }
 
-<<<<<<< HEAD
         public List<Haiku> GetHaikus(){
             List<Haiku> haikus = _repolayer.GetHaikus();
             return haikus;
         }
         
-=======
         /// <summary>
         /// Method will pass haikuline id to repolayer to update approval status
         /// </summary>
@@ -69,6 +67,5 @@ namespace BusinessLogic
 
         // }
 
->>>>>>> 47289d46fab8fa3f5fee40989c918b4803b725e0
     }
 }

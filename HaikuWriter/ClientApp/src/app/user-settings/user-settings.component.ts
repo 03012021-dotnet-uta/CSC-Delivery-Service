@@ -12,7 +12,7 @@ import {UserService} from '../service/user.service';
 })
 export class UserSettingsComponent implements OnInit {
 
-  user = new User(" ", " ", " ", " ", " ", " ", " ", true);
+  user = new User(" ", " ", " ", " ", " ", " ", " ", false);
   constructor(private userService: UserService, private router: Router) { }
 
   //  password: string = "";

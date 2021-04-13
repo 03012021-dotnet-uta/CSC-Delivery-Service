@@ -6,14 +6,15 @@
 <button (click)="logout()">Logout</button>
 
 <!-- <button (click)="writeHaiku()">Write Haiku</button> -->
+
 <button (click)="GeneHaiku()">Generate Haiku</button>
 
 <a href="/usersettings">Settings</a>
 
 <div *ngIf="haikuDTO">
-    {{haikuDTO.haikuline1}}<br>
-    {{haikuDTO.haikuline2}}<br>
-    {{haikuDTO.haikuline3}}
+    {{haikuDTO.haikuLine1}}<br>
+    {{haikuDTO.haikuLine2}}<br>
+    {{haikuDTO.haikuLine3}}
 </div>
 <!-- <button (click)="toForum()">Forum </button> -->
 

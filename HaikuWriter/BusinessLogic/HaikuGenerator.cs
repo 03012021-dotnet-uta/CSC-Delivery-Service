@@ -38,9 +38,9 @@ namespace BusinessLogic
             // set haiku lines for haiku DTO
             HaikuDTO generatedHaiku = new HaikuDTO
             {
-                haikuline1 = Line1.Line,
-                haikuline2 = Line2.Line,
-                haikuline3 = Line3.Line,
+                haikuLine1 = Line1.Line,
+                haikuLine2 = Line2.Line,
+                haikuLine3 = Line3.Line,
                 tags = tags,
                 username = username
             };

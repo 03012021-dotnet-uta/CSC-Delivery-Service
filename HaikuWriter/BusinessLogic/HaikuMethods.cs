@@ -35,13 +35,11 @@ namespace BusinessLogic
             return haikus;
         }
 
-<<<<<<< HEAD
         public List<Haiku> GetHaikus(){
             List<Haiku> haikus = _repolayer.GetHaikus();
             return haikus;
         }
         
-=======
         /// <summary>
         /// Method will pass haikuline id to repolayer to update approval status
         /// </summary>
@@ -50,6 +48,17 @@ namespace BusinessLogic
         public bool ApproveHaikuLine(int hlid)
         {
             bool haikuLineApproval = _repolayer.ApproveHaikuLine(hlid);
+            return haikuLineApproval;
+        }
+
+        /// <summary>
+        /// Method to pass request to approve a haiku given haiku id
+        /// </summary>
+        /// <param name="hlid"></param>
+        /// <returns></returns>
+        public bool ApproveHaiku(int hlid)
+        {
+            bool haikuLineApproval = _repolayer.ApproveHaiku(hlid);
             return haikuLineApproval;
         }
 
@@ -64,11 +73,17 @@ namespace BusinessLogic
             return deletionSuccessful;
         }
 
-        // public bool DeleteHaiku(int hid)
-        // {
+        /// <summary>
+        /// Method will pass request to the repolayer to delete a haiku from the db
+        /// </summary>
+        /// <param name="hid"></param>
+        /// <returns></returns>
+        public bool DeleteHaiku(int hid)
+        {
+            System.Console.Write("made it to methods");
+            bool deletionSuccessful = _repolayer.DeleteHaiku(hid);
+            return deletionSuccessful;
+        }
 
-        // }
-
->>>>>>> 47289d46fab8fa3f5fee40989c918b4803b725e0
     }
 }

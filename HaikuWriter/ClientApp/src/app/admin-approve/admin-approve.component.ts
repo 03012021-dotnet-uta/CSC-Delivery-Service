@@ -45,10 +45,19 @@ export class AdminApproveComponent implements OnInit {
       this.ngOnInit();
     });
   }
-  ApproveHaiku(): void{
-    
+  ApproveHaiku(hid: number): void{
+    this.haikuService.ApproveHaiku(hid).subscribe(res => {
+      res;
+      console.log(res);
+      this.ngOnInit();
+    });
   }
-  DeleteHaiku(): void{
-    
+  DeleteHaiku(hid: number): void{
+    console.log(hid);
+    this.haikuService.DeleteHaiku(hid).subscribe(res => {
+      res;
+      console.log(res);
+      this.ngOnInit();
+    });
   }
 }

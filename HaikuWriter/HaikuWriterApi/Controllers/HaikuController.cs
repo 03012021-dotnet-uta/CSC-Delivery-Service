@@ -16,17 +16,20 @@ namespace HaikuWriterApi.Controllers
         private readonly HaikuGenerator _haukuGenerator;
         private readonly HaikuMethods _haikuMethod;
 
-        public HaikuController(HaikuGenerator haukuGenerator, HaikuMethods haikuMethod){
+        public HaikuController(HaikuGenerator haukuGenerator, HaikuMethods haikuMethod)
+        {
             _haukuGenerator = haukuGenerator;
             _haikuMethod = haikuMethod;
         }
 
         [HttpGet]
-        public ActionResult<string> getone(){
-            
+        public ActionResult<string> getone()
+        {
+
             return "one two three";
-        } 
-        public string GetOne(){
+        }
+        public string GetOne()
+        {
             return "one two three";
         }
 
@@ -73,7 +76,6 @@ namespace HaikuWriterApi.Controllers
         }
 
         /// <summary>
-<<<<<<< HEAD
         /// Returns all the approved haikus 
         /// </summary>
         /// <returns></returns>
@@ -93,7 +95,6 @@ namespace HaikuWriterApi.Controllers
             return haikuList;
         }
 
-=======
         /// Haiku Controller Route that will take in an haiku line id
         /// will send back approval status
         /// </summary>
@@ -103,6 +104,13 @@ namespace HaikuWriterApi.Controllers
         public ActionResult<bool> ApproveHaikuLine([FromBody] int hlid)
         {
             bool haikuLineApproval = _haikuMethod.ApproveHaikuLine(hlid);
+            return haikuLineApproval;
+        }
+
+        [HttpPost("approveHaiku")]
+        public ActionResult<bool> ApproveHaiku([FromBody] int hlid)
+        {
+            bool haikuLineApproval = _haikuMethod.ApproveHaiku(hlid);
             return haikuLineApproval;
         }
 
@@ -118,7 +126,18 @@ namespace HaikuWriterApi.Controllers
             bool deletionSuccessful = _haikuMethod.DeleteHaikuLine(hlid);
             return deletionSuccessful;
         }
->>>>>>> 47289d46fab8fa3f5fee40989c918b4803b725e0
+
+        /// <summary>
+        /// Haiku Controller that will pass a request along to delete a haiku
+        /// </summary>
+        /// <param name="hlid"></param>
+        /// <returns></returns>
+        [HttpPost("deleteHaiku")]
+        public ActionResult<bool> DeleteHaiku([FromBody] int hlid)
+        {
+            bool deletionSuccessful = _haikuMethod.DeleteHaiku(hlid);
+            return deletionSuccessful;
+        }
 
     }
 }

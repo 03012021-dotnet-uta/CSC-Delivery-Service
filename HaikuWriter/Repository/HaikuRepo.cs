@@ -9,7 +9,8 @@ namespace Repository
     {
         private readonly HaikuDbContext _dbContext;
 
-         public HaikuRepo(HaikuDbContext context){
+        public HaikuRepo(HaikuDbContext context)
+        {
             this._dbContext = context;
         }
 
@@ -32,7 +33,8 @@ namespace Repository
             int numrows = _dbContext.HaikuLines.Where(h => h.Syllable == 5).Select(h => h.HaikuLineId).Count();
             var rand = random.Next(numrows);
             var line = _dbContext.HaikuLines.Where(h => h.Syllable == 5).OrderBy(h => h.HaikuLineId).Skip(rand).Take(1).First();
-            if(line.Syllable == 5){
+            if (line.Syllable == 5)
+            {
                 return line;
             }
             return null;
@@ -44,25 +46,29 @@ namespace Repository
             int numrows = _dbContext.HaikuLines.Where(h => h.Syllable == 7).Select(h => h.HaikuLineId).Count();
             var rand = random.Next(numrows);
             var line = _dbContext.HaikuLines.Where(h => h.Syllable == 7).OrderBy(h => h.HaikuLineId).Skip(rand).Take(1).First();
-            if(line.Syllable == 7){
+            if (line.Syllable == 7)
+            {
                 return line;
             }
             return null;
         }
         public HaikuLine GetHaiku5(HaikuLine alreadyUsed)
         {
-                 //get haiku line from DB
+            //get haiku line from DB
             HaikuLine newHaikuLine = GetHaiku5();
-            
-                //If the haikuline is not the same as the first line, return
-            if(newHaikuLine != alreadyUsed){
+
+            //If the haikuline is not the same as the first line, return
+            if (newHaikuLine != alreadyUsed)
+            {
                 return newHaikuLine; //Passes the new haiku line to the caller
-            }else{
+            }
+            else
+            {
                 //If the lines are the same, recursively call the method again
                 // It will check if the new line recieved is the same or not
                 // It will call the method again if they are the same again
                 // It will return here, if they are not the same.
-               return GetHaiku5(alreadyUsed);
+                return GetHaiku5(alreadyUsed);
             }
         }
 
@@ -102,11 +108,28 @@ namespace Repository
         /// </summary>
         /// <param name="hlid"></param>
         /// <returns></returns>
-        public bool ApproveHaikuLine(int hlid){
-            HaikuLine haikuLine = _dbContext.HaikuLines.Where(hl=> hl.HaikuLineId == hlid).FirstOrDefault();
+        public bool ApproveHaikuLine(int hlid)
+        {
+            HaikuLine haikuLine = _dbContext.HaikuLines.Where(hl => hl.HaikuLineId == hlid).FirstOrDefault();
             haikuLine.Approved = true;
             _dbContext.SaveChanges();
             bool haikuLineApproval = _dbContext.HaikuLines.Where(h1 => h1.HaikuLineId == hlid).FirstOrDefault().Approved;
+
+            return haikuLineApproval;
+        }
+
+        /// <summary>
+        /// Method will query the database for a haiku and then set the approval status
+        /// to true then return the approval vaule
+        /// </summary>
+        /// <param name="hlid"></param>
+        /// <returns></returns>
+        public bool ApproveHaiku(int hlid)
+        {
+            Haiku haiku = _dbContext.Haikus.Where(h => h.HaikuId == hlid).FirstOrDefault();
+            haiku.Approved = true;
+            _dbContext.SaveChanges();
+            bool haikuLineApproval = _dbContext.Haikus.Where(h => h.HaikuId == hlid).FirstOrDefault().Approved;
 
             return haikuLineApproval;
         }
@@ -121,38 +144,40 @@ namespace Repository
         {
             bool deletionSuccessful = false;
 
-            HaikuLine haikuLine = _dbContext.HaikuLines.Where(hl=> hl.HaikuLineId == hlid).FirstOrDefault();
+            HaikuLine haikuLine = _dbContext.HaikuLines.Where(hl => hl.HaikuLineId == hlid).FirstOrDefault();
             _dbContext.HaikuLines.Remove(haikuLine);
             _dbContext.SaveChanges();
-            haikuLine = _dbContext.HaikuLines.Where(hl=> hl.HaikuLineId == hlid).FirstOrDefault();
-            
-            if(haikuLine == null)
+            haikuLine = _dbContext.HaikuLines.Where(hl => hl.HaikuLineId == hlid).FirstOrDefault();
+
+            if (haikuLine == null)
             {
                 deletionSuccessful = true;
             }
-            
+
             return deletionSuccessful;
         }
 
         /// <summary>
         /// This method will query the database for a haiku by given haikuid and then delete it from the database
-        /// </summary>
+        /// /// </summary>
         /// <param name="hid"></param>
         /// <returns></returns>
         public bool DeleteHaiku(int hid)
         {
+            System.Console.Write("made it to repo");
+
             bool deletionSuccessful = false;
 
-            Haiku haiku = _dbContext.Haikus.Where(h=> h.HaikuId == hid).FirstOrDefault();
+            Haiku haiku = _dbContext.Haikus.Where(h => h.HaikuId == hid).FirstOrDefault();
             _dbContext.Haikus.Remove(haiku);
             _dbContext.SaveChanges();
-            haiku = _dbContext.Haikus.Where(h=> h.HaikuId == hid).FirstOrDefault();
-            
-            if(haiku == null)
+            haiku = _dbContext.Haikus.Where(h => h.HaikuId == hid).FirstOrDefault();
+
+            if (haiku == null)
             {
                 deletionSuccessful = true;
             }
-            
+
             return deletionSuccessful;
         }
 
@@ -161,7 +186,8 @@ namespace Repository
         /// </summary>
         /// <param name="hlid"></param>
         /// <returns></returns>
-        public HaikuLine GetHaikuLine(int hlid){
+        public HaikuLine GetHaikuLine(int hlid)
+        {
             HaikuLine hl = _dbContext.HaikuLines.Where(h => h.HaikuLineId == hlid).FirstOrDefault();
             return hl;
         }

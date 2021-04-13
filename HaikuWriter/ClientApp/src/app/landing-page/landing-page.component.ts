@@ -77,14 +77,9 @@ export class LandingPageComponent implements OnInit {
     );
   }
 
-  // WriteHaiku(username: string){
-  //   this.haikuService.WriteHaiku(username)
-  //     .subscribe(
-  //       res => {
-
-  //       }
-  //     )
-  // }
+  WriteHaiku(){
+    this.router.navigateByUrl('/writehaiku');
+  }
 
   GeneHaiku(): void{
     this.haikuService.GeneHaiku()

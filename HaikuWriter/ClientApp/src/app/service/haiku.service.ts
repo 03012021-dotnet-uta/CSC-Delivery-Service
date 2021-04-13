@@ -25,11 +25,9 @@ export class HaikuService {
   WriteHaiku(username: string): Observable<Haiku>{
     return this.http.post<Haiku>(`${this.queryString}writeHaiku`, username)
   }
-
   getAllHaikus(): Observable<Haiku[]> {
     return this.http.get<Haiku[]>(`${this.queryString}allhaikus`);
   }
-
   ApproveHaikuLine(hlid: number): Observable<boolean>{
     return this.http.post<boolean>(`${this.queryString}approveHaikuLine`, hlid);
   }
@@ -42,5 +40,13 @@ export class HaikuService {
   DeleteHaiku(hid: number): Observable<boolean>{
     console.log(hid);
     return this.http.post<boolean>(`${this.queryString}deleteHaiku`, hid);
+  }
+  SubmitHaikuLine(haikuline: HaikuLine): Observable<Haiku> {
+    console.log(haikuline);
+    return this.http.post<Haiku>(`${this.queryString}submitHaikuLine`, haikuline);
+  }
+  SubmitHaiku(haiku: Haiku): Observable<Haiku> {
+    console.log(haiku);
+    return this.http.post<Haiku>(`${this.queryString}submitHaiku`, haiku);
   }
 }

@@ -82,12 +82,13 @@ namespace HaikuWriterApi.Controllers
         [HttpGet("allhaikus")]
         public ActionResult<List<Haiku>> GetAllHaikus()
         {
-            
+
             List<Haiku> haikuList = _haikuMethod.GetHaikus();
-            if(haikuList == null){
+            if (haikuList == null)
+            {
                 Console.WriteLine("here");
             }
-            
+
             foreach (var item in haikuList)
             {
                 Console.WriteLine(item.Tags);
@@ -137,6 +138,55 @@ namespace HaikuWriterApi.Controllers
         {
             bool deletionSuccessful = _haikuMethod.DeleteHaiku(hlid);
             return deletionSuccessful;
+        }
+
+        /// <summary>
+        /// Haiku Controller route that will pass along a haiku to save to the database
+        /// to later be reviewed by an admin user
+        /// </summary>
+        /// <param name="haikuLine"></param>
+        /// <returns></returns>
+        [HttpPost("submitHaikuLine")]
+        public ActionResult<HaikuLine> SubmitHaikuLine([FromBody] RawHaikuLine haikuLine)
+        {
+
+            HaikuLine hl = new HaikuLine
+            {
+                Line = haikuLine.line,
+                Tags = haikuLine.tags,
+                Syllable = haikuLine.syllable,
+                Approved = false,
+                Username = haikuLine.username
+            };
+
+            HaikuLine newline = _haikuMethod.SubmitHaikuLine(hl);
+
+            return newline;
+        }
+
+        /// <summary>
+        /// Haiku Controller Route that will pass a haiku along to be saved to the database
+        /// to then be later reviewed by admin
+        /// </summary>
+        /// <param name="haiku"></param>
+        /// <returns></returns>
+        [HttpPost("submitHaiku")]
+        public ActionResult<Haiku> SubmitHaiku([FromBody] HaikuDTO haiku)
+        {
+
+            Haiku h = new Haiku
+            {
+                HaikuLine1 = haiku.haikuLine1,
+                HaikuLine2 = haiku.haikuLine2,
+                HaikuLine3 = haiku.haikuLine2,
+                Tags = haiku.tags,
+                Approved = false,
+                Username = haiku.username
+            };
+
+            Haiku newhaiku = _haikuMethod.SubmitHaiku(h);
+
+            return newhaiku;
         }
 
     }

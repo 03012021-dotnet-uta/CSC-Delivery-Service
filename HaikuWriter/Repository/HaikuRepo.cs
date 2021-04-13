@@ -14,6 +14,12 @@ namespace Repository
             this._dbContext = context;
         }
 
+        /// <summary>
+        /// This method will add a haiku line to the database and then return the
+        /// newly create haiku line back
+        /// </summary>
+        /// <param name="haikuline"></param>
+        /// <returns></returns>
         public HaikuLine SaveLine(HaikuLine haikuline)
         {
             var newLine = _dbContext.HaikuLines.Add(haikuline);//add the new line to the database

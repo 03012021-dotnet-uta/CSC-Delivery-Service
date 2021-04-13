@@ -46,10 +46,6 @@ namespace HaikuWriterApi
             services.AddScoped<UserRepo>();
             services.AddScoped<ForumMethods>();
             services.AddScoped<ForumRepo>();
-<<<<<<< HEAD
-
-=======
->>>>>>> 9116c9458201ba76e97719e84fd466694075ffef
 
             services.AddCors((option) =>
             {

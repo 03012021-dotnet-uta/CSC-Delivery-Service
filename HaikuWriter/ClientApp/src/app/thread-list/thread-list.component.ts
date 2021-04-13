@@ -42,14 +42,8 @@ export class ThreadListComponent implements OnInit {
        );                                                                                                                                                           
   }
   CreateThread(){
-<<<<<<< HEAD
     this.thread.username = localStorage.getItem("User");
     this.PostThread();
-=======
-    this.thread.username = localStorage.getItem('User');
-    this.PostThread(this.thread);
-    this.ThreadPage(this.thread.threadid);
->>>>>>> 9116c9458201ba76e97719e84fd466694075ffef
   }
   
   PostThread(){

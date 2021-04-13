@@ -31,10 +31,10 @@ namespace BusinessLogic
             return newthread;
         }
 
-        public Message NewMessage(Message message)
+        public List<Message> NewMessage(Message message)
         {
-            Message newmessage = _forumRepo.NewMessage(message);
-            return newmessage;
+            List<Message> newmessages = _forumRepo.NewMessage(message);
+            return newmessages;
         }
         
     }

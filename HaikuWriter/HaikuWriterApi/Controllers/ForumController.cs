@@ -9,7 +9,9 @@ using Models;
 
 namespace HaikuWriterApi.Controllers
 {
-    public class ForumController
+    [ApiController]
+    [Route("[controller]")]
+    public class ForumController : ControllerBase
     {
         private readonly ForumMethods _forumMethod;
 
@@ -41,10 +43,10 @@ namespace HaikuWriterApi.Controllers
         }
 
         [HttpPost("newmessage")]
-        public ActionResult<Message> NewMessage([FromBody] Message message)
+        public ActionResult<List<Message>> NewMessage([FromBody] Message message)
         {
-            Message newmessage = _forumMethod.NewMessage(message);
-            return newmessage;
+            List<Message> newmessages = _forumMethod.NewMessage(message);
+            return newmessages;
         }
     }
 }

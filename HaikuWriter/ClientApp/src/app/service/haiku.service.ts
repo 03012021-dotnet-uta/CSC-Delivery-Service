@@ -25,17 +25,9 @@ export class HaikuService {
   WriteHaiku(username: string): Observable<Haiku>{
     return this.http.post<Haiku>(`${this.queryString}writeHaiku`, username)
   }
-<<<<<<< HEAD
-
   getAllHaikus(): Observable<Haiku[]> {
     return this.http.get<Haiku[]>(`${this.queryString}allhaikus`);
   }
-
-=======
-  getAllHaikus(): Observable<Haiku[]> {
-    return this.http.get<Haiku[]>(`${this.queryString}allhaikus`);
-  }
->>>>>>> 55b9e15bf65853888265f23d213cf04bc4511436
   ApproveHaikuLine(hlid: number): Observable<boolean>{
     return this.http.post<boolean>(`${this.queryString}approveHaikuLine`, hlid);
   }

@@ -188,8 +188,6 @@ namespace HaikuWriterApi.Controllers
 
             return newhaiku;
         }
-<<<<<<< HEAD
-=======
 
         /// <summary>
         /// Haiku Controller Route that will pass a haiku down to repolayer to save it to 
@@ -215,7 +213,6 @@ namespace HaikuWriterApi.Controllers
 
             return saveSuccessful;
         }
->>>>>>> 98418dcafd462890907084ad51e5e163d8b8bb7b
 
     }
 }

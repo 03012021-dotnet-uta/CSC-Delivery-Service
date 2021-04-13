@@ -44,6 +44,9 @@ namespace HaikuWriterApi
             services.AddScoped<HaikuDbContext>();
             services.AddScoped<HaikuRepo>();
             services.AddScoped<UserRepo>();
+            services.AddScoped<ForumMethods>();
+            services.AddScoped<ForumRepo>();
+
 
             services.AddCors((option) =>
             {

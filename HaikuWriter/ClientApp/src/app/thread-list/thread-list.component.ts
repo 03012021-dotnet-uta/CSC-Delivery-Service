@@ -11,7 +11,7 @@ import { ThreadService } from '../service/thread.service';
 })
 export class ThreadListComponent implements OnInit {
   threads?: Thread[];
-  thread!: Thread;
+  thread = new Thread(0, "  ", "  ");
   constructor(private router: Router,
     private route: ActivatedRoute,
     private threadservice: ThreadService) { }
@@ -25,21 +25,32 @@ export class ThreadListComponent implements OnInit {
     this.router.navigateByUrl('/landingpage');
   }
   ThreadPage(threadid: number){
-    localStorage.setItem('thread', this.thread.threadid.toString());
+
+    localStorage.setItem('thread', threadid.toString());
+    // console.log(threadid);
     this.router.navigateByUrl('/thread');
   }
   //connect to a service to connect to C# side.
   GetThreads() {
-    this.threadservice.GetThreads().subscribe(res => this.threads = res);                                                                                                                                                           
+    this.threadservice.GetThreads().subscribe(
+      res =>{
+        this.threads = res
+        console.log(res) }
+       );                                                                                                                                                           
   }
-  CreateThread(username: string, threaddesc: string){
-    this.thread.description = threaddesc;
-    this.thread.username = username;
-    this.PostThread(this.thread);
-    this.ThreadPage(this.thread.threadid);
+  CreateThread(){
+    this.thread.username = localStorage.getItem("User");
+    this.PostThread();
   }
-  PostThread(thread: Thread){
-    this.threadservice.PostThread(this.thread).subscribe(res => this.thread = res);
+  
+  PostThread(){
+    this.threadservice.PostThread(this.thread).subscribe(res => {
+      this.thread = res
+      this.thread.threadId = res.threadId;
+      this.ThreadPage(this.thread.threadId);
+
+    });
+
     
   }
 }

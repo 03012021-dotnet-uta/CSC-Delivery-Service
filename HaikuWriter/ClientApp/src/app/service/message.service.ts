@@ -17,6 +17,7 @@ export class MessageService {
   }
 
   PostMessage(message: Message): Observable<Message[]>{
+    console.log(message)
     return this.http.post<Message[]>(`${this.queryString}newmessage`, message);
   }
 }

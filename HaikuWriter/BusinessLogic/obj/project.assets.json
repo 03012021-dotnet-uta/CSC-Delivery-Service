@@ -5742,19 +5742,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
       "projectUniqueName": "/Users/sagarluitel/revature/P2/P2_HaikuWriterGroup/HaikuWriter/BusinessLogic/BusinessLogic.csproj",
       "projectName": "BusinessLogic",
       "projectPath": "/Users/sagarluitel/revature/P2/P2_HaikuWriterGroup/HaikuWriter/BusinessLogic/BusinessLogic.csproj",
       "packagesPath": "/Users/sagarluitel/.nuget/packages/",
       "outputPath": "/Users/sagarluitel/revature/P2/P2_HaikuWriterGroup/HaikuWriter/BusinessLogic/obj/",
-=======
-      "projectUniqueName": "C:\\Users\\clche\\revature\\projects\\GroupProject_p2\\P2_HaikuWriterGroup\\HaikuWriter\\BusinessLogic\\BusinessLogic.csproj",
-      "projectName": "BusinessLogic",
-      "projectPath": "C:\\Users\\clche\\revature\\projects\\GroupProject_p2\\P2_HaikuWriterGroup\\HaikuWriter\\BusinessLogic\\BusinessLogic.csproj",
-      "packagesPath": "C:\\Users\\clche\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\clche\\revature\\projects\\GroupProject_p2\\P2_HaikuWriterGroup\\HaikuWriter\\BusinessLogic\\obj\\",
->>>>>>> 98418dcafd462890907084ad51e5e163d8b8bb7b
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/sagarluitel/.nuget/NuGet/NuGet.Config"
@@ -5769,19 +5761,11 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-<<<<<<< HEAD
             "/Users/sagarluitel/revature/P2/P2_HaikuWriterGroup/HaikuWriter/Models/Models.csproj": {
               "projectPath": "/Users/sagarluitel/revature/P2/P2_HaikuWriterGroup/HaikuWriter/Models/Models.csproj"
             },
             "/Users/sagarluitel/revature/P2/P2_HaikuWriterGroup/HaikuWriter/Repository/Repository.csproj": {
               "projectPath": "/Users/sagarluitel/revature/P2/P2_HaikuWriterGroup/HaikuWriter/Repository/Repository.csproj"
-=======
-            "C:\\Users\\clche\\revature\\projects\\GroupProject_p2\\P2_HaikuWriterGroup\\HaikuWriter\\Models\\Models.csproj": {
-              "projectPath": "C:\\Users\\clche\\revature\\projects\\GroupProject_p2\\P2_HaikuWriterGroup\\HaikuWriter\\Models\\Models.csproj"
-            },
-            "C:\\Users\\clche\\revature\\projects\\GroupProject_p2\\P2_HaikuWriterGroup\\HaikuWriter\\Repository\\Repository.csproj": {
-              "projectPath": "C:\\Users\\clche\\revature\\projects\\GroupProject_p2\\P2_HaikuWriterGroup\\HaikuWriter\\Repository\\Repository.csproj"
->>>>>>> 98418dcafd462890907084ad51e5e163d8b8bb7b
             }
           }
         }
@@ -5813,5 +5797,13 @@
         "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.103/RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file /Users/sagarluitel/revature/P2/P2_HaikuWriterGroup/HaikuWriter/BusinessLogic/obj/project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

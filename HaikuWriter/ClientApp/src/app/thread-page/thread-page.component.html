@@ -5,7 +5,7 @@
     <div>
         <form class= "createAMethod">
             <label>Message: </label>
-            <input type="text" #line = "ngModel" placeholder="What's on your mind?" name="messagebody" [(ngModel)]="message.messagebody">
+            <input type="text" #messagebody = "ngModel" placeholder="What's on your mind?" name="messagebody" [(ngModel)]="message.messageBody">
             <input type="submit" value="Add Message" (click)=CreateMessage()>
         </form>
     </div>
@@ -13,7 +13,7 @@
         <li *ngFor="let message of messages">
             <td>
                 Author: {{message.username}}
-                Post: {{message.messagebody}}
+                Post: {{message.messageBody}}
             </td>
         </li>
     </ul>

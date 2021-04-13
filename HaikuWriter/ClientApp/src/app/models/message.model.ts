@@ -1,8 +1,8 @@
 export class Message {
     constructor(
         public messageid: number,
-        public messagebody: string,
+        public messageBody: string,
         public username: string | null,
-        public threadid: number
+        public threadId: number
     ) { }
 }

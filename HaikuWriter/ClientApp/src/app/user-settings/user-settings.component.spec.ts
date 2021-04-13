@@ -22,4 +22,10 @@ describe('UserSettingsComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should get username', () => {
+    component.getUser('sagar1');
+    expect(component.user.username).toBe('sagar1');
+  })
+  
 });

@@ -32,6 +32,7 @@ export class UserSettingsComponent implements OnInit {
       .subscribe(
         res => {
           this.user = res;
+          console.log("success")
         },
         err => {
           if (err.status === 422) {

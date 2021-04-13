@@ -127,8 +127,6 @@ namespace HaikuWriterApi.Controllers
             bool deletionSuccessful = _haikuMethod.DeleteHaikuLine(hlid);
             return deletionSuccessful;
         }
-<<<<<<< HEAD
-=======
 
         /// <summary>
         /// Haiku Controller that will pass a request along to delete a haiku
@@ -190,7 +188,6 @@ namespace HaikuWriterApi.Controllers
 
             return newhaiku;
         }
->>>>>>> 55b9e15bf65853888265f23d213cf04bc4511436
 
     }
 }

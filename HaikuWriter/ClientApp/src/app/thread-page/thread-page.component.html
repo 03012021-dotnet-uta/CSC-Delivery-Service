@@ -1,1 +1,14 @@
-<p>thread-page works!</p>
+<div>
+    <!--Thread view, a list of messages-->
+    <button (click)="toLandingPage()">Home</button>
+    <button (click)="toForum()">Back to Forum</button>
+    
+    <ul>
+        <li *ngFor="let message of messages">
+            <td>
+                Author: {{message.username}}
+                Post: {{message.messagebody}}
+            </td>
+        </li>
+    </ul>
+</div>

@@ -31,14 +31,14 @@ namespace Repository
         {
             var newThread = _dbContext.Threads.Add(thread);
             _dbContext.SaveChanges();
-            return _dbContext.Threads.FirstOrDefault(t => t.ThreadId == thread.ThreadId);
+            return _dbContext.Threads.Where(t => t.ThreadId == thread.ThreadId).FirstOrDefault();
         }
 
-        public Message NewMessage(Message message)
+        public List<Message> NewMessage(Message message)
         {
             var newMessage = _dbContext.Messages.Add(message);
             _dbContext.SaveChanges();
-            return _dbContext.Messages.FirstOrDefault(m => m.MessageId == message.MessageId);
+            return GetMessages(message.ThreadId);
         }
     }
 }

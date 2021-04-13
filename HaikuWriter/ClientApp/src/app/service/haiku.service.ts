@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { HaikuLine } from '../models/haiku-line.model';
 import {Haiku} from '../models/haiku.model';
 import { GenHaiku} from '../models/gen-haiku.model';
+import { SaveHaikuShape } from '../models/save-haiku-shape.model';
 
 @Injectable({
   providedIn: 'root'
@@ -25,11 +26,17 @@ export class HaikuService {
   WriteHaiku(username: string): Observable<Haiku>{
     return this.http.post<Haiku>(`${this.queryString}writeHaiku`, username)
   }
+<<<<<<< HEAD
 
   getAllHaikus(): Observable<Haiku[]> {
     return this.http.get<Haiku[]>(`${this.queryString}allhaikus`);
   }
 
+=======
+  getAllHaikus(): Observable<Haiku[]> {
+    return this.http.get<Haiku[]>(`${this.queryString}allhaikus`);
+  }
+>>>>>>> 98418dcafd462890907084ad51e5e163d8b8bb7b
   ApproveHaikuLine(hlid: number): Observable<boolean>{
     return this.http.post<boolean>(`${this.queryString}approveHaikuLine`, hlid);
   }
@@ -50,5 +57,9 @@ export class HaikuService {
   SubmitHaiku(haiku: Haiku): Observable<Haiku> {
     console.log(haiku);
     return this.http.post<Haiku>(`${this.queryString}submitHaiku`, haiku);
+  }
+  SaveHaiku(haiku: SaveHaikuShape): Observable<Boolean> {
+    console.log(haiku);
+    return this.http.post<Boolean>(`${this.queryString}saveHaiku`, haiku);
   }
 }

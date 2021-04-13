@@ -110,5 +110,17 @@ namespace BusinessLogic
             return newhaiku;
         }
 
+        /// <summary>
+        /// This method will pass a haiku and username to add to user favorites
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="haiku"></param>
+        /// <returns></returns>
+        public bool SaveHaikuToFavorites(string username, Haiku haiku)
+        {
+            bool saveSuccessful = _repolayer.AddToUserFavorites(username, haiku);
+            return saveSuccessful;
+        }
+
     }
 }

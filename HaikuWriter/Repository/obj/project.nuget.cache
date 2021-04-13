@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "xFYJeMSZMCoD0yB2fd20i9NbUG44GoRL8OMFwxDzTDy7uLLj7gss20M9zFi7UxW8A9SuABB+kOsToxRy1I+BhQ==",
   "success": true,
   "projectFilePath": "/Users/sagarluitel/revature/P2/P2_HaikuWriterGroup/HaikuWriter/Repository/Repository.csproj",
+=======
+  "dgSpecHash": "O94Croa5tpQolz+DBcT3Q/BK2W/RCYnuANiGUW8iKV0jEPsu9oGgtDbCUU3nHm2CYycggg6e8kHIAYuqZ317KQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\clche\\revature\\projects\\GroupProject_p2\\P2_HaikuWriterGroup\\HaikuWriter\\Repository\\Repository.csproj",
+>>>>>>> 98418dcafd462890907084ad51e5e163d8b8bb7b
   "expectedPackageFiles": [
     "/Users/sagarluitel/.nuget/packages/humanizer.core/2.8.26/humanizer.core.2.8.26.nupkg.sha512",
     "/Users/sagarluitel/.nuget/packages/microsoft.csharp/4.7.0/microsoft.csharp.4.7.0.nupkg.sha512",

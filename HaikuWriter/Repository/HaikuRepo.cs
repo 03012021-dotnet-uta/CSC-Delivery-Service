@@ -27,12 +27,22 @@ namespace Repository
             return _dbContext.HaikuLines.FirstOrDefault(h => h.HaikuLineId == haikuline.HaikuLineId);
         }
 
+        /// <summary>
+        /// This method will add a haiku to the database and return the saved haiku back
+        /// </summary>
+        /// <param name="haiku"></param>
+        /// <returns></returns>
         public Haiku SaveHaiku(Haiku haiku)
         {
             var newHaiku = _dbContext.Haikus.Add(haiku);
             _dbContext.SaveChanges();
             return _dbContext.Haikus.FirstOrDefault(h => h.HaikuId == haiku.HaikuId);
         }
+
+        /// <summary>
+        /// This method will return a haiku line that has five syllables
+        /// </summary>
+        /// <returns></returns>
         public HaikuLine GetHaiku5()
         {
             Random random = new Random();
@@ -46,6 +56,10 @@ namespace Repository
             return null;
         }
 
+        /// <summary>
+        /// This method will return a haiku line that has 7 syllables
+        /// </summary>
+        /// <returns></returns>
         public HaikuLine GetHaiku7()
         {
             Random random = new Random();
@@ -58,6 +72,13 @@ namespace Repository
             }
             return null;
         }
+
+        /// <summary>
+        /// This method will check to see if the haiku line that is retrieved from the database is different from the haiku line
+        /// that was give, if it is the same, it will query the db for another line and check again. If it is different it will return the line
+        /// </summary>
+        /// <param name="alreadyUsed"></param>
+        /// <returns></returns>
         public HaikuLine GetHaiku5(HaikuLine alreadyUsed)
         {
             //get haiku line from DB
@@ -89,7 +110,10 @@ namespace Repository
             return haikuLines;
         }
 
-
+        /// <summary>
+        /// This method will query the db for a list of approved haikus
+        /// </summary>
+        /// <returns></returns>
         public List<Haiku> GetHaikus(){
 
             List<Haiku> haikus = _dbContext.Haikus
@@ -196,6 +220,44 @@ namespace Repository
         {
             HaikuLine hl = _dbContext.HaikuLines.Where(h => h.HaikuLineId == hlid).FirstOrDefault();
             return hl;
+        }
+
+        /// <summary>
+        /// This method will query the database for a list of user favorites and return that list
+        /// </summary>
+        /// <param name="username"></param>
+        /// <returns></returns>
+        public List<Haiku> GetUserFavorites(string username)
+        {
+            List<Haiku> favs = _dbContext.UserFavs.Where(uf => uf.User.Username == username).Select(uf => uf.Haiku).ToList();
+            return favs;
+        }
+
+        /// <summary>
+        /// Method will save a haiku to db under user's favorites
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="haiku"></param>
+        /// <returns></returns>
+        public bool AddToUserFavorites(string username, Haiku haiku)
+        {
+            bool addSuccesful = false;
+
+            //add haiku to db
+            Haiku savedHaiku = SaveHaiku(haiku);
+            UserFav userFav = new UserFav();
+            userFav.Username = username;
+            userFav.Haiku = haiku;
+            _dbContext.UserFavs.Add(userFav);
+            _dbContext.SaveChanges();
+
+            userFav = _dbContext.UserFavs.Where(uf => uf.Username == username && uf.Haiku.HaikuId == savedHaiku.HaikuId).FirstOrDefault();
+            if(userFav != null)
+            {
+                addSuccesful = true;
+            }
+            
+            return addSuccesful;
         }
     }
 }

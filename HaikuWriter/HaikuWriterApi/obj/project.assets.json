@@ -7677,11 +7677,19 @@
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "/Users/sagarluitel/revature/P2/P2_HaikuWriterGroup/HaikuWriter/HaikuWriterApi/HaikuWriterApi.csproj",
       "projectName": "HaikuWriterApi",
       "projectPath": "/Users/sagarluitel/revature/P2/P2_HaikuWriterGroup/HaikuWriter/HaikuWriterApi/HaikuWriterApi.csproj",
       "packagesPath": "/Users/sagarluitel/.nuget/packages/",
       "outputPath": "/Users/sagarluitel/revature/P2/P2_HaikuWriterGroup/HaikuWriter/HaikuWriterApi/obj/",
+=======
+      "projectUniqueName": "C:\\Users\\clche\\revature\\projects\\GroupProject_p2\\P2_HaikuWriterGroup\\HaikuWriter\\HaikuWriterApi\\HaikuWriterApi.csproj",
+      "projectName": "HaikuWriterApi",
+      "projectPath": "C:\\Users\\clche\\revature\\projects\\GroupProject_p2\\P2_HaikuWriterGroup\\HaikuWriter\\HaikuWriterApi\\HaikuWriterApi.csproj",
+      "packagesPath": "C:\\Users\\clche\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\clche\\revature\\projects\\GroupProject_p2\\P2_HaikuWriterGroup\\HaikuWriter\\HaikuWriterApi\\obj\\",
+>>>>>>> 98418dcafd462890907084ad51e5e163d8b8bb7b
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/sagarluitel/.nuget/NuGet/NuGet.Config"
@@ -7696,11 +7704,19 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
+<<<<<<< HEAD
             "/Users/sagarluitel/revature/P2/P2_HaikuWriterGroup/HaikuWriter/BusinessLogic/BusinessLogic.csproj": {
               "projectPath": "/Users/sagarluitel/revature/P2/P2_HaikuWriterGroup/HaikuWriter/BusinessLogic/BusinessLogic.csproj"
             },
             "/Users/sagarluitel/revature/P2/P2_HaikuWriterGroup/HaikuWriter/Models/Models.csproj": {
               "projectPath": "/Users/sagarluitel/revature/P2/P2_HaikuWriterGroup/HaikuWriter/Models/Models.csproj"
+=======
+            "C:\\Users\\clche\\revature\\projects\\GroupProject_p2\\P2_HaikuWriterGroup\\HaikuWriter\\BusinessLogic\\BusinessLogic.csproj": {
+              "projectPath": "C:\\Users\\clche\\revature\\projects\\GroupProject_p2\\P2_HaikuWriterGroup\\HaikuWriter\\BusinessLogic\\BusinessLogic.csproj"
+            },
+            "C:\\Users\\clche\\revature\\projects\\GroupProject_p2\\P2_HaikuWriterGroup\\HaikuWriter\\Models\\Models.csproj": {
+              "projectPath": "C:\\Users\\clche\\revature\\projects\\GroupProject_p2\\P2_HaikuWriterGroup\\HaikuWriter\\Models\\Models.csproj"
+>>>>>>> 98418dcafd462890907084ad51e5e163d8b8bb7b
             }
           }
         }

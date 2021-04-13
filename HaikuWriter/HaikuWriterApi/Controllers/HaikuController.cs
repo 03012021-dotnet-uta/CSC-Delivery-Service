@@ -188,6 +188,34 @@ namespace HaikuWriterApi.Controllers
 
             return newhaiku;
         }
+<<<<<<< HEAD
+=======
+
+        /// <summary>
+        /// Haiku Controller Route that will pass a haiku down to repolayer to save it to 
+        /// a user's favorites
+        /// </summary>
+        /// <param name="haiku"></param>
+        /// <returns></returns>
+        [HttpPost("saveHaiku")]
+        public ActionResult<Boolean> SaveHaikuToFavorites([FromBody] SaveHaikuDTO haiku)
+        {
+            Haiku newhaiku = new Haiku{
+                HaikuLine1 = haiku.haikuLine1,
+                HaikuLine2 = haiku.haikuLine2,
+                HaikuLine3 = haiku.haikuLine3,
+                Tags = haiku.tags,
+                Approved = true,
+                Username = haiku.username
+            };
+
+            string currentusername = haiku.currentuser;
+
+            bool saveSuccessful = _haikuMethod.SaveHaikuToFavorites(currentusername, newhaiku);
+
+            return saveSuccessful;
+        }
+>>>>>>> 98418dcafd462890907084ad51e5e163d8b8bb7b
 
     }
 }

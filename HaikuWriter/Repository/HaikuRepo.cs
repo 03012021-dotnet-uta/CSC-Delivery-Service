@@ -73,10 +73,18 @@ namespace Repository
         public List<HaikuLine> GetUnapprovedHaikuLines()
         {
             List<HaikuLine> haikuLines = _dbContext.HaikuLines
-                                                    .Where(hl => hl.Approved == false).ToList();
+            .Where(hl => hl.Approved == false).ToList();
             return haikuLines;
         }
 
+
+        public List<Haiku> GetHaikus(){
+
+            List<Haiku> haikus = _dbContext.Haikus
+            .Where(h => h.Approved == true).ToList();
+            return haikus;
+        }
+        
         /// <summary>
         /// Method that quieries the database for a list of unapporved haikus
         /// </summary>
@@ -84,7 +92,7 @@ namespace Repository
         public List<Haiku> GetUnapprovedHaikus()
         {
             List<Haiku> haikus = _dbContext.Haikus
-                                                    .Where(h => h.Approved == false).ToList();
+            .Where(h => h.Approved == false).ToList();
             return haikus;
         }
     }

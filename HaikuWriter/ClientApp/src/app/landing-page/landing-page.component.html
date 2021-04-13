@@ -7,6 +7,9 @@
 
 <!-- <button (click)="writeHaiku()">Write Haiku</button> -->
 <button (click)="GeneHaiku()">Generate Haiku</button>
+
+<a href="/usersettings">Settings</a>
+
 <div *ngIf="haikuDTO">
     {{haikuDTO.haikuline1}}<br>
     {{haikuDTO.haikuline2}}<br>
@@ -14,3 +17,12 @@
 </div>
 <!-- <button (click)="toForum()">Forum </button> -->
 
+<ol>
+    <li *ngFor="let item of haikus">
+        {{item.haikuline1}}
+    </li>
+</ol>
+
+<div>
+    <app-admin-privilege></app-admin-privilege>
+</div>

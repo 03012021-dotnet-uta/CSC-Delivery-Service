@@ -41,12 +41,50 @@ namespace HaikuWriterApi.Controllers
         [HttpGet("getuserbyusername/{username}")]
         public ActionResult<User> Getuser(string username){
 
-            
             User newUser = _userMethods.GetUser(username);
-            Console.WriteLine("user: ", newUser.Email );
+            //Console.WriteLine("user: ", newUser.Email );
             return newUser;
         } 
 
+        [HttpPost("updateuser")]
+        public ActionResult<User> UpdateUserInfo([FromBody] RawUser user){
+
+            Console.WriteLine(user.Email);
+
+            User newUser = _userMethods.UpdateUserInfo(user);
+            
+            return newUser;
+        } 
+
+        /// <summary>
+        /// For changing/updating user's password 
+        /// take username, password, and newpassword as input and returns bool true if updated succesfully
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <param name="newPassword"></param>
+        /// <returns></returns>
+        [HttpGet("updatepassword/{username}/{password}/{newPassword}")]
+        public ActionResult<bool> UpdatePassword(string username, string password, string newPassword){
+
+            bool updated  = _userMethods.UpdatePassword(username, password, newPassword);
+            
+            return updated;
+        } 
+
+
+        /// <summary>
+        /// returns list of all user 
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("getAllUser")]
+        public ActionResult<List<User>> GellAllUser(){
+
+            return _userMethods.GetAllUser();
+        }
 
     }
 }
+
+//ZmGDxcwSFCGveQkIp1via/nULRSdr
+//KnGKFPU/AEZoM2hUjfJf

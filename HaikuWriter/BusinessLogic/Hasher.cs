@@ -24,6 +24,7 @@ namespace BusinessLogic
 
         }
 
+
         public byte[] HashTheUsername(string password, byte[] key)
         {
             using HMACSHA512 hmac = new HMACSHA512(key: key);

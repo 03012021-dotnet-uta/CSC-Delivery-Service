@@ -29,13 +29,15 @@ namespace Repository
 
         public bool UserExists(string username)
         {
-            Console.WriteLine(username);
+            //Console.WriteLine(username);
             if (_dbContext.Users.Where(p => p.Username == username).FirstOrDefault() != null)
             {
+                Console.WriteLine(username);
                 return true;
             }
             else
             {
+                
                 return false;
             }
         }
@@ -46,6 +48,35 @@ namespace Repository
             User foundUser = _dbContext.Users.FirstOrDefault(p => p.Username == username);
             return foundUser;
         }
+
+        public User UpdateUserInfo(RawUser user){
+
+            User updatedUser = _dbContext.Users.FirstOrDefault(p => p.Username == user.Username);
+
+            if(updatedUser == null){
+                return null;
+            }
+            updatedUser.Email = user.Email;
+            updatedUser.FirstName = user.FirstName;
+            updatedUser.LastName = user.LastName;
+            updatedUser.FaceBookName = user.FaceBookName;
+            updatedUser.TwitterName = user.TwitterName;
+
+            _dbContext.SaveChanges();
+            
+            return updatedUser;
+        }
+
+        public void UpdatePassword(){
+
+           _dbContext.SaveChanges();
+        }
         
+        public List<User> GetAllUser(){
+
+            List<User> userlist = _dbContext.Users.ToList();
+            return userlist;
+        }
+
     }
 }

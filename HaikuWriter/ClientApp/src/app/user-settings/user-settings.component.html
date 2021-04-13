@@ -1,1 +1,34 @@
-<p>user-settings works!</p>
+
+<div>
+    <h2>Update Your information </h2>
+    <form class="update" #updating="ngForm" (ngSubmit)="onSubmit(updating)" >
+        <!-- <label for="username">Username:</label>
+        <input type="text" #username="ngModel" placeholder="Username" name="username" [(ngModel)]="user.username"><br> -->
+        <label for="firstname">First Name:</label>
+        <input type="text" #firstname="ngModel" placeholder="First Name" name="firstname" [(ngModel)]="user.firstName"><br>
+        <label for="lastname">Last Name:</label>
+        <input type="text" #lastName="ngModel" placeholder="Last Name" name="lastname" [(ngModel)]="user.lastName"><br>
+        <label for="email">Email:</label>
+        <input type="email" #email="ngModel" placeholder="Email" name="email" [(ngModel)]="user.email"><br>
+        
+        <label for="facebookname">FaceBook Username</label>
+        <input type="text" #facebookname="ngModel" placeholder="Facebook Username" name="facebookname" [(ngModel)]="user.faceBookName"><br>
+        <label for="twittername">Twitter Username:</label>
+        <input type="text" #facebookname="ngModel" placeholder="Twitter Username" name="twittername" [(ngModel)]="user.twitterName"><br>
+
+        <input type="submit" value="Update">
+      </form>
+</div>
+<br>
+
+<div>
+    <h3>Update Password</h3>
+    <form class="updatePassword" #updatePassword="ngForm" (ngSubmit)="onUpdatePassword(updatePassword)">
+        
+        <label for="password">Current Password:</label>
+        <input type="password" name="password" ngModel><br>
+        <label for="newPassword">New Password:</label>
+        <input type="password" name="newPassword" ngModel><br>
+        <input type="submit" value="Update Password">
+    </form>
+</div>

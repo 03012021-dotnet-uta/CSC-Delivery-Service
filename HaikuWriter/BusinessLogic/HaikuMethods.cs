@@ -24,6 +24,11 @@ namespace BusinessLogic
             List<Haiku> haikus = _repolayer.GetUnapprovedHaikus();
             return haikus;
         }
+
+        public List<Haiku> GetHaikus(){
+            List<Haiku> haikus = _repolayer.GetHaikus();
+            return haikus;
+        }
         
     }
 }

@@ -1,5 +1,6 @@
 using Repository;
 using Models;
+using System.Collections.Generic;
 using System;
 
 namespace BusinessLogic
@@ -39,9 +40,9 @@ namespace BusinessLogic
         }
 
         public User UserLogin(string username, string password){
-             Console.WriteLine(" Here 12 " + username);
+             //Console.WriteLine(" Here 12 " + username);
             if (!_userRepo.UserExists(username))
-            {
+            {   Console.WriteLine("user doesn't exists");
                 return null;
             }
             else{
@@ -91,6 +92,44 @@ namespace BusinessLogic
 
             return newuser;
 
+        }
+
+        public User UpdateUserInfo(RawUser user){
+
+            User newUser = _userRepo.UpdateUserInfo(user);
+            return newUser;
+        }
+
+        public bool UpdatePassword(string username, string password, string newPassword){
+            
+            User newUser = _userRepo.GetUserByUsername(username);
+
+            if(newUser == null){
+                return false;
+            }
+
+            byte[] hash = hasher.HashTheUsername(password, newUser.PasswordSalt);
+
+                if (CompareTwoHashes(newUser.PasswordHash, hash))
+                {
+                    User anotherUser =  hasher.hashPassword(newPassword);
+                    newUser.PasswordHash = anotherUser.PasswordHash;
+                    newUser.PasswordSalt = anotherUser.PasswordSalt;
+
+                    _userRepo.UpdatePassword();
+                    Console.WriteLine("pw updated");
+                    return true;
+                }
+                else{
+                    return false;
+                }
+        }
+
+        public List<User> GetAllUser(){
+            
+            List<User> userlist = _userRepo.GetAllUser();
+
+            return userlist;
         }
     }
 

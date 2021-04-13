@@ -23,7 +23,8 @@ export class LandingPageComponent implements OnInit {
     private route: ActivatedRoute) { }
   
      user = new User(" ", " ", " ", " ", " ", " ", " ", true);
-    //uname: string = "";
+
+    haikus?: Haiku[];
     writeHaikuSuccess = false;
 
   ngOnInit(): void {
@@ -37,7 +38,8 @@ export class LandingPageComponent implements OnInit {
     else{
       this.getUser(username);
     }
-     
+
+    this.getAllHaikus(); 
   }
 
   getUser(username: string | null){
@@ -58,6 +60,22 @@ export class LandingPageComponent implements OnInit {
     );
   }
 
+  getAllHaikus(){
+    this.haikuService.getAllHaikus()
+      .subscribe(
+        res => {
+          this.haikus = res;
+        },
+        err => {
+          if (err.status === 422) {
+            console.log("server serror");
+          }
+          else{
+            console.log("server error");
+          }
+        }
+    );
+  }
 
   // WriteHaiku(username: string){
   //   this.haikuService.WriteHaiku(username)

@@ -19,8 +19,6 @@
         <input type="text" #facebookname="ngModel" placeholder="Facebook Username" name="facebookname" [(ngModel)]="user.faceBookName"><br>;
         <label for="twittername">Twitter Username:</label>
         <input type="text" #facebookname="ngModel" placeholder="Twitter Username" name="twittername" [(ngModel)]="user.twitterName"><br>;
-        <label for="adminstatus">Admin Status:</label>
-        <input type="text" placeholder="Admin Status" name="adminstatus" [(ngModel)]="user.adminStatus"><br>;
 
         <input type="submit" value="SignUp" (click)=signup()>
       </form>

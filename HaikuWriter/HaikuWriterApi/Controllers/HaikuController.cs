@@ -72,5 +72,26 @@ namespace HaikuWriterApi.Controllers
             return haikuList;
         }
 
+        /// <summary>
+        /// Returns all the approved haikus 
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("allhaikus")]
+        public ActionResult<List<Haiku>> GetAllHaikus()
+        {
+            
+            List<Haiku> haikuList = _haikuMethod.GetHaikus();
+            if(haikuList == null){
+                Console.WriteLine("here");
+            }
+            
+            foreach (var item in haikuList)
+            {
+                Console.WriteLine(item.Tags);
+            }
+            return haikuList;
+        }
+
+
     }
 }

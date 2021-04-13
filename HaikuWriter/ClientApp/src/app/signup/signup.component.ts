@@ -11,7 +11,7 @@ import {UserService} from '../service/user.service';
 })
 export class SignupComponent implements OnInit {
 
-  user = new User(" ", " ", " ", " ", " ", " ", " ", true);
+  user = new User(" ", " ", " ", " ", " ", " ", " ", false);
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {

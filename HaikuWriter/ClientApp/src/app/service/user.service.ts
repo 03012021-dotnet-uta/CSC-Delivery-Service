@@ -18,6 +18,16 @@ export class UserService {
     return this.http.post<User>(`${this.queryString}signup/`, user);
   }
 
+  updateUser(user: User): Observable<User> {
+    console.log(user);
+    return this.http.post<User>(`${this.queryString}updateuser/`, user);
+  }
+
+  updatePassword(username: string, pw: string, npw: string): Observable<User> {
+
+    return this.http.get<User>(`${this.queryString}updatePassword/${username}/${pw}/${npw}` );
+  }
+
   login(username: string, password: string): Observable<User> {
     console.log(username);
     if(username == null){
@@ -30,6 +40,11 @@ export class UserService {
   getUserByUserName(username: string | null): Observable<User>{
     return this.http.get<User>(`${this.queryString}getuserbyusername/${username}`);
   }
+
+  getAllUser(): Observable<User[]>{
+    return this.http.get<User[]>(`${this.queryString}getAllUser/`);
+  }
+
 
   // signup(user: User): Observable<User> {
   //   console.log(user);

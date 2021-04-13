@@ -4,12 +4,15 @@ import { SignupComponent} from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { AdminApproveComponent} from './admin-approve/admin-approve.component';
 import { LandingPageComponent} from './landing-page/landing-page.component';
+import { UserSettingsComponent} from './user-settings/user-settings.component';
+import { AdminPrivilegeComponent } from './admin-privilege/admin-privilege.component';
 
 const routes: Routes = [
   { path: 'signup', component: SignupComponent },
   { path: 'login', component: LoginComponent},
   { path: 'adminapprove', component: AdminApproveComponent},
-  { path: 'landingpage', component: LandingPageComponent}
+  { path: 'landingpage', component: LandingPageComponent},
+  { path: 'usersettings', component: UserSettingsComponent}
 ];
 
 @NgModule({

@@ -8,7 +8,7 @@ Team members:
   
 # Product Overview
 Introduction:
-  Haiku Writer is a program bringing the joy of haikus to the masses in a social setting, designed to make it easy to share your favorites, discuss your love of haiku, or contribute to the generator by adding your own lines to the many already contained. Get relevant lines through our streamlined tagging system, and tag your own so others can find it easier!
+  Haiku Writer is a program bringing the joy of haikus to the masses in a social setting, designed to make it easy to share your favorite haikus, discuss your love of haiku, or contribute to the generator by adding your own haiku lines to the many already contained. Get relevant haiku lines through our streamlined user-generated tagging system, and tag your own so others can find it easier!
   
 Product Goal:
   A haiku is a traditional japanese poem containing three lines of 5, 7, and 5 syllables respectively. Often these short poems are used to demonstrate humor as well as other emotions in a short artistic style. This is one of the many types of poems that the world has to offer. 

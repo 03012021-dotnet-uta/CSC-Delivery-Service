@@ -11,7 +11,8 @@ import { ThreadService } from '../service/thread.service';
 })
 export class ThreadListComponent implements OnInit {
   threads?: Thread[];
-  thread!: Thread;
+  thread = new Thread(0, "  ", "  ");
+
   constructor(private router: Router,
     private route: ActivatedRoute,
     private threadservice: ThreadService) { }
@@ -21,7 +22,6 @@ export class ThreadListComponent implements OnInit {
   }
   
   toLandingPage(){
-    
     this.router.navigateByUrl('/landingpage');
   }
   ThreadPage(threadid: number){
@@ -32,9 +32,8 @@ export class ThreadListComponent implements OnInit {
   GetThreads() {
     this.threadservice.GetThreads().subscribe(res => this.threads = res);                                                                                                                                                           
   }
-  CreateThread(username: string, threaddesc: string){
-    this.thread.description = threaddesc;
-    this.thread.username = username;
+  CreateThread(){
+    this.thread.username = localStorage.getItem('User');
     this.PostThread(this.thread);
     this.ThreadPage(this.thread.threadid);
   }

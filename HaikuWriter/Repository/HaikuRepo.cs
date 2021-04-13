@@ -125,5 +125,37 @@ namespace Repository
             
             return deletionSuccessful;
         }
+
+        /// <summary>
+        /// This method will query the database for a haiku by given haikuid and then delete it from the database
+        /// </summary>
+        /// <param name="hid"></param>
+        /// <returns></returns>
+        public bool DeleteHaiku(int hid)
+        {
+            bool deletionSuccessful = false;
+
+            Haiku haiku = _dbContext.Haikus.Where(h=> h.HaikuId == hid).FirstOrDefault();
+            _dbContext.Haikus.Remove(haiku);
+            _dbContext.SaveChanges();
+            haiku = _dbContext.Haikus.Where(h=> h.HaikuId == hid).FirstOrDefault();
+            
+            if(haiku == null)
+            {
+                deletionSuccessful = true;
+            }
+            
+            return deletionSuccessful;
+        }
+
+        /// <summary>
+        /// Will query the database for a haiku line based on given haiku id
+        /// </summary>
+        /// <param name="hlid"></param>
+        /// <returns></returns>
+        public HaikuLine GetHaikuLine(int hlid){
+            HaikuLine hl = _dbContext.HaikuLines.Where(h => h.HaikuLineId == hlid).FirstOrDefault();
+            return hl;
+        }
     }
 }

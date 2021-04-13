@@ -26,7 +26,10 @@ export class AdminApproveComponent implements OnInit {
       )
   }
   GetUnapprovedHaikus(): void {
-    this.haikuService.GetUnapprovedHaikus().subscribe(res => this.haikus = res)
+    this.haikuService.GetUnapprovedHaikus().subscribe(res => {
+      this.haikus = res;
+      console.log(res);
+    })
   }
   ApproveHaikuLine(hlid: number): void{
     this.haikuService.ApproveHaikuLine(hlid).subscribe(res => {

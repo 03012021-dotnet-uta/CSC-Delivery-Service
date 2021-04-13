@@ -1,13 +1,14 @@
 using System.Collections.Generic;
 using Repository;
 using Models;
+using Newtonsoft.Json;
 
 namespace BusinessLogic
 {
     public class HaikuMethods
     {
         private readonly HaikuRepo _repolayer;
-        public HaikuMethods(){}
+        public HaikuMethods() { }
         public HaikuMethods(HaikuRepo repolayer)
         {
             _repolayer = repolayer;
@@ -25,6 +26,7 @@ namespace BusinessLogic
 
         /// <summary>
         /// Method will pass a request to the repolayer for a list of unapproved haiku
+        /// It will then convert the list of unapproved haikus to DTO
         /// </summary>
         /// <returns></returns>
         public List<Haiku> GetUnapprovedHaikus()
@@ -54,6 +56,11 @@ namespace BusinessLogic
             bool deletionSuccessful = _repolayer.DeleteHaikuLine(hlid);
             return deletionSuccessful;
         }
-        
+
+        // public bool DeleteHaiku(int hid)
+        // {
+
+        // }
+
     }
 }

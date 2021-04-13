@@ -14,7 +14,10 @@
 <div>
   <ol>
     <li *ngFor="let h of haikus">
-      Haiku Approved: {{h.approved}} - - Author: {{h.username}}
+      Haiku Approved: {{h.approved}} - - Author: {{h.username}}<br>
+      {{h.haikuLine1}}<br>
+      {{h.haikuLine2}}<br>
+      {{h.haikuLine3}}<br>
       <button>Approve</button>
       <button>Delete</button>
     </li>

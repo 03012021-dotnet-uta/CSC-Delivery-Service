@@ -1,9 +1,9 @@
 export class Haiku {
     constructor(
         public haikuid: number,
-        public haikuline1: string,
-        public haikuline2: string,
-        public haikuline3: string,
+        public haikuLine1: string,
+        public haikuLine2: string,
+        public haikuLine3: string,
         public tags: string,
         public approved: boolean,
         public username: string

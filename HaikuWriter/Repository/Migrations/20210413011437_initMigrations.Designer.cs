@@ -10,7 +10,7 @@ using Repository;
 namespace Repository.Migrations
 {
     [DbContext(typeof(HaikuDbContext))]
-    [Migration("20210410182432_initMigrations")]
+    [Migration("20210413011437_initMigrations")]
     partial class initMigrations
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -31,14 +31,14 @@ namespace Repository.Migrations
                     b.Property<bool>("Approved")
                         .HasColumnType("bit");
 
-                    b.Property<int?>("HaikuLine1HaikuLineId")
-                        .HasColumnType("int");
+                    b.Property<string>("HaikuLine1")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("HaikuLine2HaikuLineId")
-                        .HasColumnType("int");
+                    b.Property<string>("HaikuLine2")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("HaikuLine3HaikuLineId")
-                        .HasColumnType("int");
+                    b.Property<string>("HaikuLine3")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Tags")
                         .HasColumnType("nvarchar(max)");
@@ -47,12 +47,6 @@ namespace Repository.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("HaikuId");
-
-                    b.HasIndex("HaikuLine1HaikuLineId");
-
-                    b.HasIndex("HaikuLine2HaikuLineId");
-
-                    b.HasIndex("HaikuLine3HaikuLineId");
 
                     b.HasIndex("Username");
 
@@ -187,27 +181,9 @@ namespace Repository.Migrations
 
             modelBuilder.Entity("Models.Haiku", b =>
                 {
-                    b.HasOne("Models.HaikuLine", "HaikuLine1")
-                        .WithMany()
-                        .HasForeignKey("HaikuLine1HaikuLineId");
-
-                    b.HasOne("Models.HaikuLine", "HaikuLine2")
-                        .WithMany()
-                        .HasForeignKey("HaikuLine2HaikuLineId");
-
-                    b.HasOne("Models.HaikuLine", "HaikuLine3")
-                        .WithMany()
-                        .HasForeignKey("HaikuLine3HaikuLineId");
-
                     b.HasOne("Models.User", "User")
                         .WithMany("Haikus")
                         .HasForeignKey("Username");
-
-                    b.Navigation("HaikuLine1");
-
-                    b.Navigation("HaikuLine2");
-
-                    b.Navigation("HaikuLine3");
 
                     b.Navigation("User");
                 });

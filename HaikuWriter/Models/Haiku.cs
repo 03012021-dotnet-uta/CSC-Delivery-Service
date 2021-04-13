@@ -7,9 +7,9 @@ namespace Models
     {
         [Key]
         public int HaikuId { get; set; }
-        public HaikuLine HaikuLine1 { get; set; }
-        public HaikuLine HaikuLine2 { get; set; }
-        public HaikuLine HaikuLine3 { get; set; }
+        public string HaikuLine1 { get; set; }
+        public string HaikuLine2 { get; set; }
+        public string HaikuLine3 { get; set; }
         public string Tags { get; set; }
         public bool Approved { get; set; }
 

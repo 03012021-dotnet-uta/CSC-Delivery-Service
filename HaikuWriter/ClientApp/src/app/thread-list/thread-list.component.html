@@ -5,7 +5,7 @@
         <form class= "createAThread">
             <label>Thread Description: </label>
             <input type="text" #line = "ngModel" placeholder="Name your thread" name="threaddesc" [(ngModel)]="thread.description">
-            <input type="submit" value="Create New Thread" (click)=CreateThread()>
+            <input type="submit" value="Create New Thread" (click)=CreateThread() >
         </form>
     </div>
     <ul>

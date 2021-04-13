@@ -12,11 +12,11 @@
 <div *ngIf="haikuDTO">
     {{haikuDTO.haikuLine1}}<br>
     {{haikuDTO.haikuLine2}}<br>
-    {{haikuDTO.haikuLine3}}
+    {{haikuDTO.haikuLine3}}<br>
+    <button (click) = SaveHaiku()>Save To Favorites</button>
 </div>
 <!-- <button (click)="toForum()">Forum </button> -->
 
-<<<<<<< HEAD
 <ul>
     <h3>List of Haikus</h3>
     <li *ngFor="let h of haikus">
@@ -24,13 +24,6 @@
         {{h.haikuLine2}}<br>
         {{h.haikuLine3}}
         <br><hr><br>
-=======
-<ol>
-    <li *ngFor="let item of haikus">
-        {{item.haikuLine1}}<br>
-        {{item.haikuLine2}}<br>
-        {{item.haikuLine3}}
->>>>>>> 55b9e15bf65853888265f23d213cf04bc4511436
     </li>
 
 </ul>

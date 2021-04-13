@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "zarmKrPTodygfNkyZ36JyL8h600zhsn0czbMjcBrwC4kKjRetrLX9bi1mAJFyadedHovaYt+KwKcssXVFnOuhg==",
+  "dgSpecHash": "fhqmdePq+6fehwBnk59SxaW1yGjzP8L6O6U4xRQSdYPiBKpZG1j24sx3Vkb/uus5vIPK+RHrLzMRkEJAlt4Ruw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\clche\\revature\\projects\\CatherineCheatle_p2\\P2_HaikuWriterGroup\\HaikuWriter\\HaikuWriterApi\\HaikuWriterApi.csproj",
+  "projectFilePath": "C:\\Users\\clche\\revature\\projects\\GroupProject_p2\\P2_HaikuWriterGroup\\HaikuWriter\\HaikuWriterApi\\HaikuWriterApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\clche\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\clche\\.nuget\\packages\\microsoft.aspnet.cors\\5.2.7\\microsoft.aspnet.cors.5.2.7.nupkg.sha512",

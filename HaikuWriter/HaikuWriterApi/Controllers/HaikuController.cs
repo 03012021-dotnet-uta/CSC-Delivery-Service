@@ -127,8 +127,6 @@ namespace HaikuWriterApi.Controllers
             bool deletionSuccessful = _haikuMethod.DeleteHaikuLine(hlid);
             return deletionSuccessful;
         }
-<<<<<<< HEAD
-=======
 
         /// <summary>
         /// Haiku Controller that will pass a request along to delete a haiku
@@ -190,7 +188,31 @@ namespace HaikuWriterApi.Controllers
 
             return newhaiku;
         }
->>>>>>> 55b9e15bf65853888265f23d213cf04bc4511436
+
+        /// <summary>
+        /// Haiku Controller Route that will pass a haiku down to repolayer to save it to 
+        /// a user's favorites
+        /// </summary>
+        /// <param name="haiku"></param>
+        /// <returns></returns>
+        [HttpPost("saveHaiku")]
+        public ActionResult<Boolean> SaveHaikuToFavorites([FromBody] SaveHaikuDTO haiku)
+        {
+            Haiku newhaiku = new Haiku{
+                HaikuLine1 = haiku.haikuLine1,
+                HaikuLine2 = haiku.haikuLine2,
+                HaikuLine3 = haiku.haikuLine3,
+                Tags = haiku.tags,
+                Approved = true,
+                Username = haiku.username
+            };
+
+            string currentusername = haiku.currentuser;
+
+            bool saveSuccessful = _haikuMethod.SaveHaikuToFavorites(currentusername, newhaiku);
+
+            return saveSuccessful;
+        }
 
     }
 }

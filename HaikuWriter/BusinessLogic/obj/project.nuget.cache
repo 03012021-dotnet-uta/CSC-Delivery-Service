@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "v1XhkPpeqnlnOobCOVENnqqtKi63hetZQcgIOgh17vj9zAjoByKcKF8IC0k+RxjHdDg+OzJ0udZU1hWmPMr1uQ==",
+  "dgSpecHash": "tpq48u5Bpy0r6EFDq5NGHLbrhJ8AViKF77LckuUEoQFlPhtkqj15eSRBm/VQLJV6Af3lWKMnRAsJXraNLBARAg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\clche\\revature\\projects\\CatherineCheatle_p2\\P2_HaikuWriterGroup\\HaikuWriter\\BusinessLogic\\BusinessLogic.csproj",
+  "projectFilePath": "C:\\Users\\clche\\revature\\projects\\GroupProject_p2\\P2_HaikuWriterGroup\\HaikuWriter\\BusinessLogic\\BusinessLogic.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\clche\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\clche\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",

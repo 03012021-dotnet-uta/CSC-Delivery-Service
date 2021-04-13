@@ -31,7 +31,7 @@ namespace Repository
         {
             var newThread = _dbContext.Threads.Add(thread);
             _dbContext.SaveChanges();
-            return _dbContext.Threads.Where(t => t.ThreadId == newThread.ThreadId);
+            return _dbContext.Threads.Where(t => t.ThreadId == thread.ThreadId).FirstOrDefault();
         }
 
         public List<Message> NewMessage(Message message)

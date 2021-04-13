@@ -16,17 +16,20 @@ namespace HaikuWriterApi.Controllers
         private readonly HaikuGenerator _haukuGenerator;
         private readonly HaikuMethods _haikuMethod;
 
-        public HaikuController(HaikuGenerator haukuGenerator, HaikuMethods haikuMethod){
+        public HaikuController(HaikuGenerator haukuGenerator, HaikuMethods haikuMethod)
+        {
             _haukuGenerator = haukuGenerator;
             _haikuMethod = haikuMethod;
         }
 
         [HttpGet]
-        public ActionResult<string> getone(){
-            
+        public ActionResult<string> getone()
+        {
+
             return "one two three";
-        } 
-        public string GetOne(){
+        }
+        public string GetOne()
+        {
             return "one two three";
         }
 
@@ -79,12 +82,13 @@ namespace HaikuWriterApi.Controllers
         [HttpGet("allhaikus")]
         public ActionResult<List<Haiku>> GetAllHaikus()
         {
-            
+
             List<Haiku> haikuList = _haikuMethod.GetHaikus();
-            if(haikuList == null){
+            if (haikuList == null)
+            {
                 Console.WriteLine("here");
             }
-            
+
             foreach (var item in haikuList)
             {
                 Console.WriteLine(item.Tags);
@@ -104,6 +108,13 @@ namespace HaikuWriterApi.Controllers
             return haikuLineApproval;
         }
 
+        [HttpPost("approveHaiku")]
+        public ActionResult<bool> ApproveHaiku([FromBody] int hlid)
+        {
+            bool haikuLineApproval = _haikuMethod.ApproveHaiku(hlid);
+            return haikuLineApproval;
+        }
+
         /// <summary>
         /// Haiku Controller Route that will take in a haiku line id and
         /// pass a request to delete from the database
@@ -116,6 +127,70 @@ namespace HaikuWriterApi.Controllers
             bool deletionSuccessful = _haikuMethod.DeleteHaikuLine(hlid);
             return deletionSuccessful;
         }
+<<<<<<< HEAD
+=======
+
+        /// <summary>
+        /// Haiku Controller that will pass a request along to delete a haiku
+        /// </summary>
+        /// <param name="hlid"></param>
+        /// <returns></returns>
+        [HttpPost("deleteHaiku")]
+        public ActionResult<bool> DeleteHaiku([FromBody] int hlid)
+        {
+            bool deletionSuccessful = _haikuMethod.DeleteHaiku(hlid);
+            return deletionSuccessful;
+        }
+
+        /// <summary>
+        /// Haiku Controller route that will pass along a haiku to save to the database
+        /// to later be reviewed by an admin user
+        /// </summary>
+        /// <param name="haikuLine"></param>
+        /// <returns></returns>
+        [HttpPost("submitHaikuLine")]
+        public ActionResult<HaikuLine> SubmitHaikuLine([FromBody] RawHaikuLine haikuLine)
+        {
+
+            HaikuLine hl = new HaikuLine
+            {
+                Line = haikuLine.line,
+                Tags = haikuLine.tags,
+                Syllable = haikuLine.syllable,
+                Approved = false,
+                Username = haikuLine.username
+            };
+
+            HaikuLine newline = _haikuMethod.SubmitHaikuLine(hl);
+
+            return newline;
+        }
+
+        /// <summary>
+        /// Haiku Controller Route that will pass a haiku along to be saved to the database
+        /// to then be later reviewed by admin
+        /// </summary>
+        /// <param name="haiku"></param>
+        /// <returns></returns>
+        [HttpPost("submitHaiku")]
+        public ActionResult<Haiku> SubmitHaiku([FromBody] HaikuDTO haiku)
+        {
+
+            Haiku h = new Haiku
+            {
+                HaikuLine1 = haiku.haikuLine1,
+                HaikuLine2 = haiku.haikuLine2,
+                HaikuLine3 = haiku.haikuLine2,
+                Tags = haiku.tags,
+                Approved = false,
+                Username = haiku.username
+            };
+
+            Haiku newhaiku = _haikuMethod.SubmitHaiku(h);
+
+            return newhaiku;
+        }
+>>>>>>> 55b9e15bf65853888265f23d213cf04bc4511436
 
     }
 }

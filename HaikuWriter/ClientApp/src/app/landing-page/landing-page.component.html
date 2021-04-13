@@ -3,7 +3,7 @@
 
 <button (click)="logout()">Logout</button>
 
-<!-- <button (click)="writeHaiku()">Write Haiku</button> -->
+<button (click)="WriteHaiku()">Write Haiku</button>
 
 <button (click)="GeneHaiku()">Generate Haiku</button>
 
@@ -16,6 +16,7 @@
 </div>
 <!-- <button (click)="toForum()">Forum </button> -->
 
+<<<<<<< HEAD
 <ul>
     <h3>List of Haikus</h3>
     <li *ngFor="let h of haikus">
@@ -23,6 +24,13 @@
         {{h.haikuLine2}}<br>
         {{h.haikuLine3}}
         <br><hr><br>
+=======
+<ol>
+    <li *ngFor="let item of haikus">
+        {{item.haikuLine1}}<br>
+        {{item.haikuLine2}}<br>
+        {{item.haikuLine3}}
+>>>>>>> 55b9e15bf65853888265f23d213cf04bc4511436
     </li>
 
 </ul>

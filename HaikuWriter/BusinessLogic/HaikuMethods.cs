@@ -52,6 +52,17 @@ namespace BusinessLogic
         }
 
         /// <summary>
+        /// Method to pass request to approve a haiku given haiku id
+        /// </summary>
+        /// <param name="hlid"></param>
+        /// <returns></returns>
+        public bool ApproveHaiku(int hlid)
+        {
+            bool haikuLineApproval = _repolayer.ApproveHaiku(hlid);
+            return haikuLineApproval;
+        }
+
+        /// <summary>
         /// Method will pass request to the repolayer to delete a haiku line by id
         /// </summary>
         /// <param name="hlid"></param>
@@ -62,10 +73,42 @@ namespace BusinessLogic
             return deletionSuccessful;
         }
 
-        // public bool DeleteHaiku(int hid)
-        // {
+        /// <summary>
+        /// Method will pass request to the repolayer to delete a haiku from the db
+        /// </summary>
+        /// <param name="hid"></param>
+        /// <returns></returns>
+        public bool DeleteHaiku(int hid)
+        {
+            System.Console.Write("made it to methods");
+            bool deletionSuccessful = _repolayer.DeleteHaiku(hid);
+            return deletionSuccessful;
+        }
 
-        // }
+        /// <summary>
+        /// Method will pass a haiku line to the repolayer so a haiku line
+        /// that was submitted can be saved to the db and later be reviewed by
+        /// an admin user
+        /// </summary>
+        /// <param name="hl"></param>
+        /// <returns></returns>
+        public HaikuLine SubmitHaikuLine(HaikuLine hl)
+        {
+            HaikuLine newline = _repolayer.SaveLine(hl);
+            return newline;
+        }
+
+        /// <summary>
+        /// This method will pass a haiku to the repolyaer to be saved
+        /// to the database
+        /// </summary>
+        /// <param name="h"></param>
+        /// <returns></returns>
+        public Haiku SubmitHaiku(Haiku h)
+        {
+            Haiku newhaiku = _repolayer.SaveHaiku(h);
+            return newhaiku;
+        }
 
     }
 }

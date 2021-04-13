@@ -18,8 +18,9 @@
       {{h.haikuLine1}}<br>
       {{h.haikuLine2}}<br>
       {{h.haikuLine3}}<br>
-      <button>Approve</button>
-      <button>Delete</button>
+      Haiku Id: {{h.haikuId}}
+      <button (click) = "ApproveHaiku(h.haikuId)">Approve</button>
+      <button (click) = "DeleteHaiku(h.haikuId)">Delete</button>
     </li>
   </ol>
 </div>

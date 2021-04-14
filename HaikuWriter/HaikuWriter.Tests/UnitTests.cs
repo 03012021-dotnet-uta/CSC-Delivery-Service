@@ -473,6 +473,43 @@ namespace HaikuWriter.Tests
             Assert.Equal(expected, actual);
         }
 
+        [Fact]//Haiku.cs
+        public void HaikuHaikuLineTest()
+        {
+            Haiku h = new Haiku();
+            h.HaikuLine1 = "a";
+            h.HaikuLine2 = "b";
+            h.HaikuLine3 = "c";
+            var expected = "abc";
+            var actual = h.HaikuLine1 + h.HaikuLine2 + h.HaikuLine3;
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]//Haiku.cs
+        public void HaikuUserTest()
+        {
+            Haiku h = new Haiku();
+            User u = new User();
+            u.Username = "Dude";
+            h.User = u;
+            var expected = "Dude";
+            var actual = h.User.Username;
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]//Haiku.cs
+        public void HaikuUserFavTest()
+        {
+            Haiku h = new Haiku();
+            UserFav ufav = new UserFav();
+            ICollection<UserFav> faves = new List<UserFav>();
+            faves.Add(ufav);
+            h.UserFavs = faves;
+            var expected = true;
+            var actual = (h.UserFavs != null);
+            Assert.Equal(expected, actual);
+        }
+
         /*********************************************
          * Unit tests for Thread.cs follows...       *
          *********************************************/
@@ -525,9 +562,9 @@ namespace HaikuWriter.Tests
         public void MessageBodyTest()
         {
             Message m = new Message();
-            m.messageBody = "I think this haiku is really good! Keep it up!";
+            m.MessageBody = "I think this haiku is really good! Keep it up!";
             var expected = "I think this haiku is really good! Keep it up!";
-            var actual = m.messageBody;
+            var actual = m.MessageBody;
             Assert.Equal(expected, actual);
         }
 
@@ -1099,6 +1136,35 @@ namespace HaikuWriter.Tests
              Assert.Equal(expected, actual);
          }
 
+        [Fact]//ForumController.cs
+        public void ForumControllerTest1()
+        {
+            ForumRepo frepo = new ForumRepo(hContext);
+            ForumMethods fmethods = new ForumMethods(frepo);
+            ForumController fcon = new ForumController(fmethods);
+            Thread thread = new Thread();
+            thread.Description = "Just a test";
+            thread = fcon.NewThread(thread).Value;
+            var actionVar = fcon.GetThreads();
+            var expected = "Just a test";
+            var actual = actionVar.Value.ToList()[0].Description;
+            Assert.Equal(expected, actual);
+        }
 
+        [Fact]//ForumController.cs
+        public void ForumControllerTest2()
+        {
+            ForumRepo frepo = new ForumRepo(hContext);
+            ForumMethods fmethods = new ForumMethods(frepo);
+            ForumController fcon = new ForumController(fmethods);
+            Message message = new Message();
+            message.MessageBody = "Just another test";
+            message.ThreadId = 1;
+            message = fcon.NewMessage(message).Value.ToList()[0];
+            var actionVar = fcon.GetMessages(message.ThreadId);
+            var expected = "Just another test";
+            var actual = actionVar.Value.ToList()[0].MessageBody;
+            Assert.Equal(expected, actual);
+        }
     }
 }

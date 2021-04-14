@@ -38,7 +38,7 @@ namespace Repository
 
         public List<Message> NewMessage(Message message)
         {
-            Console.WriteLine(message.messageBody);
+            Console.WriteLine(message.MessageBody);
             Console.WriteLine(message.Username);
             Console.WriteLine(message.ThreadId);
             Console.WriteLine(message.MessageId);

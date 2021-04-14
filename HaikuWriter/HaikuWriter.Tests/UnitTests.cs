@@ -647,51 +647,7 @@ namespace HaikuWriter.Tests
             Assert.Equal(expected, actual);
         }
 
-        /***********************************************
-         * Unit tests for HaikuController.cs follows...*
-         ***********************************************/
-
-        [Fact]//Controllers.HaikuController.cs
-        public void HaikuControllerTest1()
-        {
-           
-            HaikuRepo haikuRepo = new HaikuRepo(hContext);
-            UserRepo userRepo = new UserRepo(hContext);
-            HaikuGenerator haikugen = new HaikuGenerator(haikuRepo);
-            HaikuMethods haikuMethods = new HaikuMethods(haikuRepo);
-            HaikuController haikuCon = new HaikuController(haikugen, haikuMethods);
-            var expected = "one two three";
-            var actual = haikuCon.GetOne();
-            Assert.Equal(expected, actual);
-        }
-        [Fact]//Controllers.HaikuController.cs
-        public void HaikuControllerTest2()
-        {
-            
-            HaikuRepo haikuRepo = new HaikuRepo(hContext);
-            UserRepo userRepo = new UserRepo(hContext);
-            HaikuGenerator haikugen = new HaikuGenerator(haikuRepo);
-            HaikuMethods haikuMethods = new HaikuMethods(haikuRepo);
-            HaikuController haikuCon = new HaikuController(haikugen, haikuMethods);
-            var expected = new ActionResult<string>("one two three");
-            var actual = haikuCon.getone();
-            Assert.Equal(expected.Value, actual.Value);            
-        }
-
-        [Fact]//Controllers.HaikuController.cs
-        public void HaikuControllerTest3()
-        {
-            
-            HaikuRepo haikuRepo = new HaikuRepo(hContext);
-            UserRepo userRepo = new UserRepo(hContext);
-            HaikuGenerator haikugen = new HaikuGenerator(haikuRepo);
-            HaikuMethods haikuMethods = new HaikuMethods(haikuRepo);
-            HaikuController haikuCon = new HaikuController(haikugen, haikuMethods);
-            var expected = true;
-            var actual = (haikuCon.GetUnapprovedHaikuLines().Value != null);
-            Assert.Equal(expected, actual);            
-        }        
-
+       
         /***********************************************
          * Unit tests for UserController.cs follows... *
          ***********************************************/
@@ -995,7 +951,7 @@ namespace HaikuWriter.Tests
         }        
         
         [Fact]//Repository.HaikuRepo.cs
-        public void HaikuRepoTest10()
+        public void HaikuRepoTest7()
         {
             HaikuRepo haikurepo = new HaikuRepo(hContext);
             HaikuLine haikuline = new HaikuLine();
@@ -1023,7 +979,7 @@ namespace HaikuWriter.Tests
 
 
         [Fact]//Repository.HaikuRepo.cs
-        public void HaikuRepoTest7()
+        public void HaikuRepoTest8()
         {
             HaikuRepo haikurepo = new HaikuRepo(hContext);
             HaikuLine haikuline = haikurepo.GetHaiku5();
@@ -1032,15 +988,16 @@ namespace HaikuWriter.Tests
             Assert.Equal(expected, actual);
         }
 
-        [Fact]//Repository.HaikuRepo.cs
-        public void HaikuRepoTest8()
-        {
-            HaikuRepo haikurepo = new HaikuRepo(hContext);
-            HaikuLine haikuline = haikurepo.GetHaiku7();
-            var expected = 7;
-            var actual = haikuline.Syllable;
-            Assert.Equal(expected, actual);
-        }
+        // [Fact]//Repository.HaikuRepo.cs
+        // public void HaikuRepoTest9()
+        // {
+        //     HaikuRepo haikurepo = new HaikuRepo(hContext);
+        //     HaikuLine haikuline = haikurepo.GetHaiku7();
+        //     var expected = 7;
+        //     var actual = haikuline.Syllable;
+        //     Assert.Equal(expected, actual);
+        // }
+
 
         /***********************************************
          * Unit tests for Message.cs follows...        *
@@ -1202,5 +1159,110 @@ namespace HaikuWriter.Tests
             var actual = (haiku != null);
             Assert.Equal(expected, actual);
         }
+
+ /***********************************************
+         * Unit tests for HaikuController.cs follows...*
+         ***********************************************/
+
+        [Fact]//Controllers.HaikuController.cs
+        public void HaikuControllerTest1()
+        {
+           
+            HaikuRepo haikuRepo = new HaikuRepo(hContext);
+            UserRepo userRepo = new UserRepo(hContext);
+            HaikuGenerator haikugen = new HaikuGenerator(haikuRepo);
+            HaikuMethods haikuMethods = new HaikuMethods(haikuRepo);
+            HaikuController haikuCon = new HaikuController(haikugen, haikuMethods);
+            var expected = "one two three";
+            var actual = haikuCon.GetOne();
+            Assert.Equal(expected, actual);
+        }
+        [Fact]//Controllers.HaikuController.cs
+        public void HaikuControllerTest2()
+        {
+            
+            HaikuRepo haikuRepo = new HaikuRepo(hContext);
+            UserRepo userRepo = new UserRepo(hContext);
+            HaikuGenerator haikugen = new HaikuGenerator(haikuRepo);
+            HaikuMethods haikuMethods = new HaikuMethods(haikuRepo);
+            HaikuController haikuCon = new HaikuController(haikugen, haikuMethods);
+            var expected = new ActionResult<string>("one two three");
+            var actual = haikuCon.getone();
+            Assert.Equal(expected.Value, actual.Value);            
+        }
+
+        [Fact]//Controllers.HaikuController.cs
+        public void HaikuControllerTest3()
+        {
+            
+            HaikuRepo haikuRepo = new HaikuRepo(hContext);
+            UserRepo userRepo = new UserRepo(hContext);
+            HaikuGenerator haikugen = new HaikuGenerator(haikuRepo);
+            HaikuMethods haikuMethods = new HaikuMethods(haikuRepo);
+            HaikuController haikuCon = new HaikuController(haikugen, haikuMethods);
+            var expected = true;
+            var actual = (haikuCon.GetUnapprovedHaikuLines().Value != null);
+            Assert.Equal(expected, actual);            
+        }
+
+        [Fact]//Controllers.HaikuController.cs
+        public void HaikuControllerTest4()
+        {
+            HaikuRepo haikuRepo = new HaikuRepo(hContext);
+            UserRepo userRepo = new UserRepo(hContext);
+            HaikuGenerator haikugen = new HaikuGenerator(haikuRepo);
+            HaikuMethods haikuMethods = new HaikuMethods(haikuRepo);
+            HaikuController haikuCon = new HaikuController(haikugen, haikuMethods);
+            var expected = true;
+            var actual = (haikuCon.GetUnapprovedHaikus().Value != null);
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]//Controllers.HaikuController.cs
+        public void HaikuControllerTest5()
+        {
+            HaikuRepo haikuRepo = new HaikuRepo(hContext);
+            UserRepo userRepo = new UserRepo(hContext);
+            HaikuGenerator haikugen = new HaikuGenerator(haikuRepo);
+            HaikuMethods haikuMethods = new HaikuMethods(haikuRepo);
+            HaikuController haikuCon = new HaikuController(haikugen, haikuMethods);
+            var expected = true;
+            var actual = (haikuCon.GetAllHaikus().Value != null);
+            Assert.Equal(expected, actual);
+        }     
+
+        [Fact]//Controllers.HaikuController.cs
+        public void HaikuControllerTest6()
+        {
+            HaikuRepo haikuRepo = new HaikuRepo(hContext);
+            UserRepo userRepo = new UserRepo(hContext);
+            HaikuGenerator haikugen = new HaikuGenerator(haikuRepo);
+            HaikuMethods haikuMethods = new HaikuMethods(haikuRepo);
+            HaikuController haikucon = new HaikuController(haikugen, haikuMethods);
+            RawHaikuLine newLine = new RawHaikuLine();
+            newLine.syllable = 5;
+            newLine.line = "Just another test line";
+            newLine.tags = "huh";
+            newLine.username = "clarson217";
+            HaikuDTO haiku = new HaikuDTO();
+            haiku.haikuLine1 = newLine.line;
+            var actionhaikuline = haikucon.SubmitHaikuLine(newLine);
+            newLine.syllable = 7;
+            newLine.line = "Is this the real life?";
+            newLine.tags = "who";
+            haiku.haikuLine2 = newLine.line;
+            actionhaikuline = haikucon.SubmitHaikuLine(newLine);
+            newLine.syllable = 5;
+            newLine.line = "Is this just fantasy";
+            newLine.tags = "where";
+            haiku.haikuLine3 = newLine.line;
+            actionhaikuline = haikucon.SubmitHaikuLine(newLine);
+            var activonhaiku = haikucon.SubmitHaiku(haiku);
+            var expected = true;
+            var actual = haikucon.ApproveHaiku(1).Value;
+            Assert.Equal(expected, actual);
+        }
+
+
     }
 }

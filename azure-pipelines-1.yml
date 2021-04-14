@@ -20,6 +20,7 @@ steps:
   inputs:
     versionSpec: '10.x'
   displayName: 'Install Node.js'
+
 - task: SonarCloudPrepare@1
   inputs:
     SonarCloud: 'AngularSonarCloudConnection'
@@ -30,7 +31,7 @@ steps:
     cliProjectName: 'P2_HaikuWriterAng'
     cliSources: '$(solution)/src'
     extraProperties: 
-      sonar.javascript.lcov.reportPaths= HaikuWriter/ClientApp/coverage/lcov.info
+      'sonar.javascript.lcov.reportPaths=$(solution)/coverage/ClientApp/lcov.info'
 
 - task: Npm@1
   inputs:

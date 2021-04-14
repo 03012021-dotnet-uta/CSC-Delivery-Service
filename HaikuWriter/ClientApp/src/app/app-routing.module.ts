@@ -9,6 +9,7 @@ import { AdminPrivilegeComponent } from './admin-privilege/admin-privilege.compo
 import { HaikuDetailsComponent} from './haiku-details/haiku-details.component';
 import { ThreadListComponent } from './thread-list/thread-list.component';
 import { ThreadPageComponent } from './thread-page/thread-page.component';
+import { WordIdeasComponent} from './word-ideas/word-ideas.component';
 
 const routes: Routes = [
   { path: 'signup', component: SignupComponent },
@@ -18,7 +19,8 @@ const routes: Routes = [
   { path: 'usersettings', component: UserSettingsComponent},
   { path: 'writehaiku', component: HaikuDetailsComponent},
   { path: 'forum' , component: ThreadListComponent},
-  { path: 'thread', component: ThreadPageComponent}
+  { path: 'thread', component: ThreadPageComponent},
+  { path: 'wordCorner', component: WordIdeasComponent}
 ];
 
 @NgModule({

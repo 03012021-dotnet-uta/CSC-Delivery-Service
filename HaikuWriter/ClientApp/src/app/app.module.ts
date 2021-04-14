@@ -14,6 +14,7 @@ import { SignupComponent } from './signup/signup.component';
 import { AdminApproveComponent } from './admin-approve/admin-approve.component';
 import { HaikuDetailsComponent } from './haiku-details/haiku-details.component';
 import { AdminPrivilegeComponent } from './admin-privilege/admin-privilege.component';
+import { WordIdeasComponent } from './word-ideas/word-ideas.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { AdminPrivilegeComponent } from './admin-privilege/admin-privilege.compo
     SignupComponent,
     AdminApproveComponent,
     HaikuDetailsComponent,
-    AdminPrivilegeComponent
+    AdminPrivilegeComponent,
+    WordIdeasComponent
   ],
   imports: [
     BrowserModule,

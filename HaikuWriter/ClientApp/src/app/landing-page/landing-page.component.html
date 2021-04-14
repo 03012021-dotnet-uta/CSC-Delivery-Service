@@ -7,7 +7,9 @@
 
 <button (click)="GeneHaiku()">Generate Haiku</button>
 
-<a href="/usersettings">Settings</a>
+<button [routerLink]="['/wordCorner']">Word Corner</button>
+
+<button href="/usersettings">Settings</button>
 
 <div *ngIf="haikuDTO">
     {{haikuDTO.haikuLine1}}<br>

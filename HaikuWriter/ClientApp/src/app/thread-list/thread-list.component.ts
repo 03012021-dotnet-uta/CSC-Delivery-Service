@@ -12,10 +12,6 @@ import { ThreadService } from '../service/thread.service';
 export class ThreadListComponent implements OnInit {
   threads?: Thread[];
   thread = new Thread(0, "  ", "  ");
-<<<<<<< HEAD
-=======
-
->>>>>>> 9116c9458201ba76e97719e84fd466694075ffef
   constructor(private router: Router,
     private route: ActivatedRoute,
     private threadservice: ThreadService) { }

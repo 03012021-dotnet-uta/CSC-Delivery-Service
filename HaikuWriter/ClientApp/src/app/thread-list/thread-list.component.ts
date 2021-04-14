@@ -11,15 +11,30 @@ import { ThreadService } from '../service/thread.service';
 })
 export class ThreadListComponent implements OnInit {
   threads?: Thread[];
+  threadlist?: Thread[];
   thread = new Thread(0, "  ", "  ");
+  x = 0;
+  listLength = 0;
   constructor(private router: Router,
     private route: ActivatedRoute,
     private threadservice: ThreadService) { }
 
   ngOnInit(): void {
+    if(localStorage.getItem("User")== null){
+      this.router.navigateByUrl('/login')
+    }
     this.GetThreads();
   }
   
+  onNext(){
+    this.x++;
+    this.threads = this.threadlist?.slice((this.x * 10), ((this.x * 10)+10))
+  }
+  onPrev(){
+    this.x--;
+    this.threads = this.threadlist?.slice((this.x * 10), ((this.x * 10)+10))
+  }
+
   ThreadPage(threadid: number){
 
     localStorage.setItem('thread', threadid.toString());
@@ -30,8 +45,17 @@ export class ThreadListComponent implements OnInit {
   GetThreads() {
     this.threadservice.GetThreads().subscribe(
       res =>{
-        this.threads = res
-        console.log(res) }
+        
+        this.threadlist = res
+        this.listLength = this.threadlist.length;
+        if(this.threadlist.length > 10){
+          this.threads = this.threadlist.slice(0, 10);
+        }else{
+          this.threads = this.threadlist;
+        }
+        
+        console.log(this.threads)
+       }
        );                                                                                                                                                           
   }
   CreateThread(){
@@ -44,7 +68,8 @@ export class ThreadListComponent implements OnInit {
       this.thread = res
       this.thread.threadId = res.threadId;
       this.ThreadPage(this.thread.threadId);
-
+      const form = <HTMLFormElement>document.getElementById("createAThread");
+      form.reset();
     });
   }
 

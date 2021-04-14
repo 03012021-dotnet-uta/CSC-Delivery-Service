@@ -48,12 +48,12 @@ export class SignupComponent implements OnInit {
           if (err.status === 422) {
             this.serverErrorMessages = "This User Already Exists";
             console.log("server serror");
-            form.reset();
+            //form.reset();
           }
           else{
             this.serverErrorMessages = "Sign Up Was Unsuccessful";
             console.log("server serror");
-            form.reset();
+            //form.reset();
           }
         }
     );

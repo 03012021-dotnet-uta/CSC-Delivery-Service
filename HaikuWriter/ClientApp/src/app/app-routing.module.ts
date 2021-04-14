@@ -9,11 +9,9 @@ import { AdminPrivilegeComponent } from './admin-privilege/admin-privilege.compo
 import { HaikuDetailsComponent} from './haiku-details/haiku-details.component';
 import { ThreadListComponent } from './thread-list/thread-list.component';
 import { ThreadPageComponent } from './thread-page/thread-page.component';
-<<<<<<< HEAD
 import { HomeComponent } from './home/home.component';
-=======
 import { WordIdeasComponent} from './word-ideas/word-ideas.component';
->>>>>>> 16a21ce65df952acb9add0009973465e8f90da23
+import { AdminComponent } from './admin/admin.component'
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
@@ -25,7 +23,9 @@ const routes: Routes = [
   { path: 'writehaiku', component: HaikuDetailsComponent},
   { path: 'forum' , component: ThreadListComponent},
   { path: 'thread', component: ThreadPageComponent},
-  { path: 'wordCorner', component: WordIdeasComponent}
+  { path: 'wordCorner', component: WordIdeasComponent},
+  { path: 'admin', component: AdminComponent}
+
 ];
 
 @NgModule({

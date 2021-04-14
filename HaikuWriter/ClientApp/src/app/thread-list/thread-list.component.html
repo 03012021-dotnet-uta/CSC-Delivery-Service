@@ -19,19 +19,21 @@
 
 <div>
     <div>
-        <form class= "createAThread">
+        <form id= "createAThread">
             <label>Thread Description: </label>
             <input type="text" #description = "ngModel" placeholder="Name your thread" name="description" [(ngModel)]="thread.description">
-            <input type="submit" value="Create New Thread" (click)=CreateThread() >
+            <input type="submit" class="btn btn-primary" value="Create New Thread" (click)=CreateThread() >
         </form>
     </div>
-    <ul>
-        <li *ngFor="let thread of threads">
+    <ul class="list-group">
+        <li *ngFor="let thread of threads" class="list-group-item">
             <button (click)="ThreadPage(thread.threadId)">
                 Thread: {{thread.threadId}} {{thread.description}} - - - Author: {{thread.username}}
             </button>
         </li>
     </ul>
+    <button class="btn btn-primary" (click)="onPrev()" *ngIf="x != 0">Previous</button>
+    <button class="btn btn-primary" (click)="onNext()" *ngIf="(x+1)<(listLength/10)">Next</button>
 </div>
 
 

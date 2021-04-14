@@ -34,17 +34,23 @@
 
         <input type="submit" value="Update">
       </form>
+      <div *ngIf="errorMessage">Atleast One Field Is Required</div>
 </div>
 <br>
 
 <div>
     <h3>Update Password</h3>
-    <form class="updatePassword" #updatePassword="ngForm" (ngSubmit)="onUpdatePassword(updatePassword)">
+    <form class="updatePassword" #updatePassword="ngForm" (ngSubmit)=" onUpdatePassword(updatePassword)">
         
         <label for="password">Current Password:</label>
-        <input type="password" name="password" ngModel><br>
+        <input type="password" name="password" ngModel required ><br>
+        <div *ngIf="emptyInput">
+            <label class="validation-message">This Field Is Required.</label><br>
+          </div>
         <label for="newPassword">New Password:</label>
-        <input type="password" name="newPassword" ngModel><br>
+        <input type="password" name="newPassword" ngModel required><br>
+        
         <input type="submit" value="Update Password">
     </form>
+    <div *ngIf="errorMessage">Sorry, Password Update Was Unsuccessful</div>
 </div>

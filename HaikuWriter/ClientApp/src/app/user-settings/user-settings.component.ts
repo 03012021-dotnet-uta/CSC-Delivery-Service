@@ -13,6 +13,8 @@ import {UserService} from '../service/user.service';
 export class UserSettingsComponent implements OnInit {
 
   user = new User(" ", " ", " ", " ", " ", " ", " ", false);
+  errorMessage = false;
+  emptyInput = false;
   constructor(private userService: UserService, private router: Router) { }
 
   //  password: string = "";
@@ -46,10 +48,17 @@ export class UserSettingsComponent implements OnInit {
   }
 
   onSubmit(form: NgForm){
+    if(this.user.firstName == null && this.user.lastName == null && this.user.email == null && this.user.faceBookName == null &&this.user.twitterName == null){
+      this.errorMessage = true;
+      setTimeout(() => this.errorMessage = false, 4000);
+    } 
+
     this.userService.updateUser(this.user)
       .subscribe(
         res => {
+          this.user = res;
           console.log("success");
+          //form.reset();
         },
         err => {
           if (err.status === 422) {
@@ -63,19 +72,22 @@ export class UserSettingsComponent implements OnInit {
   }
 
   onUpdatePassword(form: NgForm){
-   
+    if(form.value.password == '' ||  form.value.newPassword == ''){
+      this.emptyInput = true;
+      setTimeout(() => this.emptyInput = false, 4000);
+      return;
+    }
     this.userService.updatePassword(this.user.username, form.value.password, form.value.newPassword)
       .subscribe(
         res => {
           console.log("success");
+          form.reset();
         },
         err => {
-          if (err.status === 422) {
-            console.log("server serror");
-          }
-          else{
-            console.log("server error");
-          }
+          console.log("error");
+          this.errorMessage = true;
+          setTimeout(() => this.errorMessage = false, 4000);
+
         }
     );
 

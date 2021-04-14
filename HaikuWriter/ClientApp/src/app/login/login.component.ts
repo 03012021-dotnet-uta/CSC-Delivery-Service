@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   user = new User("", "", "", "", "", "", "", false);
   username: string = "";
   password: string = "";
-
+  serverErrorMessages?: string;
   errormessage: boolean= false;
   constructor(private userService: UserService, private router: Router) { }
 
@@ -26,6 +26,7 @@ export class LoginComponent implements OnInit {
   onSubmit(form: NgForm){
     if(this.username == '' || this.password == ''){
        this.errormessage = true;
+       setTimeout(() => this.errormessage = false, 4000);
        return;
     }
     this.userService.login(this.username, this.password)
@@ -44,7 +45,10 @@ export class LoginComponent implements OnInit {
           }
         },
         err => {
+            this.serverErrorMessages = "Sorry, Username Or Password Din Not Match Our Record ";
+            setTimeout(() => this.serverErrorMessages = '', 4000);
             console.log("server error", err);
+
         }
     );
   }

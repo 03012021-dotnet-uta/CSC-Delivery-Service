@@ -14,18 +14,21 @@
 <br>
 <div>
     <div>
-        <form class= "createAMethod">
+        <form id= "createAMethod" >
             <label>Message: </label>
+            
             <input type="text" #messagebody = "ngModel" placeholder="What's on your mind?" name="messagebody" [(ngModel)]="message.messageBody">
-            <input type="submit" value="Add Message" (click)=CreateMessage()>
+            <input type="submit" class="btn btn-primary" value="Add Message" (click)=CreateMessage()>
         </form>
     </div>
-    <ul>
-        <li *ngFor="let message of messages">
+    <ul class="list-group">
+        <li *ngFor="let message of messages" class="list-group-item">
             <td>
                 Author: {{message.username}}
                 Post: {{message.messageBody}}
             </td>
         </li>
     </ul>
+    <button class="btn btn-primary" (click)="onPrev()" *ngIf="x != 0">Previous</button>
+    <button class="btn btn-primary" (click)="onNext()" *ngIf="(x+1)<(mesLength/10)">Next</button>
 </div>

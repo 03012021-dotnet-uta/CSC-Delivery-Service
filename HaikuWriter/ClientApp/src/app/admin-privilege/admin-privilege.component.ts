@@ -33,14 +33,13 @@ export class AdminPrivilegeComponent implements OnInit {
     this.userService.getAllUser()
       .subscribe(
         res => {
-          //this.userlist = res;
-          res.forEach((element, i) => { 
+          this.userlist = res;
+          this.userlist.forEach((element, i) => { 
             if(element.username === this.admin.username){
-              res.splice(i, 1);
+              this.userlist!.splice(i, 1);
             }
           });
-         console.log(res)
-          this.userlist = res;
+         console.log(this.userlist)
         },
         err => {
           if (err.status === 422) {

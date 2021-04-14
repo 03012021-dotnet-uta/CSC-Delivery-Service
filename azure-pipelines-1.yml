@@ -50,10 +50,6 @@ steps:
     workingDir: 'HaikuWriter/ClientApp'
     customCommand: 'run test-headless'
 
-- task: PublishCodeCoverageResults@1
-  inputs:
-    summaryFileLocation: 'HaikuWriter/ClientApp/coverage/ClientApp'
-
 - task: SonarCloudAnalyze@1
 - task: SonarCloudPublish@1
   inputs:

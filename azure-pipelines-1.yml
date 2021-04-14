@@ -48,10 +48,10 @@ steps:
     workingDir: 'HaikuWriter/ClientApp'
     customCommand: 'run test-headless'
 
-# - task: PublishCodeCoverageResults@1
-#   inputs:
-#     #codeCoverageTool: 'Cobertura'
-#     summaryFileLocation: 'HaikuWriter/ClientApp/coverage/lcov.info'
+- task: PublishCodeCoverageResults@1
+  inputs:
+    codeCoverageTool: 'JaCoCo'
+    summaryFileLocation: '**/coverage/lcov.info'
 
 - task: SonarCloudAnalyze@1
 - task: SonarCloudPublish@1

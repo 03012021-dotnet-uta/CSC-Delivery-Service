@@ -6,10 +6,6 @@
 trigger:
 - main
 
-paths:
-  include:
-  - HaikuWriter/ClientApp
-
 pool:
   vmImage: ubuntu-latest
 

@@ -15,10 +15,7 @@ export class LoginComponent implements OnInit {
   user = new User("", "", "", "", "", "", "", false);
   username: string = "";
   password: string = "";
-<<<<<<< HEAD
   serverErrorMessages?: string;
-=======
->>>>>>> e71cddaf95211e683a86dd2ec270303dc756ca9b
   errormessage: boolean= false;
   constructor(private userService: UserService, private router: Router) { }
 

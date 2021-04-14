@@ -1,0 +1,68 @@
+# Node.js with Angular
+# Build a Node.js project that uses Angular.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  solution: 'HaikuWriter/ClientApp'
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Release'
+
+
+steps:
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'AngularSonarCloudConnection'
+    organization: 'g1haikuwriter-1'
+    scannerMode: 'CLI'
+    configMode: 'manual'
+    cliProjectKey: 'G1HaikuWriter_P2_HaikuWriterAng'
+    cliProjectName: 'P2_HaikuWriterAng'
+    cliSources: '$(solution)/src'
+
+- task: NodeTool@0
+  inputs:
+    versionSpec: '10.x'
+  displayName: 'Install Node.js'
+
+- task: Npm@1
+  inputs:
+    command: 'install'
+    workingDir: $(solution)
+
+- task: Npm@1
+  inputs:
+    command: 'custom'
+    workingDir: 'HaikuWriter/ClientApp'
+    customCommand: 'run build -- $(ngBuildConfiguration)'
+
+- task: Npm@1
+  inputs:
+    command: 'custom'
+    workingDir: 'HaikuWriter/ClientApp'
+    customCommand: 'run test -- --watch=false --code-coverage'
+
+- task: PublishCodeCoverageResults@1
+  inputs:
+    #codeCoverageTool: 'Cobertura'
+    summaryFileLocation: 'HaikuWriter/ClientApp/coverage/lcov.info'
+
+- task: SonarCloudAnalyze@1
+- task: SonarCloudPublish@1
+  inputs:
+    pollingTimeoutSec: '300'
+
+- task: ArchiveFiles@2
+  inputs:
+    rootFolderOrFile: '$(System.DefaultWorkingDirectory)/AngularTest/dist/'
+    includeRootFolder: false
+    archiveType: 'zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+    replaceExistingArchive: true
+

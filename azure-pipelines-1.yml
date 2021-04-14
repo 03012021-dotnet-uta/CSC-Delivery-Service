@@ -1,0 +1,59 @@
+# Node.js with Angular
+# Build a Node.js project that uses Angular.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+
+trigger:
+- main
+
+paths:
+  include:
+  - HaikuWriter/ClientApp
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  solution: 'HaikuWriter/ClientApp'
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Release'
+
+steps:
+- script: |
+    npm install -g @angular/cli
+    npm install
+    ng build --prod
+  displayName: 'npm install and build'
+
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'HaikuWriterSonarCloudConnection'
+    organization: 'g1haikuwriter-1'
+    scannerMode: 'CLI'
+    configMode: 'manual'
+    cliProjectKey: 'G1HaikuWriter_P2_HaikuWriterGroup'
+    cliProjectName: 'HaikuWriterAngular'
+    cliSources: '$(System.DefaultWorkingDirectory)/ClientApp'
+
+- task: NodeTool@0
+  inputs:
+    versionSpec: '10.x'
+  displayName: 'Install Node.js'
+
+- task: Npm@1
+  inputs:
+    command: 'install'
+    workingDir: 'HaikuWriter/ClientApp'
+
+- task: SonarCloudAnalyze@1
+- task: SonarCloudPublish@1
+  inputs:
+    pollingTimeoutSec: '300'
+
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'G1HaikuWriterSubscription(1)(4f7eaef6-673a-4603-8d6c-e9e2481ee2c9)'
+    appType: 'webApp'
+    WebAppName: 'HaikuWriterGenerator'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'

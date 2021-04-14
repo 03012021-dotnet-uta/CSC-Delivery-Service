@@ -1,11 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { AppComponent } from '../app.component';
 
 import { LandingPageComponent } from './landing-page.component';
 
 // describe('LandingPageComponent', () => {
-//   let component: LandingPageComponent;
-//   let fixture: ComponentFixture<LandingPageComponent>;
-
 //   beforeEach(async () => {
 //     await TestBed.configureTestingModule({
 //       declarations: [ LandingPageComponent ]
@@ -13,13 +11,16 @@ import { LandingPageComponent } from './landing-page.component';
 //     .compileComponents();
 //   });
 
-//   beforeEach(() => {
-//     fixture = TestBed.createComponent(LandingPageComponent);
-//     component = fixture.componentInstance;
-//     fixture.detectChanges();
+//   it('should create', () => {
+//     const fixture = TestBed.createComponent(AppComponent);
+//     const app = fixture.componentInstance;
+//     expect(app).toBeTruthy();
 //   });
 
-//   it('should create', () => {
-//     expect(component).toBeTruthy();
-//   });
+//   it('should welcome user by name', () => {
+//       const fixture = TestBed.createComponent(AppComponent);
+//       fixture.detectChanges();
+//       const compiled = fixture.nativeElement;
+//       expect(compiled.querySelector('welcom').textContent("Welcome"));
+//   })
 // });

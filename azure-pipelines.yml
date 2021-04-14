@@ -41,6 +41,8 @@ steps:
     scannerMode: 'MSBuild'
     projectKey: 'G1HaikuWriter_P2_HaikuWriterGroup'
     projectName: 'P2_HaikuWriterGroup'
+    extraProperties:
+      sonar.coverage.exclusions = '**/Migrations/**, **/Startup.cs'
 
 - task: DotNetCoreCLI@2
   inputs:

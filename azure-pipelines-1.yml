@@ -25,6 +25,8 @@ steps:
     cliProjectKey: 'G1HaikuWriter_P2_HaikuWriterAng'
     cliProjectName: 'P2_HaikuWriterAng'
     cliSources: '$(solution)/src'
+    extraProperties: 
+      sonar.javascript.lcov.reportPaths= HaikuWriter/ClientApp/coverage/ClientApp
 
 - task: NodeTool@0
   inputs:
@@ -50,7 +52,7 @@ steps:
 
 - task: PublishCodeCoverageResults@1
   inputs:
-    summaryFileLocation: '**/coverage/lcov.info'
+    summaryFileLocation: 'HaikuWriter/ClientApp/coverage/ClientApp'
 
 - task: SonarCloudAnalyze@1
 - task: SonarCloudPublish@1
@@ -59,7 +61,7 @@ steps:
 
 - task: ArchiveFiles@2
   inputs:
-    rootFolderOrFile: '$(System.DefaultWorkingDirectory)/ClientApp/dist/'
+    rootFolderOrFile: 'HaikuWriter/ClientApp/dist/'
     includeRootFolder: false
     archiveType: 'zip'
     archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'

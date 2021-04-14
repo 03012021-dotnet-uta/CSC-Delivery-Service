@@ -46,7 +46,7 @@ steps:
   inputs:
     command: 'custom'
     workingDir: 'HaikuWriter/ClientApp'
-    customCommand: 'run test -- --watch=false --code-coverage'
+    customCommand: 'run test --watch=false --code-coverage'
 
 - task: PublishCodeCoverageResults@1
   inputs:

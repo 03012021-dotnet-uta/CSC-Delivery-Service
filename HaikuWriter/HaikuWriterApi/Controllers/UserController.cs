@@ -26,6 +26,7 @@ namespace HaikuWriterApi.Controllers
 
             User newUser = _userMethods.UserRegister(user);
             
+            
             return newUser;
         } 
 

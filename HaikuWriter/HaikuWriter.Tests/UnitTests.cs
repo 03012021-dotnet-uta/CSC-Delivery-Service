@@ -720,6 +720,51 @@ namespace HaikuWriter.Tests
             Assert.Equal(expected, actual);
         }
 
+        [Fact]//Controllers.UserController.cs
+        public void UserControllerTest3()
+        {
+            UserRepo userrepo = new UserRepo(hContext);
+            UserMethods userMethods = new UserMethods(userrepo);
+            UserController userController = new UserController(userMethods);
+            var actionUser = userController.Getuser("clarson");
+            var expected = "clarson@a.com";
+            var actual = actionUser.Value.Email;
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]//Controllers.UserController.cs
+        public void UserControllerTest4()
+        {
+            UserRepo userrepo = new UserRepo(hContext);
+            userrepo.UpdatePassword();
+            UserMethods userMethods = new UserMethods(userrepo);
+            UserController userController = new UserController(userMethods);
+            RawUser ruser = new RawUser();
+            ruser.Username = "clarson2";
+            ruser.Password = "123cherrytree3";
+            ruser.LastName = "Larson";
+            ruser.Email = "clarson@a.com";
+            ruser.FaceBookName = "No";
+            ruser.TwitterName = "Nope";
+            var actionUser = userController.signup(ruser);
+            ruser.LastName = "Johnson";
+            actionUser = userController.UpdateUserInfo(ruser);
+            var expected = "Johnson";
+            var actual = actionUser.Value.LastName;
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]//Controllers.UserController.cs
+        public void UserControllerTest5()
+        {
+            UserRepo userrepo = new UserRepo(hContext);
+            UserMethods userMethods = new UserMethods(userrepo);
+            UserController userController = new UserController(userMethods);
+            var actionList = userController.GellAllUser();
+            var expected = true;
+            var actual = (actionList.Value.ToList() != null);
+            Assert.Equal(expected, actual);
+        }
         /***********************************************
          * Unit tests for UserRepo.cs follows...       *
          ***********************************************/
@@ -733,22 +778,63 @@ namespace HaikuWriter.Tests
             Assert.Equal(expected, actual);
         }
 
+        
+
         /***********************************************
-         * Unit tests for UserRepo.cs follows...       *
+         * Unit tests for UserMethods.cs follows...    *
          ***********************************************/
 
-        //  [Fact]//BusinessLogic.UserMethods.cs
-        //  public void UserMethodsTest1()
-        //  {
-        //     HaikuDbContext hContext = new HaikuDbContext(testOptions);
-        //     UserRepo userrepo = new UserRepo(hContext);
-        //     RawUser rawuser = new RawUser();
-        //     rawuser.Password = "12345";
-        //     UserMethods usermethods = new UserMethods(userrepo);
-        //     User expected = null;
-        //     var actual = usermethods.UserRegister(rawuser);
-        //     Assert.Equal(expected, actual);
-        //  }
+         [Fact]//BusinessLogic.UserMethods.cs
+         public void UserMethodsTest1()
+         {
+            
+            UserRepo userrepo = new UserRepo(hContext);
+            UserMethods usermethods = new UserMethods(userrepo);
+            User expected = null;
+            User actual = usermethods.UserLogin("Chris", "12345");
+            Assert.Equal(expected, actual);
+         }
+
+         [Fact]//BusinessLogic.UserMethods.cs
+         public void UserMethodsTest2()
+         {
+            
+            UserRepo userrepo = new UserRepo(hContext);
+            UserMethods usermethods = new UserMethods(userrepo);
+            User expected = null;
+            User actual = usermethods.UserLogin("clarson217", "12345");
+            Assert.Equal(expected, actual);
+         }
+
+         [Fact]//BusinessLogic.UserMethods.cs
+         public void UserMethodsTest3()
+         {
+            
+            UserRepo userrepo = new UserRepo(hContext);
+            UserMethods usermethods = new UserMethods(userrepo);
+            var expected = false;
+            var actual = usermethods.UpdatePassword("clarson", "123cherrytree", "99redballoons");
+            Assert.Equal(expected, actual);
+         }
+
+         [Fact]//BusinessLogic.UserMethods.cs
+         public void UserMethodsTets3()
+         {
+            UserRepo userrepo = new UserRepo(hContext);
+            UserMethods usermethods = new UserMethods(userrepo);
+            var expected = true;
+            bool actual;
+            if(usermethods.GetAllUser().Count() != null){
+                actual = true;
+            }else{
+                actual = false;
+            }
+            Assert.Equal(expected, actual);
+         }
+
+        /***********************************************
+         * Unit tests for HaikuRepo.cs follows...       *
+         ***********************************************/
         
         [Fact]//Repository.HaikuRepo.cs
         public void HaikuRepoTest1()
@@ -957,19 +1043,62 @@ namespace HaikuWriter.Tests
             Assert.Equal(expected, actual);
         }
 
-        // [Fact]//Repository.HaikuRepo.cs
-        // public void HaikuRepoTest9()
-        // {
-        //     HaikuRepo haikurepo = new HaikuRepo(hContext);
-        //     HaikuLine haikuline = haikurepo.GetHaiku5();
-        //     HaikuLine haikuline2 = haikurepo.GetHaiku5(haikuline);
-        //     // var expected = 1;
-        //     // var actual = haikuline2.HaikuLineId;
-        //     // Assert.Equal(expected, actual);
-        //     var expected = 5;
-        //     var actual = haikuline2.Syllable;
-        //     Assert.Equal(expected, actual);
-            
-        // }
+        /***********************************************
+         * Unit tests for Message.cs follows...        *
+         ***********************************************/
+
+        [Fact]//Models.Message.cs
+        public void MessageTest1()
+        {
+            User user = new User();
+            user.Username = "clarson217";
+            Message message = new Message();
+            message.User = user;
+            var expected = "clarson217";
+            var actual = message.User.Username;
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]//Models.Message.cs
+        public void MessageTest2()
+        {
+            Thread thread = new Thread();
+            thread.ThreadId = 1;
+            Message message = new Message();
+            message.Thread = thread;
+            var expected = 1;
+            var actual = message.Thread.ThreadId;
+            Assert.Equal(expected, actual);
+        }
+
+        /***********************************************
+         * Unit tests for Thread.cs follows...         *
+         ***********************************************/
+
+         [Fact]//Models.Thread.cs
+         public void ThreadTest1()
+         {
+             User user = new User();
+            user.Username = "clarson217";
+            Thread thread = new Thread();
+            thread.User = user;
+            var expected = "clarson217";
+            var actual = thread.User.Username;
+            Assert.Equal(expected, actual);
+         }
+
+         [Fact]//Models.Thread.cs
+         public void ThreadTest2()
+         {
+             Message message = new Message();
+             message.MessageId = 1;
+             ICollection<Message> messages = new List<Message>();
+             messages.Add(message);
+             var expected = 1;
+             var actual = messages.ToList()[0].MessageId;
+             Assert.Equal(expected, actual);
+         }
+
+
     }
 }

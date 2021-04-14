@@ -1,23 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\clche\\revature\\projects\\CatherineCheatle_p2\\P2_HaikuWriterGroup\\HaikuWriter\\BusinessLogic\\BusinessLogic.csproj": {}
+    "C:\\Users\\clars\\Revature\\projects\\P2_HaikuWriterGroup\\P2_HaikuWriterGroup\\HaikuWriter\\BusinessLogic\\BusinessLogic.csproj": {}
   },
   "projects": {
-    "C:\\Users\\clche\\revature\\projects\\CatherineCheatle_p2\\P2_HaikuWriterGroup\\HaikuWriter\\BusinessLogic\\BusinessLogic.csproj": {
+    "C:\\Users\\clars\\Revature\\projects\\P2_HaikuWriterGroup\\P2_HaikuWriterGroup\\HaikuWriter\\BusinessLogic\\BusinessLogic.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\clche\\revature\\projects\\CatherineCheatle_p2\\P2_HaikuWriterGroup\\HaikuWriter\\BusinessLogic\\BusinessLogic.csproj",
+        "projectUniqueName": "C:\\Users\\clars\\Revature\\projects\\P2_HaikuWriterGroup\\P2_HaikuWriterGroup\\HaikuWriter\\BusinessLogic\\BusinessLogic.csproj",
         "projectName": "BusinessLogic",
-        "projectPath": "C:\\Users\\clche\\revature\\projects\\CatherineCheatle_p2\\P2_HaikuWriterGroup\\HaikuWriter\\BusinessLogic\\BusinessLogic.csproj",
-        "packagesPath": "C:\\Users\\clche\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\clche\\revature\\projects\\CatherineCheatle_p2\\P2_HaikuWriterGroup\\HaikuWriter\\BusinessLogic\\obj\\",
+        "projectPath": "C:\\Users\\clars\\Revature\\projects\\P2_HaikuWriterGroup\\P2_HaikuWriterGroup\\HaikuWriter\\BusinessLogic\\BusinessLogic.csproj",
+        "packagesPath": "C:\\Users\\clars\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\clars\\Revature\\projects\\P2_HaikuWriterGroup\\P2_HaikuWriterGroup\\HaikuWriter\\BusinessLogic\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
+          "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\clche\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\clars\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -32,11 +34,11 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\clche\\revature\\projects\\CatherineCheatle_p2\\P2_HaikuWriterGroup\\HaikuWriter\\Models\\Models.csproj": {
-                "projectPath": "C:\\Users\\clche\\revature\\projects\\CatherineCheatle_p2\\P2_HaikuWriterGroup\\HaikuWriter\\Models\\Models.csproj"
+              "C:\\Users\\clars\\Revature\\projects\\P2_HaikuWriterGroup\\P2_HaikuWriterGroup\\HaikuWriter\\Models\\Models.csproj": {
+                "projectPath": "C:\\Users\\clars\\Revature\\projects\\P2_HaikuWriterGroup\\P2_HaikuWriterGroup\\HaikuWriter\\Models\\Models.csproj"
               },
-              "C:\\Users\\clche\\revature\\projects\\CatherineCheatle_p2\\P2_HaikuWriterGroup\\HaikuWriter\\Repository\\Repository.csproj": {
-                "projectPath": "C:\\Users\\clche\\revature\\projects\\CatherineCheatle_p2\\P2_HaikuWriterGroup\\HaikuWriter\\Repository\\Repository.csproj"
+              "C:\\Users\\clars\\Revature\\projects\\P2_HaikuWriterGroup\\P2_HaikuWriterGroup\\HaikuWriter\\Repository\\Repository.csproj": {
+                "projectPath": "C:\\Users\\clars\\Revature\\projects\\P2_HaikuWriterGroup\\P2_HaikuWriterGroup\\HaikuWriter\\Repository\\Repository.csproj"
               }
             }
           }
@@ -65,24 +67,26 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\clche\\revature\\projects\\CatherineCheatle_p2\\P2_HaikuWriterGroup\\HaikuWriter\\Models\\Models.csproj": {
+    "C:\\Users\\clars\\Revature\\projects\\P2_HaikuWriterGroup\\P2_HaikuWriterGroup\\HaikuWriter\\Models\\Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\clche\\revature\\projects\\CatherineCheatle_p2\\P2_HaikuWriterGroup\\HaikuWriter\\Models\\Models.csproj",
+        "projectUniqueName": "C:\\Users\\clars\\Revature\\projects\\P2_HaikuWriterGroup\\P2_HaikuWriterGroup\\HaikuWriter\\Models\\Models.csproj",
         "projectName": "Models",
-        "projectPath": "C:\\Users\\clche\\revature\\projects\\CatherineCheatle_p2\\P2_HaikuWriterGroup\\HaikuWriter\\Models\\Models.csproj",
-        "packagesPath": "C:\\Users\\clche\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\clche\\revature\\projects\\CatherineCheatle_p2\\P2_HaikuWriterGroup\\HaikuWriter\\Models\\obj\\",
+        "projectPath": "C:\\Users\\clars\\Revature\\projects\\P2_HaikuWriterGroup\\P2_HaikuWriterGroup\\HaikuWriter\\Models\\Models.csproj",
+        "packagesPath": "C:\\Users\\clars\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\clars\\Revature\\projects\\P2_HaikuWriterGroup\\P2_HaikuWriterGroup\\HaikuWriter\\Models\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
+          "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\clche\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\clars\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -123,24 +127,26 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\clche\\revature\\projects\\CatherineCheatle_p2\\P2_HaikuWriterGroup\\HaikuWriter\\Repository\\Repository.csproj": {
+    "C:\\Users\\clars\\Revature\\projects\\P2_HaikuWriterGroup\\P2_HaikuWriterGroup\\HaikuWriter\\Repository\\Repository.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\clche\\revature\\projects\\CatherineCheatle_p2\\P2_HaikuWriterGroup\\HaikuWriter\\Repository\\Repository.csproj",
+        "projectUniqueName": "C:\\Users\\clars\\Revature\\projects\\P2_HaikuWriterGroup\\P2_HaikuWriterGroup\\HaikuWriter\\Repository\\Repository.csproj",
         "projectName": "Repository",
-        "projectPath": "C:\\Users\\clche\\revature\\projects\\CatherineCheatle_p2\\P2_HaikuWriterGroup\\HaikuWriter\\Repository\\Repository.csproj",
-        "packagesPath": "C:\\Users\\clche\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\clche\\revature\\projects\\CatherineCheatle_p2\\P2_HaikuWriterGroup\\HaikuWriter\\Repository\\obj\\",
+        "projectPath": "C:\\Users\\clars\\Revature\\projects\\P2_HaikuWriterGroup\\P2_HaikuWriterGroup\\HaikuWriter\\Repository\\Repository.csproj",
+        "packagesPath": "C:\\Users\\clars\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\clars\\Revature\\projects\\P2_HaikuWriterGroup\\P2_HaikuWriterGroup\\HaikuWriter\\Repository\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
+          "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\clche\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\clars\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -155,8 +161,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\clche\\revature\\projects\\CatherineCheatle_p2\\P2_HaikuWriterGroup\\HaikuWriter\\Models\\Models.csproj": {
-                "projectPath": "C:\\Users\\clche\\revature\\projects\\CatherineCheatle_p2\\P2_HaikuWriterGroup\\HaikuWriter\\Models\\Models.csproj"
+              "C:\\Users\\clars\\Revature\\projects\\P2_HaikuWriterGroup\\P2_HaikuWriterGroup\\HaikuWriter\\Models\\Models.csproj": {
+                "projectPath": "C:\\Users\\clars\\Revature\\projects\\P2_HaikuWriterGroup\\P2_HaikuWriterGroup\\HaikuWriter\\Models\\Models.csproj"
               }
             }
           }
@@ -207,7 +213,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }

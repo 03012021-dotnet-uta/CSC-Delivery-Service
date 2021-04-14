@@ -26,7 +26,7 @@ steps:
     cliProjectName: 'P2_HaikuWriterAng'
     cliSources: '$(solution)/src'
     extraProperties: 
-      sonar.javascript.lcov.reportPaths= HaikuWriter/ClientApp/coverage/ClientApp
+      sonar.javascript.lcov.reportPaths= HaikuWriter/ClientApp/coverage/lcov.info
 
 - task: NodeTool@0
   inputs:
@@ -50,6 +50,10 @@ steps:
     workingDir: 'HaikuWriter/ClientApp'
     customCommand: 'run test-headless'
 
+- task: PublishCodeCoverageResults@1
+  inputs:
+    # codeCoverageTool: 'Cobertura'
+    summaryFileLocation: './ClientApp/coverage/lcov.info'
 - task: SonarCloudAnalyze@1
 - task: SonarCloudPublish@1
   inputs:
@@ -63,11 +67,11 @@ steps:
     archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
     replaceExistingArchive: true
   
-- task: AzureRmWebAppDeployment@4
-  inputs:
-    ConnectionType: 'AzureRM'
-    azureSubscription: 'G1HaikuWriterSubscription(2)(4f7eaef6-673a-4603-8d6c-e9e2481ee2c9)'
-    appType: 'webAppLinux'
-    WebAppName: 'HaikuWriterGenerator'
-    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+# - task: AzureRmWebAppDeployment@4
+#   inputs:
+#     ConnectionType: 'AzureRM'
+#     azureSubscription: 'G1HaikuWriterSubscription(2)(4f7eaef6-673a-4603-8d6c-e9e2481ee2c9)'
+#     appType: 'webAppLinux'
+#     WebAppName: 'HaikuWriterGenerator'
+#     packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
 

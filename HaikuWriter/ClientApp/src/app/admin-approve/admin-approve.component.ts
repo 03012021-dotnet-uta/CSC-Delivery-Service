@@ -15,7 +15,7 @@ export class AdminApproveComponent implements OnInit {
   haikulines: HaikuLine[] = [];
   haikus: Haiku[] =[];
   user = new User("", "", "", "", "", "", "", false);
-  adminStatus = false;
+  adminStatus: any;
 
   constructor(private haikuService: HaikuService, 
               private userService: UserService,
@@ -25,18 +25,17 @@ export class AdminApproveComponent implements OnInit {
   ngOnInit(): void {
     const username = localStorage.getItem('User')
     this.getUser(username);
-    this.adminStatus = this.user.adminStatus;
-    console.log(this.user.adminStatus);
-    console.log(this.user);
-    console.log("Admin approval" + username);
+    this.adminStatus = localStorage.getItem("Admin");
+
+    console.log("Admin approval" + this.adminStatus);
     if(username ==null)
     {
       this.router.navigateByUrl('/login')
     }
-    // if(this.adminStatus == false)
-    // {
-    //   this.router.navigateByUrl('/landingpage')
-    // }
+    if(this.adminStatus == "false")
+    {
+      this.router.navigateByUrl('/landingpage')
+    }
     else{
       this.GetUnapprovedHaikuLines();
       this.GetUnapprovedHaikus();

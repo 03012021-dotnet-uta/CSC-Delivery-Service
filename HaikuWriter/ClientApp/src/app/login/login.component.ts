@@ -15,7 +15,6 @@ export class LoginComponent implements OnInit {
   user = new User("", "", "", "", "", "", "", false);
   username: string = "";
   password: string = "";
-
   errormessage: boolean= false;
   constructor(private userService: UserService, private router: Router) { }
 
@@ -35,6 +34,8 @@ export class LoginComponent implements OnInit {
             console.log(res);
             console.log("success");
             localStorage.setItem('User', res.username);
+
+            localStorage.setItem('Admin', String(res.adminStatus));
             this.router.navigateByUrl('/landingpage')
             return;
           }

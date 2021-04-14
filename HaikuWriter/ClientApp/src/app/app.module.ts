@@ -14,11 +14,8 @@ import { SignupComponent } from './signup/signup.component';
 import { AdminApproveComponent } from './admin-approve/admin-approve.component';
 import { HaikuDetailsComponent } from './haiku-details/haiku-details.component';
 import { AdminPrivilegeComponent } from './admin-privilege/admin-privilege.component';
-<<<<<<< HEAD
 import { HomeComponent } from './home/home.component';
-=======
 import { WordIdeasComponent } from './word-ideas/word-ideas.component';
->>>>>>> 16a21ce65df952acb9add0009973465e8f90da23
 
 @NgModule({
   declarations: [
@@ -32,11 +29,8 @@ import { WordIdeasComponent } from './word-ideas/word-ideas.component';
     AdminApproveComponent,
     HaikuDetailsComponent,
     AdminPrivilegeComponent,
-<<<<<<< HEAD
-    HomeComponent
-=======
+    HomeComponent,
     WordIdeasComponent
->>>>>>> 16a21ce65df952acb9add0009973465e8f90da23
   ],
   imports: [
     BrowserModule,

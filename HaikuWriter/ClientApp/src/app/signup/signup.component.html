@@ -1,25 +1,72 @@
-<p>signup works!</p>
-
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" href="">Home </a>
+      <a class="nav-item nav-link" href="/login">Login</a>
+      <a class="nav-item nav-link" href="/signup">Sign-Up</a>
+      <a class="nav-item nav-link disabled" href="#">About</a>
+    </div>
+  </div>
+</nav>
+<br>
 <div>
-    <form class="signup"  >
+    <form class="signup form-group row"  #signUpForm="ngForm" (ngSubmit)="signUpForm.valid && signup(signUpForm)">
         <label for="username">Username:</label>
-        <input type="text" #username="ngModel" placeholder="Username" name="username" [(ngModel)]="user.username"><br>;
+        <input type="text" class="form-control" #username="ngModel" placeholder="Username" name="username" [(ngModel)]="user.username" 
+        required [ngClass]="{'invalid-textbox' :signUpForm.submitted && !firstName.valid }">
+        <div *ngIf="signUpForm.submitted && !username.valid">
+          <label class="validation-message">This Field Is Required.</label>
+        </div>
+        <br><br>
         <label for="firstname">First Name:</label>
-        <input type="text" #firstname="ngModel" placeholder="First Name" name="firstname" [(ngModel)]="user.firstName"><br>;
+        <input type="text" class="form-control" #firstName="ngModel" placeholder="First Name" name="firstName" [(ngModel)]="user.firstName"
+         required [ngClass]="{'invalid-textbox' :signUpForm.submitted && !firstName.valid }">
+         <div *ngIf="signUpForm.submitted && !firstName.valid">
+          <label class="validation-message">This Field Is Required.</label>
+        </div>
+        <br><br>
         <label for="lastname">Last Name:</label>
-        <input type="text" #lastName="ngModel" placeholder="Last Name" name="lastname" [(ngModel)]="user.lastName"><br>;
+        <input type="text" class="form-control" #lastName="ngModel" placeholder="Last Name" name="lastName" [(ngModel)]="user.lastName" 
+        required [ngClass]="{'invalid-textbox' :signUpForm.submitted && !lastName.valid }">
+        <div *ngIf="signUpForm.submitted && !lastName.valid">
+          <label class="validation-message">This Field Is Required.</label>
+        </div>
+        <br><br>
         <label for="email">Email:</label>
-        <input type="email" #email="ngModel" placeholder="Email" name="email" [(ngModel)]="user.email"><br>;
-        
+        <input type="email" class="form-control" #email="ngModel" placeholder="Email" name="email" [(ngModel)]="user.email"
+         required [pattern]="emailRegex" [ngClass]="{'invalid-textbox' :signUpForm.submitted && !email.valid }">
+        <div *ngIf="signUpForm.submitted && !email.valid">
+          <label *ngIf="email.errors!.required" class="validation-message">This Field Is Required.</label>
+          <label *ngIf="email.errors!.pattern" class="validation-message">Please Enter A Valid Email.</label>
+        </div>
+        <br><br>
+    
         <label for="password">Password:</label>
-        <input type="password" #password="ngModel" placeholder="Password" name="password" [(ngModel)]="user.password"><br>;
+        <input type="password" class="form-control" #password="ngModel" placeholder=" Password " name="password" [(ngModel)]="user.password" 
+        required minlength="5" [ngClass]="{'invalid-textbox' :signUpForm.submitted && !password.valid }"> 
+        <div *ngIf="signUpForm.submitted && !password.valid">
+          <label *ngIf="password.errors!.required" class="validation-message">This Field Is Required.</label>
+          <label *ngIf="password.errors!.minlength" class="validation-message">Password Must be Atleast 5 Characters Long.</label>
+        </div>
+        <br><br>
         <!-- <label for="conpassword">Confirm Password:</label>
-        <input type="text" placeholder="Confirm  Password" name="conpassword" [(ngModel)]="conpassword"><br>; -->
+        <input type="text" placeholder="Confirm  Password" name="conpassword" [(ngModel)]="conpassword"><br><br> -->
         <label for="facebookname">FaceBook Username</label>
-        <input type="text" #facebookname="ngModel" placeholder="Facebook Username" name="facebookname" [(ngModel)]="user.faceBookName"><br>;
+        <input type="text" class="form-control" #facebookname="ngModel" placeholder="Facebook Username" name="facebookname" [(ngModel)]="user.faceBookName"><br><br>
         <label for="twittername">Twitter Username:</label>
-        <input type="text" #facebookname="ngModel" placeholder="Twitter Username" name="twittername" [(ngModel)]="user.twitterName"><br>;
+        <input type="text" class="form-control" #facebookname="ngModel" placeholder="Twitter Username" name="twittername" [(ngModel)]="user.twitterName"><br><br>
 
-        <input type="submit" value="SignUp" (click)=signup()>
+        <input type="submit" class="btn btn-primary" value="SignUp">
       </form>
+</div>
+<br>
+<!-- Success message -->
+<div class="success" *ngIf="showSucessMessage">
+  Sign up successfully
+</div>
+
+<!-- Error message -->
+<div class="alert" *ngIf="serverErrorMessages">
+  {{serverErrorMessages}}
 </div>

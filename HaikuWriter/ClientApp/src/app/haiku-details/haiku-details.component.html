@@ -1,4 +1,17 @@
-<p>haiku-details works!</p>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link active" href="/landingpage">Home </a>
+        <a class="nav-item nav-link" href="/writehaiku"> Write Haiku </a>
+        <a class="nav-item nav-link disabled" id="welcom"> Welcome {{user.firstName}} </a>
+        <a class="nav-item nav-link " href="/forum">Forum</a>
+        <button class="nav-item nav-link" (click)="logout()">Logout</button>
+
+      </div>
+    </div>
+  </nav>
 
 <h1>Write a Line</h1>
 <div>

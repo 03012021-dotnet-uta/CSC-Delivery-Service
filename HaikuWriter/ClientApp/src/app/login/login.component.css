@@ -1,0 +1,13 @@
+.formdiv{
+    margin: 5%;
+    width: 50%;
+    height: 100;
+}
+
+input[type=submit]{
+    width: 20% ;
+}
+
+input{
+    width: 50%;
+}

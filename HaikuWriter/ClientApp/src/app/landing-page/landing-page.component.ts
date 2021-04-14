@@ -40,7 +40,6 @@ export class LandingPageComponent implements OnInit {
     else{
       this.getUser(username);
     }
-
     this.getAllHaikus(); 
   }
 

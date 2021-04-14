@@ -14,7 +14,7 @@ import { UserService} from '../service/user.service';
 export class AdminApproveComponent implements OnInit {
   haikulines: HaikuLine[] = [];
   haikus: Haiku[] =[];
-  user = new User(" ", " ", " ", " ", " ", " ", " ", false);
+  user = new User("", "", "", "", "", "", "", false);
   adminStatus = false;
 
   constructor(private haikuService: HaikuService, 
@@ -33,10 +33,10 @@ export class AdminApproveComponent implements OnInit {
     {
       this.router.navigateByUrl('/login')
     }
-    if(this.adminStatus == false)
-    {
-      this.router.navigateByUrl('/landingpage')
-    }
+    // if(this.adminStatus == false)
+    // {
+    //   this.router.navigateByUrl('/landingpage')
+    // }
     else{
       this.GetUnapprovedHaikuLines();
       this.GetUnapprovedHaikus();
@@ -85,11 +85,14 @@ export class AdminApproveComponent implements OnInit {
       this.ngOnInit();
     });
   }
+
   getUser(username: string | null){
     this.userService.getUserByUserName(username)
       .subscribe(
         res => {
+          
           this.user = res;
+          console.log(res)
         },
         err => {
           if (err.status === 422) {
@@ -100,5 +103,10 @@ export class AdminApproveComponent implements OnInit {
           }
         }
     );
+  }
+
+  logout(){
+    localStorage.clear();
+    this.router.navigateByUrl('/login')
   }
 }

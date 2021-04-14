@@ -9,8 +9,10 @@ import { AdminPrivilegeComponent } from './admin-privilege/admin-privilege.compo
 import { HaikuDetailsComponent} from './haiku-details/haiku-details.component';
 import { ThreadListComponent } from './thread-list/thread-list.component';
 import { ThreadPageComponent } from './thread-page/thread-page.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
+  { path: '', component: HomeComponent},
   { path: 'signup', component: SignupComponent },
   { path: 'login', component: LoginComponent},
   { path: 'adminapprove', component: AdminApproveComponent},

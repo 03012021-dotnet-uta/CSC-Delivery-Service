@@ -12,18 +12,22 @@ import {UserService} from '../service/user.service';
 })
 export class LoginComponent implements OnInit {
 
-  user = new User(" ", " ", " ", " ", " ", " ", " ", true);
+  user = new User("", "", "", "", "", "", "", false);
   username: string = "";
   password: string = "";
 
-
+  errormessage: boolean= false;
   constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
-
+    localStorage.clear();
   }
 
   onSubmit(form: NgForm){
+    if(this.username == '' || this.password == ''){
+       this.errormessage = true;
+       return;
+    }
     this.userService.login(this.username, this.password)
       .subscribe(
         res => {
@@ -40,12 +44,7 @@ export class LoginComponent implements OnInit {
           }
         },
         err => {
-          if (err.status === 422) {
-            console.log("server serror");
-          }
-          else{
-            console.log("server error");
-          }
+            console.log("server error", err);
         }
     );
   }

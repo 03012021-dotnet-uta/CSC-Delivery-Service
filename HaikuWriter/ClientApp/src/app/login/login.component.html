@@ -1,13 +1,39 @@
-<p>login works!</p>
-
-<div>
-    <form #loginform="ngForm" (ngSubmit)="onSubmit(loginform)" class="login" >
-        <label for="username">Username:</label>
-        <input type="text"  placeholder="Username" name="username" [(ngModel)]="username"><br>;
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" href="">Home </a>
+      <a class="nav-item nav-link" href="/login">Login</a>
+      <a class="nav-item nav-link" href="/signup">Sign-Up</a>
+      <a class="nav-item nav-link disabled" href="#">About</a>
+    </div>
+  </div>
+</nav>
+<br>
+<div class="formdiv">
+    <form #loginform="ngForm" (ngSubmit)=" onSubmit(loginform)" class="login "  >
+      <div class="form-group row">
+        <label for="username" class="col-sm-2 col-form-label">Username:</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" placeholder="Username" name="username" [(ngModel)]="username"
+          required >
+        </div>
+        <br>
+        <div *ngIf="errormessage">
+          <br><label for="erro">Both Fields Are Required</label><br>
+        </div>
+        <br>
+        <label for="password" class="col-sm-2 col-form-label" >Password:</label>
+        <div class="col-sm-10">
+          <input type="password" class="form-control"  placeholder="Password" name="password" [(ngModel)]="password" 
+          required >
+        </div>
         
-        <label for="password">Password:</label>
-        <input type="password"  placeholder="Password" name="password" [(ngModel)]="password"><br>;
+       <br><br>
+       <div class="col-sm-10">
+        <input type="submit" class="btn btn-primary"  value="Login">
+       </div>
        
-        <input type="submit" value="Login">
-      </form>
+      </div>   
+    </form>
 </div>

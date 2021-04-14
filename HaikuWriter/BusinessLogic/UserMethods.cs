@@ -18,7 +18,11 @@ namespace BusinessLogic
 
         public User UserRegister(RawUser user){
 
-
+            if(_userRepo.GetUserByUsername(user.Username) != null){   
+                Console.WriteLine("user exists");
+                User temp = new User();
+                return temp;
+            }
             User newUser = hasher.hashPassword(user.Password);
             newUser.AdminStatus = user.AdminStatus;
             newUser.Username = user.Username;
@@ -31,6 +35,7 @@ namespace BusinessLogic
 
             User registerUser = _userRepo.Register(newUser);
             if(registerUser == null){
+                Console.WriteLine("DB error");
                 return null;
             }
 

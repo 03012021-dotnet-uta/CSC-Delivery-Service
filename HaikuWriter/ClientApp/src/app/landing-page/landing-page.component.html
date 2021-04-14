@@ -1,13 +1,21 @@
 
-<h1>Welcome {{user.firstName}}</h1>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link active" href="/landingpage">Home </a>
+        <a class="nav-item nav-link" href="/writehaiku"> Write Haiku </a>
+        <a class="nav-item nav-link " href="/usersettings">Settings</a>
+        <a class="nav-item nav-link disabled" id="welcom"> Welcome {{user.firstName}} </a>
+        <a class="nav-item nav-link " href="/forum">Forum</a>
+        <a class="nav-item nav-link " *ngIf="user.adminStatus" href="/adminapprove">Approve Haiku</a>
+        <button class="nav-item nav-link" (click)="GeneHaiku()"> Generate Haiku </button>
+        <button class="nav-item nav-link" (click)="logout()">Logout</button>
 
-<button (click)="logout()">Logout</button>
+      </div>
+    </div>
+</nav>
 
-<button (click)="WriteHaiku()">Write Haiku</button>
-
-<button (click)="GeneHaiku()">Generate Haiku</button>
-
-<a href="/usersettings">Settings</a>
 
 <div *ngIf="haikuDTO">
     {{haikuDTO.haikuLine1}}<br>
@@ -28,6 +36,6 @@
 
 </ul>
 
-<div>
+<div *ngIf="user.adminStatus">
     <app-admin-privilege></app-admin-privilege>
 </div>

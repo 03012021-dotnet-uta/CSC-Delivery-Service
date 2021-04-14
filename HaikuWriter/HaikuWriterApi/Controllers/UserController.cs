@@ -25,7 +25,12 @@ namespace HaikuWriterApi.Controllers
             Console.WriteLine(user.Email);
 
             User newUser = _userMethods.UserRegister(user);
-            
+            if(newUser.Username == null){
+                return StatusCode(422, "Sorry, This User Already Exists");
+            }
+            if(newUser == null){
+                return StatusCode(409, "Sorry, Sign-up Was Unsuccessful");
+            }
             return newUser;
         } 
 
@@ -34,7 +39,9 @@ namespace HaikuWriterApi.Controllers
 
 
             User newUser = _userMethods.UserLogin(username, password);
-            
+            if(newUser == null){
+                return StatusCode(409, "Username or Password Did Not Match Our Record");
+            }
             return newUser;
         } 
 

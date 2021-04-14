@@ -23,12 +23,7 @@ export class ThreadPageComponent implements OnInit {
     console.log(localStorage.getItem("thread"))
     this.GetMessages(this.thread.threadId);
   }
-  toLandingPage(){
-    this.router.navigateByUrl('/landingpage')
-  }
-  toForum(){
-    this.router.navigateByUrl('/forum')
-  }
+
   CreateMessage(){
     this.message.threadId = this.thread.threadId;
     this.message.username = localStorage.getItem('User')
@@ -41,5 +36,10 @@ export class ThreadPageComponent implements OnInit {
   PostMessage(message: Message){
     this.messageservice.PostMessage(this.message).subscribe(res => this.messages = res);
     
+  }
+
+  logout(){
+    localStorage.clear();
+    this.router.navigateByUrl('/login')
   }
 }

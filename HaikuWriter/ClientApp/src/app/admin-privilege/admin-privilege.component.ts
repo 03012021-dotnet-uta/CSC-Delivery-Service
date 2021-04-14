@@ -35,13 +35,11 @@ export class AdminPrivilegeComponent implements OnInit {
         res => {
           //this.userlist = res;
           res.forEach((element, i) => { 
-            
             if(element.username === this.admin.username){
-              console.log("here")
               res.splice(i, 1);
             }
           });
-         
+         console.log(res)
           this.userlist = res;
         },
         err => {

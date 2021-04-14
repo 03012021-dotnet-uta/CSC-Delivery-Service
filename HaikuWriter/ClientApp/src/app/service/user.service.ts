@@ -38,6 +38,7 @@ export class UserService {
   }
 
   getUserByUserName(username: string | null): Observable<User>{
+    console.log(username)
     return this.http.get<User>(`${this.queryString}getuserbyusername/${username}`);
   }
 

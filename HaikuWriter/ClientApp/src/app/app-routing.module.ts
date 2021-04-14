@@ -11,7 +11,10 @@ import { ThreadListComponent } from './thread-list/thread-list.component';
 import { ThreadPageComponent } from './thread-page/thread-page.component';
 import { HomeComponent } from './home/home.component';
 import { WordIdeasComponent} from './word-ideas/word-ideas.component';
+<<<<<<< HEAD
 import { AdminComponent } from './admin/admin.component'
+=======
+>>>>>>> e71cddaf95211e683a86dd2ec270303dc756ca9b
 
 const routes: Routes = [
   { path: '', component: HomeComponent},

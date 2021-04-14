@@ -16,7 +16,10 @@ import { HaikuDetailsComponent } from './haiku-details/haiku-details.component';
 import { AdminPrivilegeComponent } from './admin-privilege/admin-privilege.component';
 import { HomeComponent } from './home/home.component';
 import { WordIdeasComponent } from './word-ideas/word-ideas.component';
+<<<<<<< HEAD
 import { AdminComponent } from './admin/admin.component';
+=======
+>>>>>>> e71cddaf95211e683a86dd2ec270303dc756ca9b
 
 @NgModule({
   declarations: [
@@ -31,8 +34,12 @@ import { AdminComponent } from './admin/admin.component';
     HaikuDetailsComponent,
     AdminPrivilegeComponent,
     HomeComponent,
+<<<<<<< HEAD
     WordIdeasComponent,
     AdminComponent
+=======
+    WordIdeasComponent
+>>>>>>> e71cddaf95211e683a86dd2ec270303dc756ca9b
   ],
   imports: [
     BrowserModule,

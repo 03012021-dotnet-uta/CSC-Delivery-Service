@@ -1160,7 +1160,7 @@ namespace HaikuWriter.Tests
             Assert.Equal(expected, actual);
         }
 
- /***********************************************
+        /***********************************************
          * Unit tests for HaikuController.cs follows...*
          ***********************************************/
 
@@ -1263,6 +1263,41 @@ namespace HaikuWriter.Tests
             Assert.Equal(expected, actual);
         }
 
+        /***********************************************
+         * Unit tests for SaveHaikuDTO.cs follows...   *
+         ***********************************************/
 
+        [Fact]//SaveHaikuDTO.cs
+        public void SaveHaikuDTOTest1(){
+            SaveHaikuDTO shd = new SaveHaikuDTO();
+            shd.haikuLine1 = "HA";
+            shd.haikuLine2 = "BA";
+            shd.haikuLine3 = "GA";
+            shd.tags = "something";
+            shd.username = "someone";
+            shd.currentuser = "someone else";
+            var expected = true;
+            var actual = (shd.haikuLine1 != null && shd.haikuLine2 != null && shd.haikuLine3 != null && shd.tags != null && shd.username != null && shd.currentuser != null);
+            Assert.Equal(expected, actual);
+        }
+
+        /***********************************************
+         * Unit tests for HaikuApproveDTO.cs follows...*
+         ***********************************************/
+        
+        [Fact]//HaikuApproveDTO.cs
+        public void HaikuApproveDTOTest1(){
+            HaikuApproveDTO had = new HaikuApproveDTO();
+            had.haikuId = 1;
+            had.haikuline1 = "Something";
+            had.haikuline2 = "Something";
+            had.haikuline3 = "Something";
+            had.tags = "dark side";
+            had.approved = true;
+            had.username = "complete";
+            var expected = true;
+            var actual = (had.haikuId != null && had.haikuline1 != null && had.haikuline2 != null && had.haikuline3 != null && had.tags != null && had.approved != null && had.username != null);
+            Assert.Equal(expected, actual);
+        }
     }
 }

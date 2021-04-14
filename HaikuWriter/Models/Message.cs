@@ -7,7 +7,7 @@ namespace Models
     {
         [Key]
         public int MessageId { get; set; }
-        public string messageBody{set;get;}
+        public string MessageBody{set;get;}
 
         //ef relationship with user
         public string Username { get; set; }

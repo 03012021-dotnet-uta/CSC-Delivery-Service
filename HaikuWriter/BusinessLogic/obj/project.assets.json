@@ -5737,35 +5737,45 @@
     ]
   },
   "packageFolders": {
-    "/Users/sagarluitel/.nuget/packages/": {}
+    "C:\\Users\\clars\\.nuget\\packages\\": {},
+    "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/sagarluitel/revature/P2/P2_HaikuWriterGroup/HaikuWriter/BusinessLogic/BusinessLogic.csproj",
+      "projectUniqueName": "C:\\Users\\clars\\Revature\\projects\\P2_HaikuWriterGroup\\P2_HaikuWriterGroup\\HaikuWriter\\BusinessLogic\\BusinessLogic.csproj",
       "projectName": "BusinessLogic",
-      "projectPath": "/Users/sagarluitel/revature/P2/P2_HaikuWriterGroup/HaikuWriter/BusinessLogic/BusinessLogic.csproj",
-      "packagesPath": "/Users/sagarluitel/.nuget/packages/",
-      "outputPath": "/Users/sagarluitel/revature/P2/P2_HaikuWriterGroup/HaikuWriter/BusinessLogic/obj/",
+      "projectPath": "C:\\Users\\clars\\Revature\\projects\\P2_HaikuWriterGroup\\P2_HaikuWriterGroup\\HaikuWriter\\BusinessLogic\\BusinessLogic.csproj",
+      "packagesPath": "C:\\Users\\clars\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\clars\\Revature\\projects\\P2_HaikuWriterGroup\\P2_HaikuWriterGroup\\HaikuWriter\\BusinessLogic\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+      ],
       "configFilePaths": [
-        "/Users/sagarluitel/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\clars\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "/Users/sagarluitel/revature/P2/P2_HaikuWriterGroup/HaikuWriter/Models/Models.csproj": {
-              "projectPath": "/Users/sagarluitel/revature/P2/P2_HaikuWriterGroup/HaikuWriter/Models/Models.csproj"
+            "C:\\Users\\clars\\Revature\\projects\\P2_HaikuWriterGroup\\P2_HaikuWriterGroup\\HaikuWriter\\Models\\Models.csproj": {
+              "projectPath": "C:\\Users\\clars\\Revature\\projects\\P2_HaikuWriterGroup\\P2_HaikuWriterGroup\\HaikuWriter\\Models\\Models.csproj"
             },
-            "/Users/sagarluitel/revature/P2/P2_HaikuWriterGroup/HaikuWriter/Repository/Repository.csproj": {
-              "projectPath": "/Users/sagarluitel/revature/P2/P2_HaikuWriterGroup/HaikuWriter/Repository/Repository.csproj"
+            "C:\\Users\\clars\\Revature\\projects\\P2_HaikuWriterGroup\\P2_HaikuWriterGroup\\HaikuWriter\\Repository\\Repository.csproj": {
+              "projectPath": "C:\\Users\\clars\\Revature\\projects\\P2_HaikuWriterGroup\\P2_HaikuWriterGroup\\HaikuWriter\\Repository\\Repository.csproj"
             }
           }
         }
@@ -5794,16 +5804,8 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.103/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file /Users/sagarluitel/revature/P2/P2_HaikuWriterGroup/HaikuWriter/BusinessLogic/obj/project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }

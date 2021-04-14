@@ -1,0 +1,13 @@
+<h1>Word Corner</h1>
+<div>
+    <input id = "userInput"><br>
+    <button (click) = "getSyn()"> Get Synonyms</button>
+    <button (click) = "getRhy()"> Get Rhymes</button>
+    <button (click) = "getAnt()"> Get Antonyms</button>
+    <button (click) = "getSoundsLike()"> Get Sound Like Words</button>
+    
+    <li *ngFor="let w of words">
+        {{w.word}}
+    </li>
+</div>
+

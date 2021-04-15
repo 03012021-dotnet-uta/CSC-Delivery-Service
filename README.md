@@ -19,7 +19,7 @@ Minimum Viable Product:
   A user using this application should be able to sign up and login to an account. A user should be able to generate a haiku or view a list of haikus and save it under their favorites. A user should be able to share a haiku to social media. A user should be able to write a line or a whole haiku to be later reviewed by an admin user. An admin user should be able to review pending poems for review to either approve or reject. In the event a new user should need admin privileges a current admin user should be able to grant admin access. Users should be able to create, edit and delete posts on a discussion forum board. 
 
 Tech Stack:
-Angular, Azure Pipeline, VS Code, Entity Framework, AzureDB
+Angular, Azure Pipeline, VS Code, .NET Core, Entity Framework, AzureDB
 
 User Stories:
 1.  As a user I want to sign up so that I can keep track of personal data

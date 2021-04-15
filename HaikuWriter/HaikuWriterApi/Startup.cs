@@ -51,7 +51,7 @@ namespace HaikuWriterApi
             {
                 option.AddPolicy(name: "dev", builder =>
                 {
-                    builder.WithOrigins("http://localhost:4200")
+                    builder.WithOrigins("http://localhost:4200", "https://haikuwritergenerator.azurewebsites.net")
                     .AllowAnyHeader()
                     .AllowAnyMethod();
 

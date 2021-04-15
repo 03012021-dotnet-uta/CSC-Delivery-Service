@@ -73,5 +73,6 @@ steps:
     azureSubscription: 'G1HaikuWriterSubscription(4f7eaef6-673a-4603-8d6c-e9e2481ee2c9)'
     appType: 'webApp'
     WebAppName: 'HaikuWriterGenerator'
-    packageForLinux: '$(Build.ArtifactStagingDirectory)/**/*.zip'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+
 

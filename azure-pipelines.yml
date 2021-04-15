@@ -12,7 +12,7 @@ pool:
   vmImage: 'windows-latest'
 
 variables:
-  solution: 'HaikuWriter'
+  solution: '*.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
 

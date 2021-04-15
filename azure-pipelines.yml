@@ -7,10 +7,6 @@ trigger:
   branches:
     include:
     - main
-#the below is required only if you have multiple .sln files in your repo.
-  paths:
-    include:
-    - HaikuWriter
 
 pool:
   vmImage: 'windows-latest'

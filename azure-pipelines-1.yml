@@ -47,13 +47,13 @@ steps:
   inputs:
     command: 'custom'
     workingDir: 'HaikuWriter/ClientApp'
-    customCommand: 'run test -- --watch=false --code-coverage'
+    customCommand: 'run test -- --watch=false --code-coverage --browsers=ChromeHeadless'
 
 - task: PublishCodeCoverageResults@1
   condition: succeededOrFailed()
   inputs:
     codeCoverageTool: 'Cobertura'
-    summaryFileLocation: '$(Systen,DefaultWorkingDirectory/ClientApp/coverage/ClientApp/lcov.info'
+    summaryFileLocation: '$(System.DefaultWorkingDirectory)/ClientApp/coverage/ClientApp/lcov.info'
 - task: SonarCloudAnalyze@1
 - task: SonarCloudPublish@1
   inputs:

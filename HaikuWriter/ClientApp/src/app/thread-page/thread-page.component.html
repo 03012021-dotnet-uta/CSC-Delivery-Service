@@ -11,7 +11,6 @@
       </div>
     </div>
 </nav>
-<br>
 <div class="outer">
     <div>
         <form id= "createAMethod" >
@@ -24,11 +23,12 @@
     <ul class="list-group">
         <li *ngFor="let message of messages" class="list-group-item">
             <td>
-                Author: {{message.username}}
-                Post: {{message.messageBody}}
+                <label class="auther"> {{message.username}}</label> 
+                <p >{{message.messageBody}}</p> 
             </td>
         </li>
     </ul>
+    <br>
     <button class="btn btn-primary" (click)="onPrev()" *ngIf="x != 0">Previous</button> &nbsp;
     <button class="btn btn-primary" (click)="onNext()" *ngIf="(x+1)<(mesLength/10)">Next</button>
 </div>

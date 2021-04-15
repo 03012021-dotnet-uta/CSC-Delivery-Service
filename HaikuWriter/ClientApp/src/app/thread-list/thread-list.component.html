@@ -29,7 +29,7 @@
     <ul class="list-group">
         <li *ngFor="let thread of threads" class="list-group-item">
             <button class="btn btn-outline-info" (click)="ThreadPage(thread.threadId)">
-                 <label class="tId">{{thread.threadId}}</label>  <span class="auther">{{thread.username}}</span> <p >{{thread.description}} </p> 
+                {{thread.threadId}}  {{thread.username}} <p >{{thread.description}} </p> 
             </button>
         </li>
     </ul>

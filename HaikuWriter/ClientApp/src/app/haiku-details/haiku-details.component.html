@@ -13,29 +13,39 @@
     </div>
   </nav>
 
-<h1>Write a Line</h1>
-<div>
-    <form class = "writeALine">
-        <label>Line: </label>
-        <input type="text" #line ="ngModel" placeholder="write a line here" name = "line" [(ngModel)] = "haikuLine.line"><br>
-        <label>Tags: </label>
-        <input type="text" #tags ="ngModel" placeholder="write tags" name = "tags" [(ngModel)] = "haikuLine.tags"><br>
-        <label>Syllable</label>
-        <input type="number" #syllable ="ngModel" placeholder="5 or 7" name = "line" [(ngModel)] = "haikuLine.syllable"><br>
-        <input type="submit" value="Submit Haiku Line" (click)=SubmitHaikuLine()>
-    </form>
-</div>
-<h1>Write a Haiku</h1>
-<div>
-    <form class = "writeAHaiku">
-        <label>Line 1: </label>
-        <input type="text" #haikuLine1 ="ngModel" placeholder="write a line here" name = "line1" [(ngModel)] = "haiku.haikuLine1"><br>
-        <label>Line 2: </label>
-        <input type="text" #haikuLine2 ="ngModel" placeholder="write a line here" name = "line2" [(ngModel)] = "haiku.haikuLine2"><br>
-        <label>Line 3: </label>
-        <input type="text" #haikuLine3 ="ngModel" placeholder="write a line here" name = "line3" [(ngModel)] = "haiku.haikuLine3"><br>
-        <label>Tags: </label>
-        <input type="text" #tags ="ngModel" placeholder="write tags" name = "tags" [(ngModel)] = "haiku.tags"><br>
-        <input type="submit" value="Submit Haiku" (click)=SubmitHaiku()>
-    </form>
+<div class="row">
+  <div class="col">
+    <h1>Write a Line</h1>
+    <div>
+        <form class = "writeALine">
+            <label>Line: </label>
+            <input type="text" class="form-control" #line ="ngModel" placeholder="write a line here" name = "line" [(ngModel)] = "haikuLine.line">
+            <label>Tags: </label>
+            <input type="text" class="form-control" #tags ="ngModel" placeholder="write tags" name = "tags" [(ngModel)] = "haikuLine.tags">
+            <label>Syllable</label>
+            <input type="number" class="form-control" #syllable ="ngModel" placeholder="5 or 7" name = "line" [(ngModel)] = "haikuLine.syllable"><br>
+            <input type="submit" class="btn btn-primary" value="Submit Haiku Line" (click)=SubmitHaikuLine()>
+        </form>
+    </div>
+    <hr>
+    <h1>Write a Haiku</h1>
+    <div>
+        <form class = "writeAHaiku">
+            <label>Line 1: </label>
+            <input type="text" class="form-control" #haikuLine1 ="ngModel" placeholder="write a line here" name = "line1" [(ngModel)] = "haiku.haikuLine1">
+            <label>Line 2: </label>
+            <input type="text" class="form-control" #haikuLine2 ="ngModel" placeholder="write a line here" name = "line2" [(ngModel)] = "haiku.haikuLine2">
+            <label>Line 3: </label>
+            <input type="text" class="form-control" #haikuLine3 ="ngModel" placeholder="write a line here" name = "line3" [(ngModel)] = "haiku.haikuLine3">
+            <label>Tags: </label>
+            <input type="text" class="form-control" #tags ="ngModel" placeholder="write tags" name = "tags" [(ngModel)] = "haiku.tags"><br>
+            <input type="submit" class="btn btn-primary" value="Submit Haiku" (click)=SubmitHaiku()>
+        </form>
+    </div>
+    
+  </div>
+  <div class="col">
+    <app-word-ideas></app-word-ideas>
+  </div>
+  
 </div>

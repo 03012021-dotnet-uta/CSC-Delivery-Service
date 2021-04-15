@@ -29,17 +29,17 @@ steps:
     versionSpec: '10.x'
   displayName: 'Install Node.js'
 
-- task: SonarCloudPrepare@1
-  inputs:
-    SonarCloud: 'AngularSonarCloudConnection'
-    organization: 'g1haikuwriter-1'
-    scannerMode: 'CLI'
-    configMode: 'manual'
-    cliProjectKey: 'G1HaikuWriter_P2_HaikuWriterAng'
-    cliProjectName: 'P2_HaikuWriterAng'
-    cliSources: '$(solution)/src'
-    extraProperties: 
-      'sonar.javascript.lcov.reportPaths=$(solution)/coverage/ClientApp/lcov.info'
+# - task: SonarCloudPrepare@1
+#   inputs:
+#     SonarCloud: 'AngularSonarCloudConnection'
+#     organization: 'g1haikuwriter-1'
+#     scannerMode: 'CLI'
+#     configMode: 'manual'
+#     cliProjectKey: 'G1HaikuWriter_P2_HaikuWriterAng'
+#     cliProjectName: 'P2_HaikuWriterAng'
+#     cliSources: '$(solution)/src'
+#     extraProperties: 
+#       'sonar.javascript.lcov.reportPaths=$(solution)/coverage/ClientApp/lcov.info'
 
 
 - task: Npm@1
@@ -58,21 +58,32 @@ steps:
     command: 'custom'
     workingDir: $(solution)
     customCommand: 'run test -- --watch=false --code-coverage --browsers=ChromeHeadless'
-- task: SonarCloudAnalyze@1
-- task: SonarCloudPublish@1
-  inputs:
-    pollingTimeoutSec: '300'
+# - task: SonarCloudAnalyze@1
+# - task: SonarCloudPublish@1
+#   inputs:
+#     pollingTimeoutSec: '300'
   
-- task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+# - task: PublishBuildArtifacts@1
+#   inputs:
+#     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
   
-- task: AzureRmWebAppDeployment@4
+# - task: AzureRmWebAppDeployment@4
+#   inputs:
+#     ConnectionType: 'AzureRM'
+#     azureSubscription: 'G1HaikuWriterSubscription(4f7eaef6-673a-4603-8d6c-e9e2481ee2c9)'
+#     appType: 'webApp'
+#     WebAppName: 'HaikuWriterGenerator'
+#     packageForLinux: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+- task: AzureWebApp@1
+  displayName: webappdeploy
   inputs:
-    ConnectionType: 'AzureRM'
     azureSubscription: 'G1HaikuWriterSubscription(4f7eaef6-673a-4603-8d6c-e9e2481ee2c9)'
-    appType: 'webApp'
-    WebAppName: 'HaikuWriterGenerator'
-    packageForLinux: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+    appType: 'webAppLinux'
+    appName: 'HaikuWriterGenerator'
+    deployToSlotOrASE: true
+    resourceGroupName: 'haikuWriterGroup'
+    slotName: 'production'
+    package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+
 
 

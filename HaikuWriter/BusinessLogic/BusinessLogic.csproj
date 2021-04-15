@@ -3,7 +3,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Models\Models.csproj" />
     <ProjectReference Include="..\Repository\Repository.csproj" />
-    <ProjectReference Include="..\HaikuWriterApi\HaikuWriterApi.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

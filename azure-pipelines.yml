@@ -10,7 +10,7 @@ trigger:
 #the below is required only if you have multiple .sln files in your repo.
   paths:
     include:
-    - HaikuWriter/ClientApp
+    - HaikuWriter
 
 pool:
   vmImage: 'windows-latest'

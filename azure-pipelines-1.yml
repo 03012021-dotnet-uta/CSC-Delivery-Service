@@ -51,13 +51,13 @@ steps:
   inputs:
     command: 'custom'
     workingDir: $(solution)
-    customCommand: 'ng build --prod'
+    customCommand: 'run build --prod'
 
 - task: Npm@1
   inputs:
     command: 'custom'
     workingDir: $(solution)
-    customCommand: 'ng test -- --watch=false --code-coverage --browsers=ChromeHeadless'
+    customCommand: 'run test -- --watch=false --code-coverage --browsers=ChromeHeadless'
 - task: SonarCloudAnalyze@1
 - task: SonarCloudPublish@1
   inputs:

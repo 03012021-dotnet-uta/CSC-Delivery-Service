@@ -94,7 +94,7 @@ steps:
     deployToSlotOrASE: true
     ResourceGroupName: 'haikuWriterGroup'
     SlotName: 'production'
-    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    packageForLinux: '$(solution)/dist/ClientApp'
 
 
 

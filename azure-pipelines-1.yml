@@ -41,7 +41,7 @@ steps:
   inputs:
     command: 'custom'
     workingDir: 'HaikuWriter/ClientApp'
-    customCommand: 'run build -- $(ngBuildConfiguration)'
+    customCommand: 'run build'
 
 - task: Npm@1
   inputs:

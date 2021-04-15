@@ -9,7 +9,7 @@ import { User} from "../models/user.model"
 })
 export class UserService {
 
-  queryString: string = 'https://localhost:5001/User/';
+  queryString: string = 'https://haikuwritergroup.azurewebsites.net/User/';
 
   constructor(private http: HttpClient) { }
 

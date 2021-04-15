@@ -10,7 +10,7 @@ import { SaveHaikuShape } from '../models/save-haiku-shape.model';
   providedIn: 'root'
 })
 export class HaikuService {
-  queryString: string = 'https://localhost:5001/Haiku/';
+  queryString: string = 'https://haikuwritergroup.azurewebsites.net/Haiku/';
 
   constructor(private http: HttpClient) { }
 

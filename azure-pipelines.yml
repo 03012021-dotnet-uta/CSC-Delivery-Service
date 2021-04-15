@@ -4,13 +4,15 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
 
 trigger:
-- main
+  branches:
+    include:
+    - main
 
 pool:
   vmImage: 'windows-latest'
 
 variables:
-  solution: '**/*.sln'
+  solution: 'HaikuWriter/HaikuWriter.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
 
@@ -47,14 +49,14 @@ steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: 'build'
-    projects: 'HaikuWriter/*.sln'
+    projects: '$(solution)'
     workingDirectory: 'HaikuWriter'
     arguments: '--configuration $(buildConfiguration)'
 
 - task: DotNetCoreCLI@2
   inputs:
     command: 'test'
-    projects: 'HaikuWriter/*.sln'
+    projects: '$(solution)'
     arguments: '--configuration $(buildConfiguration) --collect "Code Coverage"'
     testRunTitle: 'Dotnet tests running'
     workingDirectory: 'HaikuWriter'

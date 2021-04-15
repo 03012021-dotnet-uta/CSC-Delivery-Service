@@ -7,7 +7,7 @@ import { Thread } from '../models/thread.model';
   providedIn: 'root'
 })
 export class ThreadService {
-  queryString: string = 'https://localhost:5001/Forum/';
+  queryString: string = 'https://haikuwritergroup.azurewebsites.net/Forum/';
   constructor(private http: HttpClient) { }
 
   GetThreads(): Observable<Thread[]>{

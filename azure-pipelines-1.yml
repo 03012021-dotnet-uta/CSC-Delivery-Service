@@ -87,8 +87,9 @@ steps:
     # deployToSlotOrASE: true
     # resourceGroupName: 'haikuWriterGroup'
     # slotName: 'production'
-    package: '**/dist/ClientApp'
+    package: '$(solution)/dist/ClientApp'
     deploymentMethod: runFromPackage
+
 
 # - task: AzureRmWebAppDeployment@4
 #   inputs:

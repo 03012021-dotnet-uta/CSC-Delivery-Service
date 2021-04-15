@@ -2,7 +2,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Models\Models.csproj" />
-    <ProjectReference Include="..\BusinessLogic\BusinessLogic.csproj" />
     <ProjectReference Include="..\HaikuWriterApi\HaikuWriterApi.csproj" />
   </ItemGroup>
 

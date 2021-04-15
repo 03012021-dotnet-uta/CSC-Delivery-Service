@@ -29,9 +29,8 @@ steps:
     configMode: 'manual'
     cliProjectKey: 'G1HaikuWriter_P2_HaikuWriterAng'
     cliProjectName: 'P2_HaikuWriterAng'
-    cliSources: '$(solution)/src'
-    extraProperties: 
-      'sonar.javascript.lcov.reportPaths=$(solution)/coverage/ClientApp/lcov.info'
+    cliSources: '$(System.DefaultWorkingDirectory)/HaikuWriter/ClientApp/src'
+    extraProperties: 'sonar.javascript.lcov.reportPaths=$(System.DefaultWorkingDirectory)/HaikuWriter/ClientApp/coverage/ClientApp/lcov.info'
 
 - task: Npm@1
   inputs:
@@ -48,12 +47,13 @@ steps:
   inputs:
     command: 'custom'
     workingDir: 'HaikuWriter/ClientApp'
-    customCommand: 'run test-headless'
+    customCommand: 'run test -- --watch=false --code-coverage'
 
 - task: PublishCodeCoverageResults@1
+  condition: succeededOrFailed()
   inputs:
-    # codeCoverageTool: 'Cobertura'
-    summaryFileLocation: './ClientApp/coverage/lcov.info'
+    codeCoverageTool: 'Cobertura'
+    summaryFileLocation: '$(Systen,DefaultWorkingDirectory/ClientApp/coverage/ClientApp/lcov.info'
 - task: SonarCloudAnalyze@1
 - task: SonarCloudPublish@1
   inputs:
@@ -61,7 +61,7 @@ steps:
 
 - task: ArchiveFiles@2
   inputs:
-    rootFolderOrFile: 'HaikuWriter/ClientApp/dist/'
+    rootFolderOrFile: '$(System.DefaultWorkingDirectory)/HaikuWriter/ClientApp/dist/'
     includeRootFolder: false
     archiveType: 'zip'
     archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'

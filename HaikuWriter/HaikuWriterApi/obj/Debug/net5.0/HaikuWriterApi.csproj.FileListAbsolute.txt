@@ -217,7 +217,6 @@ C:/Users/clche/revature/projects/GroupProject_p2/P2_HaikuWriterGroup/HaikuWriter
 C:/Users/clche/revature/projects/GroupProject_p2/P2_HaikuWriterGroup/HaikuWriter/HaikuWriterApi/obj/Debug/net5.0/HaikuWriterApi.csproj.CopyComplete
 C:/Users/clche/revature/projects/GroupProject_p2/P2_HaikuWriterGroup/HaikuWriter/HaikuWriterApi/obj/Debug/net5.0/HaikuWriterApi.genruntimeconfig.cache
 >>>>>>> 98418dcafd462890907084ad51e5e163d8b8bb7b
-<<<<<<< HEAD
 C:/Users/clche/revature/projects/CatherineCheatle_p2/P2_HaikuWriterGroup/HaikuWriter/HaikuWriterApi/bin/Debug/net5.0/appsettings.Development.json
 C:/Users/clche/revature/projects/CatherineCheatle_p2/P2_HaikuWriterGroup/HaikuWriter/HaikuWriterApi/bin/Debug/net5.0/appsettings.json
 C:/Users/clche/revature/projects/CatherineCheatle_p2/P2_HaikuWriterGroup/HaikuWriter/HaikuWriterApi/bin/Debug/net5.0/HaikuWriterApi.exe
@@ -362,7 +361,6 @@ C:/Users/clars/Revature/projects/P2_HaikuWriterGroup/P2_HaikuWriterGroup/HaikuWr
 C:/Users/clars/Revature/projects/P2_HaikuWriterGroup/P2_HaikuWriterGroup/HaikuWriter/HaikuWriterApi/obj/Debug/net5.0/ref/HaikuWriterApi.dll
 C:/Users/clars/Revature/projects/P2_HaikuWriterGroup/P2_HaikuWriterGroup/HaikuWriter/HaikuWriterApi/obj/Debug/net5.0/HaikuWriterApi.pdb
 C:/Users/clars/Revature/projects/P2_HaikuWriterGroup/P2_HaikuWriterGroup/HaikuWriter/HaikuWriterApi/obj/Debug/net5.0/HaikuWriterApi.genruntimeconfig.cache
-=======
 C:\Users\clche\revature\projects\CatherineCheatle_p2\P2_HaikuWriterGroup\HaikuWriter\HaikuWriterApi\bin\Debug\net5.0\appsettings.Development.json
 C:\Users\clche\revature\projects\CatherineCheatle_p2\P2_HaikuWriterGroup\HaikuWriter\HaikuWriterApi\bin\Debug\net5.0\appsettings.json
 C:\Users\clche\revature\projects\CatherineCheatle_p2\P2_HaikuWriterGroup\HaikuWriter\HaikuWriterApi\bin\Debug\net5.0\HaikuWriterApi.exe

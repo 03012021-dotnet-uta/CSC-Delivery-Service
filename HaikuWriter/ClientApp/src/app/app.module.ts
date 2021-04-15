@@ -32,12 +32,8 @@ import { AdminComponent } from './admin/admin.component';
     AdminPrivilegeComponent,
     HomeComponent,
     WordIdeasComponent,
-<<<<<<< HEAD
     AdminComponent,
     WordIdeasComponent
-=======
-    AdminComponent
->>>>>>> 6c43d8777772e6bdf7f9a116b72e86faf852f59c
   ],
   imports: [
     BrowserModule,

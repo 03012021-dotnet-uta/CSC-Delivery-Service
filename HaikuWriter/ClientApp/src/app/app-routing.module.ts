@@ -16,7 +16,7 @@ import { AdminComponent } from './admin/admin.component'
 const routes: Routes = [
   { path: '', component: HomeComponent},
   { path: 'signup', component: SignupComponent },
-  { path: 'login', redirectTo: 'login', component: LoginComponent},
+  { path: 'login', component: LoginComponent},
   { path: 'adminapprove', component: AdminApproveComponent},
   { path: 'landingpage', component: LandingPageComponent},
   { path: 'usersettings', component: UserSettingsComponent},

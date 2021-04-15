@@ -47,11 +47,15 @@ steps:
     command: 'install'
     workingDir: $(solution)
 
-- task: Npm@1
-  inputs:
-    command: 'custom'
-    workingDir: $(solution)
-    customCommand: 'npx ng build --prod'
+# - task: Npm@1
+#   inputs:
+#     command: 'custom'
+#     workingDir: $(solution)
+#     customCommand: 'npx ng build --prod'
+
+- script: npx ng build --prod
+  displayName: ng build
+  workingDirectory: $(solution)
 
 # - task: Npm@1
 #   inputs:

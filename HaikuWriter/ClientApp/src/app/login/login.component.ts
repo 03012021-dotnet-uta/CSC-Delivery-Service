@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
           }
         },
         err => {
-            this.serverErrorMessages = "Sorry, Username Or Password Din Not Match Our Record ";
+            this.serverErrorMessages = "Sorry, Username Or Password Did Not Match Our Record ";
             setTimeout(() => this.serverErrorMessages = '', 4000);
             console.log("server error", err);
 

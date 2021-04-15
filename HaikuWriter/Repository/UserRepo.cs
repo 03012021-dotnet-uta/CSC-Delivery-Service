@@ -23,7 +23,6 @@ namespace Repository
 
         public bool UserExists(string username)
         {
-            //Console.WriteLine(username);
             if (_dbContext.Users.Where(p => p.Username == username).FirstOrDefault() != null)
             {
                 Console.WriteLine(username);
@@ -38,7 +37,6 @@ namespace Repository
 
         public User GetUserByUsername(string username)
         {
-            //Console.WriteLine(username);
             User foundUser = _dbContext.Users.FirstOrDefault(p => p.Username == username);
             return foundUser;
         }

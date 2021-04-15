@@ -18,14 +18,8 @@ namespace BusinessLogic
             HaikuLineHolder = haikuline;
             TagLine = AddTag(HaikuLineHolder.Tags, newTag);
         }
-        // public string RetrieveTag<T>(T taggy)
-        // {
 
-        //     string oldTags = taggy.Tags;
-        //     return oldTags;
-        // }
-
-        public string AddTag(string oldTag, string newTag)
+        public static string AddTag(string oldTag, string newTag)
         {
             if(oldTag.Contains(newTag)){
                 return oldTag;

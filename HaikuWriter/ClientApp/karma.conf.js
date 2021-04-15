@@ -27,8 +27,12 @@ module.exports = function (config) {
     coverageReporter: {
       dir: require('path').join(__dirname, './coverage/ClientApp'),
       subdir: '.',
-      reports: ['html', 'lcovonly', 'text-summary', 'cobertura'],
-      fixWebpackSourcePaths: true
+      reports: [
+        { type: 'html' },
+        { type: 'text-summary' },
+        { type: "lcov" },
+        { type: 'cobertura' }
+      ]
     },
     reporters: ['progress', 'kjhtml'],
     port: 9876,

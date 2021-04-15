@@ -74,16 +74,27 @@ steps:
 #     appType: 'webApp'
 #     WebAppName: 'HaikuWriterGenerator'
 #     packageForLinux: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
-- task: AzureWebApp@1
-  displayName: webappdeploy
+# - task: AzureWebApp@1
+#   displayName: webappdeploy
+#   inputs:
+#     azureSubscription: 'G1HaikuWriterSubscription(4f7eaef6-673a-4603-8d6c-e9e2481ee2c9)'
+#     appType: 'webAppLinux'
+#     appName: 'HaikuWriterGenerator'
+#     deployToSlotOrASE: true
+#     resourceGroupName: 'haikuWriterGroup'
+#     slotName: 'production'
+#     package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+
+- task: AzureRmWebAppDeployment@4
   inputs:
+    ConnectionType: 'AzureRM'
     azureSubscription: 'G1HaikuWriterSubscription(4f7eaef6-673a-4603-8d6c-e9e2481ee2c9)'
-    appType: 'webAppLinux'
-    appName: 'HaikuWriterGenerator'
+    appType: 'webApp'
+    WebAppName: 'HaikuWriterGenerator'
     deployToSlotOrASE: true
-    resourceGroupName: 'haikuWriterGroup'
-    slotName: 'production'
-    package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    ResourceGroupName: 'haikuWriterGroup'
+    SlotName: 'production'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
 
 
 

@@ -28,11 +28,11 @@ export class ThreadListComponent implements OnInit {
   
   onNext(){
     this.x++;
-    this.threads = this.threadlist?.slice((this.x * 10), ((this.x * 10)+10))
+    this.threads = this.threadlist?.slice((this.x * 7), ((this.x * 7)+7))
   }
   onPrev(){
     this.x--;
-    this.threads = this.threadlist?.slice((this.x * 10), ((this.x * 10)+10))
+    this.threads = this.threadlist?.slice((this.x * 7), ((this.x * 7)+7))
   }
 
   ThreadPage(threadid: number){
@@ -48,8 +48,8 @@ export class ThreadListComponent implements OnInit {
         
         this.threadlist = res
         this.listLength = this.threadlist.length;
-        if(this.threadlist.length > 10){
-          this.threads = this.threadlist.slice(0, 10);
+        if(this.threadlist.length > 7){
+          this.threads = this.threadlist.slice(0, 7);
         }else{
           this.threads = this.threadlist;
         }

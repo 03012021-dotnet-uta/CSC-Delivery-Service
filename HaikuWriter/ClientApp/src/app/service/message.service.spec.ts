@@ -1,16 +1,26 @@
 import { TestBed } from '@angular/core/testing';
+import {HttpClientModule} from '@angular/common/http';
 
 import { MessageService } from './message.service';
 
-// describe('MessageService', () => {
-//   let service: MessageService;
+describe('MessageService', () => {
+  let service: MessageService;
 
-//   beforeEach(() => {
-//     TestBed.configureTestingModule({});
-//     service = TestBed.inject(MessageService);
-//   });
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [ HttpClientModule],
+      providers: [ MessageService ]
+      
+    })
+    .compileComponents();
+  });
 
-//   it('should be created', () => {
-//     expect(service).toBeTruthy();
-//   });
-// });
+  beforeEach(() => {
+    TestBed.configureTestingModule({});
+    service = TestBed.inject(MessageService);
+  });
+
+  it('should be created', () => {
+    expect(service).toBeTruthy();
+  });
+});

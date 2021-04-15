@@ -1,3 +1,4 @@
+import { ITS_JUST_ANGULAR } from '@angular/core/src/r3_symbols';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HomeComponent } from './home.component';
@@ -22,4 +23,12 @@ describe('HomeComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('Should contain home', () =>{
+    const a: HTMLElement = fixture.nativeElement.querySelector('a');
+    expect(a.textContent).toContain('Home')
+    expect(a.className).toBe("nav-item nav-link active")
+
+  })
+
 });

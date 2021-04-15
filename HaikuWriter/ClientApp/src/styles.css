@@ -10,3 +10,10 @@
 .success{
     color: green;
 }
+
+footer{
+    text-align: center;
+    position: fixed;
+    margin-left: 45%;
+   bottom: 0;
+}

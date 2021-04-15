@@ -8,7 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { ThreadListComponent } from './thread-list/thread-list.component';
 import { ThreadPageComponent } from './thread-page/thread-page.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import { UserSettingsComponent } from './user-settings/user-settings.component';
 import { SignupComponent } from './signup/signup.component';
 import { AdminApproveComponent } from './admin-approve/admin-approve.component';
@@ -16,10 +16,7 @@ import { HaikuDetailsComponent } from './haiku-details/haiku-details.component';
 import { AdminPrivilegeComponent } from './admin-privilege/admin-privilege.component';
 import { HomeComponent } from './home/home.component';
 import { WordIdeasComponent } from './word-ideas/word-ideas.component';
-<<<<<<< HEAD
 import { AdminComponent } from './admin/admin.component';
-=======
->>>>>>> e71cddaf95211e683a86dd2ec270303dc756ca9b
 
 @NgModule({
   declarations: [
@@ -34,12 +31,9 @@ import { AdminComponent } from './admin/admin.component';
     HaikuDetailsComponent,
     AdminPrivilegeComponent,
     HomeComponent,
-<<<<<<< HEAD
     WordIdeasComponent,
-    AdminComponent
-=======
+    AdminComponent,
     WordIdeasComponent
->>>>>>> e71cddaf95211e683a86dd2ec270303dc756ca9b
   ],
   imports: [
     BrowserModule,

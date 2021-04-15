@@ -1,41 +1,31 @@
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="/landingpage">Home </a>
-      <a class="nav-item nav-link" href="/writehaiku"> Write Haiku </a>
-      <a class="nav-item nav-link " href="/usersettings">Settings</a>
-      <!-- <a class="nav-item nav-link disabled" id="welcom"> Welcome {{user.firstName}} </a> -->
-      <a class="nav-item nav-link " href="/forum">Forum</a>
-      <button class="nav-item nav-link" (click)="logout()">Logout</button>
 
+<div class="outer">
+  <div>
+    <h3>Approve Haiku Lines</h3>
+      <ol class="list-group">
+        <li class="list-group-item" *ngFor="let hl of haikulines">
+          Haiku Line: {{hl.line}} - - Author: {{hl.username}}
+          Haiku Id: {{hl.haikuLineId}}<br>
+          <button (click)="ApproveHaikuLine(hl.haikuLineId)">Approve</button> &nbsp;
+          <button (click)="DeleteHaikuLine(hl.haikuLineId)">Delete</button>
+        </li>
+      </ol>
     </div>
-  </div>
-</nav>
-<br>
-
-<div>
-    <ol>
-      <li *ngFor="let hl of haikulines">
-        Haiku Line: {{hl.line}} - - Author: {{hl.username}}
-        Haiku Id: {{hl.haikuLineId}}
-        <button (click)="ApproveHaikuLine(hl.haikuLineId)">Approve</button>
-        <button (click)="DeleteHaikuLine(hl.haikuLineId)">Delete</button>
+  <hr>
+  <div>
+    <h3>Approve Haiku </h3>
+    <ol class="list-group">
+      <li  class="list-group-item" *ngFor="let h of haikus">
+        Haiku Approved: {{h.approved}} - - Author: {{h.username}}<br>
+        {{h.haikuLine1}}<br>
+        {{h.haikuLine2}}<br>
+        {{h.haikuLine3}}<br>
+        Haiku Id: {{h.haikuId}}
+        <br>
+        <button (click) = "ApproveHaiku(h.haikuId)">Approve</button> &nbsp;
+        <button (click) = "DeleteHaiku(h.haikuId)">Delete</button>
       </li>
     </ol>
   </div>
-
-<div>
-  <ol>
-    <li *ngFor="let h of haikus">
-      Haiku Approved: {{h.approved}} - - Author: {{h.username}}<br>
-      {{h.haikuLine1}}<br>
-      {{h.haikuLine2}}<br>
-      {{h.haikuLine3}}<br>
-      Haiku Id: {{h.haikuId}}
-      <button (click) = "ApproveHaiku(h.haikuId)">Approve</button>
-      <button (click) = "DeleteHaiku(h.haikuId)">Delete</button>
-    </li>
-  </ol>
 </div>

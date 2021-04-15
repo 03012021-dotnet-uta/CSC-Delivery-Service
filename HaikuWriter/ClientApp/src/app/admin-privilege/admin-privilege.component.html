@@ -1,4 +1,6 @@
 
+
+<div class="outerdiv">
     <h2>Give An Admin Privilege</h2>
     <label for="username">Choose an User:</label> &nbsp;
     <select id="username" name="username" (change)="selectedUser()"> 
@@ -6,9 +8,10 @@
             {{user.username}}
         </option>
     </select>
-<form #privilege="ngForm" (ngSubmit)="onSubmit(privilege)">
-    <label for="adminStatus">Admin Status</label>
-    <input type="checkbox" name="adminStatus" placeholder="{{newUser.adminStatus}}" ngModel>
-    <br>
-    <input type="submit">
-</form>
+    <form #privilege="ngForm" (ngSubmit)="onSubmit(privilege)">
+        <label for="adminStatus">Admin Status</label> &nbsp;
+        <input type="checkbox" name="adminStatus" placeholder="{{newUser.adminStatus}}" ngModel>
+        <br>
+        <input type="submit">
+    </form>
+</div>

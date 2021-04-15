@@ -1,41 +1,36 @@
-
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-item nav-link active" href="/landingpage">Home </a>
-        <a class="nav-item nav-link" href="/writehaiku"> Write Haiku </a>
-        <a class="nav-item nav-link " href="/usersettings">Settings</a>
-        <a class="nav-item nav-link disabled" id="welcom"> Welcome {{user.firstName}} </a>
-        <a class="nav-item nav-link " href="/forum">Forum</a>
-        <a class="nav-item nav-link " *ngIf="user.adminStatus" href="/adminapprove">Approve Haiku</a>
-        <button class="nav-item nav-link" (click)="GeneHaiku()"> Generate Haiku </button>
-        <button class="nav-item nav-link" (click)="logout()">Logout</button>
 
-      </div>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" href="/landingpage">Home </a>
+      <a class="nav-item nav-link" href="/writehaiku"> Write Haiku </a>
+      <a class="nav-item nav-link " href="/usersettings">Settings</a>
+      <a class="nav-item nav-link disabled" id="welcom"> Welcome {{user.firstName}} </a>
+      <a class="nav-item nav-link " href="/forum">Forum</a>
+      <a class="nav-item nav-link " *ngIf="user.adminStatus" href="/admin">Admin</a>
+      <button class="nav-item nav-link" (click)="GeneHaiku()"> Generate Haiku </button>
+      <button class="nav-item nav-link" (click)="logout()">Logout</button>
+
     </div>
+  </div>
 </nav>
 
 
 <div *ngIf="haikuDTO">
-    {{haikuDTO.haikuLine1}}<br>
-    {{haikuDTO.haikuLine2}}<br>
-    {{haikuDTO.haikuLine3}}<br>
-    <button (click) = SaveHaiku()>Save To Favorites</button>
+  {{haikuDTO.haikuLine1}}<br>
+  {{haikuDTO.haikuLine2}}<br>
+  {{haikuDTO.haikuLine3}}<br>
+  <button (click)=SaveHaiku()>Save To Favorites</button>
 </div>
 <!-- <button (click)="toForum()">Forum </button> -->
 
 <ul>
-    <h3>List of Haikus</h3>
-    <li *ngFor="let h of haikus">
-        {{h.haikuLine1}}<br>
-        {{h.haikuLine2}}<br>
-        {{h.haikuLine3}}
-        <br><hr><br>
-    </li>
-
+  <h3>List of Haikus</h3>
+  <li *ngFor="let h of haikus">
+    {{h.haikuLine1}}<br>
+    {{h.haikuLine2}}<br>
+    {{h.haikuLine3}}
+    <br>
+    <hr><br>
+  </li>
 </ul>
-
-<div *ngIf="user.adminStatus">
-    <app-admin-privilege></app-admin-privilege>
-</div>

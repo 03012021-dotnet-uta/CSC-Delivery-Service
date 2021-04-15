@@ -42,6 +42,7 @@ export class HaikuDetailsComponent implements OnInit {
       }
     );
   }
+
   SubmitHaiku()
   {
     this.haikuService.SubmitHaiku(this.haiku).subscribe(
@@ -50,6 +51,7 @@ export class HaikuDetailsComponent implements OnInit {
       },
       err => {
         console.log("server error");
+        
       }
     );
   }

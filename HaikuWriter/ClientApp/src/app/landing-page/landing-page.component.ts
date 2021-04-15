@@ -32,7 +32,6 @@ export class LandingPageComponent implements OnInit {
   ngOnInit(): void {
     //const username = this.route.snapshot.paramMap.get("username")
     const username = localStorage.getItem('User')
-    
 
     if(username == null){
       this.router.navigateByUrl('/login')

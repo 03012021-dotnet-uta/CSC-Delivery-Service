@@ -14,16 +14,18 @@ export class AdminComponent implements OnInit {
     private userService: UserService,) { }
 
   user = new User(" ", " ", " ", " ", " ", " ", " ", false);
+  adminStatus: any;
   ngOnInit(): void {
     const username = localStorage.getItem('User')
-    
+    this.adminStatus = localStorage.getItem("Admin");
     if(username == null){
       this.router.navigateByUrl('/login')
     }
+    if(this.adminStatus == "false"){
+      this.router.navigateByUrl('/landingpage')
+    }
     else{
-      
       this.getUser(username);
-      console.log(this.user)
     }
   }
 

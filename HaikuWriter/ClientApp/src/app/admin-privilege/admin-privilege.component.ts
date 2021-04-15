@@ -15,7 +15,7 @@ export class AdminPrivilegeComponent implements OnInit {
 
   constructor(private router: Router,
     private userService: UserService) { }
-    admin = new User(" ", " ", " ", " ", " ", " ", " ", false);
+    admin = new User("", " ", " ", " ", " ", " ", " ", false);
     userlist?: User[];
     newUserlist?: User[];
     d?: string;

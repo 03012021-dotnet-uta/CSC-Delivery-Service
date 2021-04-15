@@ -4,7 +4,15 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
 
 trigger:
-- main
+  branches:
+    include:
+    - main
+#the below is required only if you have multiple .sln files in your repo.
+  paths:
+    include:
+    - HaikuWriter/ClientApp
+
+
 
 pool:
   vmImage: ubuntu-latest
@@ -29,8 +37,10 @@ steps:
     configMode: 'manual'
     cliProjectKey: 'G1HaikuWriter_P2_HaikuWriterAng'
     cliProjectName: 'P2_HaikuWriterAng'
-    cliSources: '$(System.DefaultWorkingDirectory)/HaikuWriter/ClientApp/src'
-    extraProperties: 'sonar.javascript.lcov.reportPaths=$(System.DefaultWorkingDirectory)/HaikuWriter/ClientApp/coverage/ClientApp/lcov.info'
+    cliSources: '$(solution)/src'
+    extraProperties: 
+      'sonar.javascript.lcov.reportPaths=$(solution)/coverage/ClientApp/lcov.info'
+
 
 - task: Npm@1
   inputs:
@@ -40,20 +50,14 @@ steps:
 - task: Npm@1
   inputs:
     command: 'custom'
-    workingDir: 'HaikuWriter/ClientApp'
-    customCommand: 'run build'
+    workingDir: $(solution)
+    customCommand: 'ng build --prod'
 
 - task: Npm@1
   inputs:
     command: 'custom'
-    workingDir: 'HaikuWriter/ClientApp'
-    customCommand: 'run test -- --watch=false --code-coverage --browsers=ChromeHeadless'
-
-- task: PublishCodeCoverageResults@1
-  condition: succeededOrFailed()
-  inputs:
-    codeCoverageTool: 'Cobertura'
-    summaryFileLocation: '$(System.DefaultWorkingDirectory)/ClientApp/coverage/ClientApp/lcov.info'
+    workingDir: $(solution)
+    customCommand: 'ng test -- --watch=false --code-coverage --browsers=ChromeHeadless'
 - task: SonarCloudAnalyze@1
 - task: SonarCloudPublish@1
   inputs:
@@ -61,17 +65,23 @@ steps:
 
 - task: ArchiveFiles@2
   inputs:
-    rootFolderOrFile: '$(System.DefaultWorkingDirectory)/HaikuWriter/ClientApp/dist/'
-    includeRootFolder: false
+    rootFolderOrFile: '$(solution)/dist/'
+    includeRootFolder: true
     archiveType: 'zip'
     archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
     replaceExistingArchive: true
+  
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'dist'
+    publishLocation: 'Container'
   
 - task: AzureRmWebAppDeployment@4
   inputs:
     ConnectionType: 'AzureRM'
     azureSubscription: 'G1HaikuWriterSubscription(4f7eaef6-673a-4603-8d6c-e9e2481ee2c9)'
-    appType: 'webAppLinux'
+    appType: 'webApp'
     WebAppName: 'HaikuWriterGenerator'
     packageForLinux: '$(Build.ArtifactStagingDirectory)/**/*.zip'
 

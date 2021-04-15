@@ -42,7 +42,7 @@ steps:
     projectKey: 'G1HaikuWriter_P2_HaikuWriterGroup'
     projectName: 'P2_HaikuWriterGroup'
     extraProperties:
-      sonar.coverage.exclusions = '**/Migrations/**, **/Startup.cs'
+      sonar.exclusions=**/Repository/Migrations/**, **/Startup.cs
 
 - task: DotNetCoreCLI@2
   inputs:
@@ -73,7 +73,7 @@ steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: 'publish'
-    publishWebProjects: false
+    publishWebProjects: true
     projects: '$(solution)'
     zipAfterPublish: true
 

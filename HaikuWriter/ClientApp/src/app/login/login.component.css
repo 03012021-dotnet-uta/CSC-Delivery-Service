@@ -1,7 +1,10 @@
 .formdiv{
     margin: 5%;
-    width: 50%;
+    width: 40%;
     height: 100;
+    border: outset; 
+    border-radius: 2%;
+    padding: 2%
 }
 
 input[type=submit]{
@@ -10,4 +13,7 @@ input[type=submit]{
 
 input{
     width: 50%;
+}
+h2{
+    text-align: center;
 }

@@ -29,11 +29,11 @@ export class ThreadPageComponent implements OnInit {
 
   onNext(){
     this.x++;
-    this.messages = this.messageList?.slice((this.x * 10), ((this.x * 10)+10))
+    this.messages = this.messageList?.slice((this.x * 7), ((this.x * 7)+7))
   }
   onPrev(){
     this.x--;
-    this.messages = this.messageList?.slice((this.x * 10), ((this.x * 10)+10))
+    this.messages = this.messageList?.slice((this.x * 7), ((this.x * 7)+7))
   }
 
   CreateMessage(){
@@ -44,7 +44,7 @@ export class ThreadPageComponent implements OnInit {
   GetMessages(threadId: number){
     this.messageservice.GetMessages(threadId).subscribe(res => {
       this.messageList = res
-      this.messages = this.messageList.slice(1, 10);
+      this.messages = this.messageList.slice(1, 7);
       this.mesLength= this.messageList.length;
       console.log(this.messages);
     });
@@ -53,7 +53,7 @@ export class ThreadPageComponent implements OnInit {
   PostMessage(message: Message){
     this.messageservice.PostMessage(this.message).subscribe(res => {
       this.messageList = res
-      this.messages = this.messageList.slice(1, 10);
+      this.messages = this.messageList.slice(1, 7);
       this.mesLength= this.messageList.length;
       const form = <HTMLFormElement>document.getElementById("createAMethod");
       form.reset();

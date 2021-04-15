@@ -15,7 +15,7 @@ trigger:
 
 
 pool:
-  vmImage: ubuntu-latest
+  vmImage: windows-latest
 
 variables:
   solution: 'HaikuWriter/ClientApp'
@@ -51,7 +51,7 @@ steps:
   inputs:
     command: 'custom'
     workingDir: $(solution)
-    customCommand: 'run build --prod'
+    customCommand: 'npx ng build --prod'
 
 - task: Npm@1
   inputs:

@@ -98,7 +98,7 @@ steps:
     # deployToSlotOrASE: true
     # ResourceGroupName: 'haikuWriterGroup'
     # SlotName: 'production'
-    packageForLinux: '$(solution)/dist/HaikuWriter/ClientApp'
+    package: '**/dist/ClientApp'
 
 
 

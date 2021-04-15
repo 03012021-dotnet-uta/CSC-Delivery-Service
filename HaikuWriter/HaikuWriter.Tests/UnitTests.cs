@@ -1165,33 +1165,6 @@ namespace HaikuWriter.Tests
          ***********************************************/
 
         [Fact]//Controllers.HaikuController.cs
-        public void HaikuControllerTest1()
-        {
-           
-            HaikuRepo haikuRepo = new HaikuRepo(hContext);
-            UserRepo userRepo = new UserRepo(hContext);
-            HaikuGenerator haikugen = new HaikuGenerator(haikuRepo);
-            HaikuMethods haikuMethods = new HaikuMethods(haikuRepo);
-            HaikuController haikuCon = new HaikuController(haikugen, haikuMethods);
-            var expected = "one two three";
-            var actual = haikuCon.GetOne();
-            Assert.Equal(expected, actual);
-        }
-        [Fact]//Controllers.HaikuController.cs
-        public void HaikuControllerTest2()
-        {
-            
-            HaikuRepo haikuRepo = new HaikuRepo(hContext);
-            UserRepo userRepo = new UserRepo(hContext);
-            HaikuGenerator haikugen = new HaikuGenerator(haikuRepo);
-            HaikuMethods haikuMethods = new HaikuMethods(haikuRepo);
-            HaikuController haikuCon = new HaikuController(haikugen, haikuMethods);
-            var expected = new ActionResult<string>("one two three");
-            var actual = haikuCon.getone();
-            Assert.Equal(expected.Value, actual.Value);            
-        }
-
-        [Fact]//Controllers.HaikuController.cs
         public void HaikuControllerTest3()
         {
             

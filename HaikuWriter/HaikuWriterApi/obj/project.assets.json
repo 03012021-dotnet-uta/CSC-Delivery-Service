@@ -7672,11 +7672,17 @@
     ]
   },
   "packageFolders": {
+<<<<<<< HEAD
     "/Users/sagarluitel/.nuget/packages/": {}
+=======
+    "C:\\Users\\clche\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
+>>>>>>> 6c43d8777772e6bdf7f9a116b72e86faf852f59c
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "/Users/sagarluitel/revature/P2/P2_HaikuWriterGroup/HaikuWriter/HaikuWriterApi/HaikuWriterApi.csproj",
       "projectName": "HaikuWriterApi",
       "projectPath": "/Users/sagarluitel/revature/P2/P2_HaikuWriterGroup/HaikuWriter/HaikuWriterApi/HaikuWriterApi.csproj",
@@ -7685,22 +7691,46 @@
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/sagarluitel/.nuget/NuGet/NuGet.Config"
+=======
+      "projectUniqueName": "C:\\Users\\clche\\revature\\projects\\CatherineaCheatle_p2WebApi\\P2_HaikuWriterGroup\\HaikuWriter\\HaikuWriterApi\\HaikuWriterApi.csproj",
+      "projectName": "HaikuWriterApi",
+      "projectPath": "C:\\Users\\clche\\revature\\projects\\CatherineaCheatle_p2WebApi\\P2_HaikuWriterGroup\\HaikuWriter\\HaikuWriterApi\\HaikuWriterApi.csproj",
+      "packagesPath": "C:\\Users\\clche\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\clche\\revature\\projects\\CatherineaCheatle_p2WebApi\\P2_HaikuWriterGroup\\HaikuWriter\\HaikuWriterApi\\obj\\",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Microsoft\\Xamarin\\NuGet\\"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\clche\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+>>>>>>> 6c43d8777772e6bdf7f9a116b72e86faf852f59c
       ],
       "originalTargetFrameworks": [
         "net5.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
+<<<<<<< HEAD
             "/Users/sagarluitel/revature/P2/P2_HaikuWriterGroup/HaikuWriter/BusinessLogic/BusinessLogic.csproj": {
               "projectPath": "/Users/sagarluitel/revature/P2/P2_HaikuWriterGroup/HaikuWriter/BusinessLogic/BusinessLogic.csproj"
             },
             "/Users/sagarluitel/revature/P2/P2_HaikuWriterGroup/HaikuWriter/Models/Models.csproj": {
               "projectPath": "/Users/sagarluitel/revature/P2/P2_HaikuWriterGroup/HaikuWriter/Models/Models.csproj"
+=======
+            "C:\\Users\\clche\\revature\\projects\\CatherineaCheatle_p2WebApi\\P2_HaikuWriterGroup\\HaikuWriter\\BusinessLogic\\BusinessLogic.csproj": {
+              "projectPath": "C:\\Users\\clche\\revature\\projects\\CatherineaCheatle_p2WebApi\\P2_HaikuWriterGroup\\HaikuWriter\\BusinessLogic\\BusinessLogic.csproj"
+            },
+            "C:\\Users\\clche\\revature\\projects\\CatherineaCheatle_p2WebApi\\P2_HaikuWriterGroup\\HaikuWriter\\Models\\Models.csproj": {
+              "projectPath": "C:\\Users\\clche\\revature\\projects\\CatherineaCheatle_p2WebApi\\P2_HaikuWriterGroup\\HaikuWriter\\Models\\Models.csproj"
+>>>>>>> 6c43d8777772e6bdf7f9a116b72e86faf852f59c
             }
           }
         }
@@ -7762,7 +7792,11 @@
             "privateAssets": "all"
           }
         },
+<<<<<<< HEAD
         "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.103/RuntimeIdentifierGraph.json"
+=======
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+>>>>>>> 6c43d8777772e6bdf7f9a116b72e86faf852f59c
       }
     }
   },
@@ -7771,7 +7805,11 @@
       "code": "Undefined",
       "level": "Warning",
       "warningLevel": 1,
+<<<<<<< HEAD
       "message": "Problem reading the cache file /Users/sagarluitel/revature/P2/P2_HaikuWriterGroup/HaikuWriter/HaikuWriterApi/obj/project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+=======
+      "message": "Problem reading the cache file C:\\Users\\clche\\revature\\projects\\CatherineaCheatle_p2WebApi\\P2_HaikuWriterGroup\\HaikuWriter\\HaikuWriterApi\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+>>>>>>> 6c43d8777772e6bdf7f9a116b72e86faf852f59c
     },
     {
       "code": "NU1701",

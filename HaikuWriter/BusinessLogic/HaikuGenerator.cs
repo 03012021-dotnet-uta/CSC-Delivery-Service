@@ -8,7 +8,6 @@ namespace BusinessLogic
     public class HaikuGenerator
     {
         private readonly HaikuRepo _repo;
-        private readonly UserRepo _userRepo;
 
         public HaikuGenerator(HaikuRepo repo)
         {
@@ -65,7 +64,6 @@ namespace BusinessLogic
             //compare tags 
             foreach (string tag in uniquetagholder)
             {
-                System.Console.WriteLine(tag);
                 tags += tag + " ";
             }
             tags = tags.Trim();
@@ -78,14 +76,9 @@ namespace BusinessLogic
         /// </summary>
         /// <param name="hl"></param>
         /// <returns></returns>
-        public string[] SplitTags(HaikuLine hl)
+        public static string[] SplitTags(HaikuLine hl)
         {
             string[] tags = hl.Tags.Split(' ');
-            System.Console.WriteLine("Split tag");
-            foreach (string tag in tags)
-            {
-                System.Console.WriteLine(tag);
-            }
             return tags;
         }
 
@@ -118,11 +111,6 @@ namespace BusinessLogic
             {
                 tags.Add(tag);
             }
-            System.Console.WriteLine("Combine tags: ");
-            foreach (string tag in tags)
-            {
-                System.Console.WriteLine(tag);
-            }
             return tags;
         }
 
@@ -134,7 +122,7 @@ namespace BusinessLogic
         /// <param name="hl2"></param>
         /// <param name="hl3"></param>
         /// <returns></returns>
-        public string GetUsername(HaikuLine hl, HaikuLine hl2, HaikuLine hl3)
+        public static string GetUsername(HaikuLine hl, HaikuLine hl2, HaikuLine hl3)
         {
             string username = "";
             string username1 = hl.Username;

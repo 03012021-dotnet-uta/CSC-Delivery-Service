@@ -18,12 +18,10 @@ namespace Repository
         public DbSet<Message> Messages { get; set; }
         public DbSet<UserFav> UserFavs { get; set; }
         public DbSet<Haiku> Haikus { get; set; }
-        //public DbSet<UserWrote> UserWrotes { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            //optionsBuilder.UseSqlServer(@"connection string");
-            // @“Server=127.0.0.1;Database=Master;User Id=SA;Password=1Secure*Password1;”
+        
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

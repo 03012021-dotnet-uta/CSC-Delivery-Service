@@ -22,17 +22,6 @@ namespace HaikuWriterApi.Controllers
             _haikuMethod = haikuMethod;
         }
 
-        [HttpGet]
-        public ActionResult<string> getone()
-        {
-
-            return "one two three";
-        }
-        public string GetOne()
-        {
-            return "one two three";
-        }
-
         /// <summary>
         /// Haiku Controller Route that will retrieve a random haiku to display
         /// </summary>
@@ -43,15 +32,6 @@ namespace HaikuWriterApi.Controllers
             HaikuDTO haiku = _haukuGenerator.GenerateHaiku();
             return haiku;
         }
-
-        // [HttpPost("writeHaiku")]
-        // public ActionResult WriteHaiku([FromBody] string username)
-        // {
-        //     bool success = true;
-        //     Console.WriteLine(username);
-
-        //     return success;
-        // }
 
         /// <summary>
         /// Haiku Controller Route to retrieve a list of unapproved haiku lines
@@ -84,15 +64,6 @@ namespace HaikuWriterApi.Controllers
         {
 
             List<Haiku> haikuList = _haikuMethod.GetHaikus();
-            if (haikuList == null)
-            {
-                Console.WriteLine("here");
-            }
-
-            foreach (var item in haikuList)
-            {
-                Console.WriteLine(item.Tags);
-            }
             return haikuList;
         }
 

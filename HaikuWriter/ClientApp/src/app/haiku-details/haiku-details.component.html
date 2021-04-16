@@ -26,6 +26,9 @@
             <input type="number" class="form-control" #syllable ="ngModel" placeholder="5 or 7" name = "line" [(ngModel)] = "haikuLine.syllable"><br>
             <input type="submit" class="btn btn-primary" value="Submit Haiku Line" (click)=SubmitHaikuLine()>
         </form>
+        <div *ngIf="showSucessMessage">
+          <label class="success" >Line is Successfully Save</label>
+        </div>
     </div>
     <hr>
     <h1>Write a Haiku</h1>
@@ -41,6 +44,9 @@
             <input type="text" class="form-control" #tags ="ngModel" placeholder="write tags" name = "tags" [(ngModel)] = "haiku.tags"><br>
             <input type="submit" class="btn btn-primary" value="Submit Haiku" (click)=SubmitHaiku()>
         </form>
+        <div *ngIf="showSucessMessage1">
+          <label class="success" >Haiku is Successfully Save</label>
+        </div>
     </div>
     
   </div>

@@ -19,6 +19,7 @@ export class UserSettingsComponent implements OnInit {
 
   //  password: string = "";
   //  newPassword: string = "";
+  showSucessMessage? = false;
   ngOnInit(): void {
     const username = localStorage.getItem('User')
     if(username == null){
@@ -58,6 +59,8 @@ export class UserSettingsComponent implements OnInit {
         res => {
           this.user = res;
           console.log("success");
+          this.showSucessMessage = true;
+          setTimeout(() => this.showSucessMessage = false, 4000);
           //form.reset();
         },
         err => {

@@ -10,3 +10,6 @@ form{
 h2{
     text-align: center;
 }
+label{
+    font-size: small;
+}

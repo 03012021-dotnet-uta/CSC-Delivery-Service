@@ -26,11 +26,10 @@
 
 <ul>
   <h3>List of Haikus</h3>
-  <li *ngFor="let h of haikus">
+  <li class="list-group-item list-group-item-action"  *ngFor="let h of haikus">
     {{h.haikuLine1}}<br>
     {{h.haikuLine2}}<br>
     {{h.haikuLine3}}
     <br>
-    <hr><br>
   </li>
 </ul>

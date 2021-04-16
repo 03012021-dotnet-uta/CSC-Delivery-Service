@@ -18,7 +18,8 @@ export class HaikuDetailsComponent implements OnInit {
   constructor(private haikuService: HaikuService,
       private router: Router,
      private userService: UserService) { }
-
+     showSucessMessage?: boolean;
+     showSucessMessage1?: boolean;
   ngOnInit(): void {
     const username = localStorage.getItem('User');
 
@@ -35,6 +36,8 @@ export class HaikuDetailsComponent implements OnInit {
     
     this.haikuService.SubmitHaikuLine(this.haikuLine).subscribe(
       res => {
+        this.showSucessMessage = true;
+        setTimeout(() => this.showSucessMessage = false, 4000);
         console.log("success");
       },
       err => {
@@ -47,6 +50,8 @@ export class HaikuDetailsComponent implements OnInit {
   {
     this.haikuService.SubmitHaiku(this.haiku).subscribe(
       res => {
+        this.showSucessMessage1 = true;
+        setTimeout(() => this.showSucessMessage1 = false, 4000);
         console.log("success");
       },
       err => {
@@ -63,12 +68,7 @@ export class HaikuDetailsComponent implements OnInit {
           this.user = res;
         },
         err => {
-          if (err.status === 422) {
-            console.log("server serror");
-          }
-          else{
-            console.log("server error");
-          }
+          console.log("server log")
         }
     );
   }

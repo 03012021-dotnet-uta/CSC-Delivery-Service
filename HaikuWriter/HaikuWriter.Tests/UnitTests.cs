@@ -1272,5 +1272,29 @@ namespace HaikuWriter.Tests
             var actual = (had.haikuId != null && had.haikuline1 != null && had.haikuline2 != null && had.haikuline3 != null && had.tags != null && had.approved != null && had.username != null);
             Assert.Equal(expected, actual);
         }
+
+        /***********************************************
+         * Unit tests for TagEditor.cs follows...*
+         ***********************************************/
+        
+        [Fact]//TagEditor.cs
+        public void TagEditorTest1(){
+            TagEditor tag = new TagEditor();
+            tag.TagLine = "new Tag";
+            var expected = true;
+            var actual = (tag.TagLine != null);
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]//TagEditor.cs
+        public void TagEditorTest2(){
+            
+            string tag = TagEditor.AddTag("old", "new");
+            var expected = tag;
+            var actual = ("old, new");
+            Assert.Equal(expected, actual);
+        }
+
+
     }
 }

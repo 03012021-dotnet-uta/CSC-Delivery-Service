@@ -8,6 +8,9 @@ namespace BusinessLogic
         public string TagLine { get; set; }
         public Haiku HaikuHolder { get; set; }
         public HaikuLine HaikuLineHolder { get; set; }
+        public TagEditor(){
+
+        }
         public TagEditor(Haiku haiku, string newTag)
         {
             HaikuHolder = haiku;

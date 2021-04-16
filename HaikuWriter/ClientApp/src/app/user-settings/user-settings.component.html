@@ -35,6 +35,10 @@
         <input type="submit" value="Update">
       </form>
       <div *ngIf="errorMessage">Atleast One Field Is Required</div>
+
+      <div *ngIf="showSucessMessage">
+        <label class="success" > Your information Is Successfully Saved</label>
+      </div>
 </div>
 <br>
 

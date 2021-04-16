@@ -9,13 +9,8 @@ import { User} from "../models/user.model"
 })
 export class UserService {
 
-<<<<<<< HEAD
-  queryString: string = 'https://haikuwritergroup.azurewebsites.net/User/';
-  //queryString: string = 'https://localhost:5001/User/';
-=======
   queryString: string = 'https://haikuwritergroupproject.azurewebsites.net/User/';
 
->>>>>>> f1f1750a9ec8abde28d06531b02b00095404ef9f
   constructor(private http: HttpClient) { }
 
   signup(user: User): Observable<User> {

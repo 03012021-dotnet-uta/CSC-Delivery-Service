@@ -7,13 +7,7 @@ import { Message } from '../models/message.model';
   providedIn: 'root'
 })
 export class MessageService {
-<<<<<<< HEAD
-   queryString: string = 'https://haikuwritergroup.azurewebsites.net/Forum/';
-  //queryString: string = 'https://localhost:5001/Forum/';
-  
-=======
   queryString: string = 'https://haikuwritergroupproject.azurewebsites.net/Forum/';
->>>>>>> f1f1750a9ec8abde28d06531b02b00095404ef9f
   constructor(private http: HttpClient) { }
 
   //make a call to C# controller

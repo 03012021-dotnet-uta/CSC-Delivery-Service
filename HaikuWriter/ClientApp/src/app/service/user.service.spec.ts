@@ -27,7 +27,7 @@ describe('UserService', () => {
   });
 
   it('Should get querystring', () =>{
-      expect(service.queryString).toBe("https://haikuwritergroup.azurewebsites.net/User/")
+      expect(service.queryString).toBe("https://haikuwritergroupproject.azurewebsites.net/User/")
   })
 
 });
